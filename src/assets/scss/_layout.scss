@@ -1,0 +1,269 @@
+// ==============================
+// HEADER
+// ==============================
+// Variables (à adapter selon ta config)
+$primary-color: #0d0d0d;
+$accent-color: #ff6600;
+$bg-color: #ffffff;
+$text-color: #333;
+$transition: all 0.3s ease;
+$font-family: 'Inter', sans-serif;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: $bg-color;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  font-family: $font-family;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo img {
+    height: 40px;
+  }
+
+  .header_right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .burger {
+      background: none;
+      border: none;
+      padding: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: $primary-color;
+      transition: transform 0.3s ease;
+
+      &.rotate {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: 500;
+
+      &.active {
+        color: $accent-color;
+      }
+    }
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .devis {
+    background-color: #fff;
+    color: #111;
+    padding: 0.5rem 2rem;
+    margin-right: 1rem;
+    border: solid 1px #111;
+    border-radius: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: border-radius 0.3s ease-in-out;
+  
+    &:hover {
+      border-radius: 999px;
+    }
+  }
+  
+  
+}
+
+// Desktop layout
+@media (min-width: 768px) {
+  .header {
+    .header_right {
+      display: none; // on masque le bouton et burger ici
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header__nav {
+      position: static;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      padding: 0;
+
+      // Ajoute le bouton devis à droite de la nav
+      &::after {
+        content: '';
+        display: inline-block;
+      }
+
+      a.devis {
+        display: none;
+        }
+      }
+    }
+  }
+
+// ==============================
+// FOOTER
+// ==============================
+
+$footer-bg: #0d0d0d;
+$footer-text: #ffffff;
+$accent-color: #ff6600;
+$transition: all 0.3s ease;
+$font-family: 'Inter', sans-serif;
+
+.footer-form {
+  background-color: #fff;
+  padding: 4rem 1.5rem;
+  font-family: $font-family;
+
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color:#111;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+
+    input,
+    textarea {
+      padding: 1rem;
+      border-radius: 8px;
+      border: solid 1px #111;
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: #fff;
+        border: solid 1px #111;
+        color:#111;
+      }
+    }
+  }
+
+  .footer-image {
+    display: none; // Masqué par défaut (mobile & tablette)
+
+    @media (min-width: 1024px) {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 2rem;
+      }
+    }
+  }
+
+  .footer-socials {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 2rem;
+
+    a {
+      color: #111;
+      transition: $transition;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  .footer-credit {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #111;
+  }
+}
+
+// ==============================
+// Desktop Layout
+// ==============================
+
+@media (min-width: 1024px) {
+  .footer-form {
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    h2 {
+      grid-column: 1 / -1;
+      text-align: center;       // centre horizontalement
+      justify-self: center;
+      font-size: 2.5rem;     // centre dans la grille
+    }
+
+    .footer-socials,
+    .footer-credit {
+      grid-column: 1 / -1;
+    }
+  }
+}
+

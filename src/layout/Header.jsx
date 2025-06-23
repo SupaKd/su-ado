@@ -1,0 +1,53 @@
+// src/layout/Header.jsx
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+
+function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => setIsOpen(false);
+
+  return (
+    <header className="header">
+      <Link to="/" onClick={closeMenu}>
+        <span className="logo">
+          <img src="/logo.webp" alt="Logo" />
+        </span>
+      </Link>
+
+      <section className="header_right">
+        <Link to="/" className="devis" onClick={closeMenu}>
+          Devis
+        </Link>
+        <button
+          className={`burger ${isOpen ? "rotate" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Menu mobile"
+          aria-expanded={isOpen}
+        >
+          <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
+        </button>
+      </section>
+
+      <nav
+        className={`header__nav ${isOpen ? "show" : ""}`}
+        aria-label="Navigation principale"
+      >
+        <NavLink to="/" onClick={closeMenu}>
+          Accueil
+        </NavLink>
+        <NavLink to="/portfolio" onClick={closeMenu}>
+          Modèles
+        </NavLink>
+        <NavLink to="/contact" onClick={closeMenu}>
+          Contact
+        </NavLink>
+      </nav>
+    </header>
+  );
+}
+
+export default Header;
