@@ -16,7 +16,7 @@ function Method() {
               },
               {
                 title: "3. Construction",
-                desc: "Développement du site avec suivi régulier et ajustements en temps réel.",
+                desc: "Développement du projet avec suivi régulier et ajustements en temps réel.",
               },
               {
                 title: "4. Livraison",

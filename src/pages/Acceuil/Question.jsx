@@ -32,7 +32,7 @@ function Question() {
         "Le prix dépend du style, du nombre de propositions, et de l’utilisation prévue. On s’adapte à votre budget : parlons-en !",
     },
     {
-      question: "Et combien ça coûte un site ?",
+      question: "Combien coûte un site ?",
       answer:
         "Un site vitrine ? E-commerce ? Landing page ? Chaque projet est unique ! Discutons de vos besoins pour établir un devis clair et transparent.",
     },
