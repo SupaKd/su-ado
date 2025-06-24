@@ -12,14 +12,14 @@ function Header() {
 
   return (
     <header className="header">
-      <button
+      <Link
         className={`burger ${isOpen ? "rotate" : ""}`}
         onClick={toggleMenu}
         aria-label="Menu mobile"
         aria-expanded={isOpen}
       >
         <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
-      </button>
+      </Link>
 
       <Link to="/" onClick={closeMenu} className="logo">
         <img src="/logoo.webp" alt="Logo" />
