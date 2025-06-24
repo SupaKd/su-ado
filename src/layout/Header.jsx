@@ -12,25 +12,22 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to="/" onClick={closeMenu}>
-        <span className="logo">
-          <img src="/logoo.webp" alt="Logo" />
-        </span>
+      <button
+        className={`burger ${isOpen ? "rotate" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Menu mobile"
+        aria-expanded={isOpen}
+      >
+        <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
+      </button>
+
+      <Link to="/" onClick={closeMenu} className="logo">
+        <img src="/logoo.webp" alt="Logo" />
       </Link>
 
-      <section className="header_right">
-        <Link to="/" className="devis" onClick={closeMenu}>
-          Devis
-        </Link>
-        <button
-          className={`burger ${isOpen ? "rotate" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Menu mobile"
-          aria-expanded={isOpen}
-        >
-          <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
-        </button>
-      </section>
+      <Link to="/contact" className="devis" onClick={closeMenu}>
+        Devis
+      </Link>
 
       <nav
         className={`header__nav ${isOpen ? "show" : ""}`}

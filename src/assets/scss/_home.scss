@@ -140,7 +140,8 @@
 
   .service-card {
     flex: 0 0 260px;
-    background-color: $bg-color;
+    background: linear-gradient(to right, #fff, #eee);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border-radius: 1.5rem;
     border: solid 1px #111;
     padding: 5rem 1rem;
@@ -400,7 +401,7 @@
     }
   
     &__icon {
-      font-size: $font-size-md;
+      font-size: $font-size-lg;
       margin-left: 1rem;
       color: $text;
     }
@@ -451,6 +452,9 @@
   }
   
   .bur{
+    display: flex;
+    justify-content: center;
+    text-align: center;
     width: 100%;
     padding: 1rem;
     border-radius: 25px;
