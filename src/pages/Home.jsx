@@ -10,6 +10,9 @@ function Home() {
       <Hero />
       <Service />
       <Method />
+      <div className="bureau">
+          <img src="/bureau.webp" alt="bureau" className="bur" />
+        </div>
       <Question />
     </main>
   );

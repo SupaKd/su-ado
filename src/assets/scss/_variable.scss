@@ -3,23 +3,16 @@
 // ==============================
 
 $primary-color: #fff;
-$secondary-color: #111;
-$color3:#415a77;
-$color4:#1b263b;
-$color5:#0d1b2a;
-$danger-color: #BC1823;
-$button-color: #1C2120;
-$hover-color: #F7A709;
-$hover1-color: #cc4b00;
-$valid-color:#113820;
-$info-color:#0077ff;
-$background-color: #333;
+$secondary-color: #F5F6F8;
+$bg-color:linear-gradient(135deg, #1FE1B0 0%, #11B8E6 50%, #1C60E7 100%);
+$text:#1E2A38;
+$button:#4A90E2;
+$hover:#D5E8F9;
+$danger-color: #FF6B6B;
 
 // ==============================
 // Typography
 // ==============================
-
-$font-family: 'Playfair Display', serif;
 
 $font-size-sm: 0.75rem;   
 $font-size-md: 1rem;      
@@ -51,4 +44,4 @@ $breakpoint-sm: 768px;
 $breakpoint-md: 1024px;
 $breakpoint-lg: 1280px;
 
-  
+$transition-base: all 0.3s ease-in-out;

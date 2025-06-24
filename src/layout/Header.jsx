@@ -14,7 +14,7 @@ function Header() {
     <header className="header">
       <Link to="/" onClick={closeMenu}>
         <span className="logo">
-          <img src="/logo.webp" alt="Logo" />
+          <img src="/logoo.webp" alt="Logo" />
         </span>
       </Link>
 

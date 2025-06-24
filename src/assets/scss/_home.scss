@@ -2,12 +2,6 @@
 // HERO
 // ==============================
 
-$hero-bg: #f9f9f9;
-$hero-text: #111;
-$hero-accent: #ff6600;
-$font-family: 'Inter', sans-serif;
-$transition: all 0.3s ease;
-
 .hero {
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.5), 
@@ -20,38 +14,41 @@ $transition: all 0.3s ease;
   padding: 15rem 1.5rem 9rem 1.5rem;
   margin: 0 1rem;
   text-align: center;
-  font-family: $font-family;
   border-radius: 1rem;
 
   h1 {
     font-size: 2.5rem;
-    color: #fff;
+    color: $primary-color;
     margin-bottom: 1rem;
     font-weight: 700;
     line-height: 1.1;
+    @include slide-top;
   }
 
   p {
     font-size: 1.2rem;
     margin: 0 auto 2rem;
     line-height: 1.3;
-    color: #fff;
+    color: $primary-color;
+    @include slide-top;
   }
 
   button {
-    background-color: $hero-accent;
-    color: #fff;
+    background: $bg-color;
+    color: $primary-color;
     border: none;
     padding: 1.5rem 2rem;
     font-size: 1.5rem;
-    border-radius: 8px;
+    border-radius: $radius-md;
     cursor: pointer;
     font-weight: 600;
-    transition: $transition;
+    transition: $transition-base;
+    @include slide-top;
+
 
     &:hover {
-      background-color: darken($hero-accent, 10%);
-      border-radius: 999px;
+      background-color: $hover;
+      border-radius: $radius-pill;
     }
   }
 }
@@ -69,17 +66,17 @@ $transition: all 0.3s ease;
     align-items: center;
 
     h1 {
-      font-size: 3rem;
+      font-size: $font-size-xl;
       max-width: 500px;
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: $font-size-md;
       max-width: 500px;
     }
 
     button {
-      font-size: 1.125rem;
+      font-size: $font-size-lg;
     }
   }
 }
@@ -93,17 +90,17 @@ $transition: all 0.3s ease;
     align-items: center;
 
     h1 {
-      font-size: 4rem;
+      font-size: $font-size-xl;
       max-width: 900px;
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: $font-size-lg;
       max-width: 700px;
     }
 
     button {
-      font-size: 1.125rem;
+      font-size: $font-size-lg;
     }
   }
 }
@@ -112,12 +109,12 @@ $transition: all 0.3s ease;
 .services {
   padding: 3rem 1.5rem;
   margin: 1rem;
-  border-radius: 2rem;
-  background-color: #eee;
-  color: $color5;
+  border-radius: $radius-sm;
+  background-color: $bg-color;
+  color: $text;
 
   h2 {
-    font-size: 2rem;
+    font-size: $font-size-xl;
     margin-bottom: 2rem;
     text-align: center;
   }
@@ -141,7 +138,7 @@ $transition: all 0.3s ease;
 
   .service-card {
     flex: 0 0 260px;
-    background-color: #fff;
+    background-color: $bg-color;
     border-radius: 1.5rem;
     border: solid 1px #111;
     padding: 5rem 1rem;
@@ -149,19 +146,19 @@ $transition: all 0.3s ease;
     text-align: center;
 
     .icon {
-      font-size: 2.5rem; // taille ajustable
-      color: #facc15; // jaune (ex : Tailwind yellow-400)
+      font-size: 2.5rem; 
+      color: #facc15; 
       margin-bottom: 1rem;
     }
 
     h3 {
-      font-size: 1.3rem;
+      font-size: $font-size-lg;
       margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 0.95rem;
-      color: #555;
+      font-size: $font-size-md;
+      color: $text;
     }
   }
 }
@@ -195,12 +192,13 @@ $transition: all 0.3s ease;
   .contacter {
     padding:8rem 2rem;
     margin: 1rem;
-    background-color: $primary-color;
-    border-radius: 20px;
-    color:$color5;
+    background-color: $bg-color;
+    border-radius: $radius-lg;
+    color:$text;
+
     button {
-      border: solid 1px $color5;
-      color:$color5;
+      border: solid 1px #111;
+      color:$button;
       padding: 1rem 2rem;
       border-radius: $radius-md;
       transition: transform 0.3s ease, border-radius 0.3s ease;
@@ -214,19 +212,20 @@ $transition: all 0.3s ease;
   }
   
   .method {
-    background-color:#fff;
+    background-color:$hover;
     padding: 4rem 2rem;
     margin: 1rem;
-    border:solid 2px #111;
-    border-radius: 2rem;
+    border-radius: $radius-lg;
     position: relative;
+    @include slide-left;
     
     h2 {
       margin: 2rem;
+      font-size: $font-size-xl;
     }
     &__title {
-      font-size: 4rem;
-      color: #111;
+      font-size: $font-size-xl;
+      color: $text;
       font-weight: 800;
       text-transform: lowercase;
       margin-bottom: 2rem;
@@ -258,23 +257,23 @@ $transition: all 0.3s ease;
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #111, $color5);
+        background: $bg-color;
       }
   
       h3 {
-        font-size: 1.1rem;
+        font-size: $font-size-md;
         font-weight: 700;
-        background-color: #fff;
+        background-color: $bg-color;
         border: solid 1px #111;
         display: inline-block;
         padding: 0.4rem 1rem;
-        border-radius: 8px;
+        border-radius: $radius-md;
         margin: 0;
       }
   
       p {
-        font-size: 0.95rem;
-        color: #111;
+        font-size: $font-size-md;
+        color: $text;
         margin-top: 0.3rem;
       }
     }
@@ -298,17 +297,17 @@ $transition: all 0.3s ease;
         position: relative;
   
         &::before {
-          left: 0; // recentre le rond
+          left: 0; 
           top: -2rem;
           margin: auto;
         }
   
         h3 {
-          font-size: 1.2rem;
+          font-size: $font-size-lg;
         }
   
         p {
-          font-size: 0.95rem;
+          font-size: $font-size-md;
         }
       }
     }
@@ -325,25 +324,25 @@ $transition: all 0.3s ease;
   
       .faq__label {
         background: #eee;
-        color: $color5;
+        color: $text;
         padding: 0.4rem 1.2rem;
-        border-radius: 20px;
+        border-radius: $radius-lg;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: $font-size-sm;
         display: inline-block;
         margin-bottom: 1rem;
       }
   
       h2 {
-        font-size: 2.2rem;
+        font-size: $font-size-xl;
         font-weight: 800;
         margin-bottom: 1rem;
-        color:$color5;
+        color:$text;
       }
   
       p {
-        font-size: 1rem;
-        color: $color5;
+        font-size: $font-size-md;
+        color: $text;
       }
     }
   
@@ -356,8 +355,9 @@ $transition: all 0.3s ease;
     }
   
     &__item {
-      background-color: #eee;
-      border-radius: 1.5rem;
+      background-color: $hover;
+      color:$text;
+      border-radius: $radius-md;
       padding: 1.2rem 1.5rem;
       text-align: left;
       cursor: pointer;
@@ -370,14 +370,14 @@ $transition: all 0.3s ease;
   
       &.open {
         .faq__question {
-          color: #cc4b00;
+          color: $text;
         }
       }
     }
   
     &__question {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: $font-size-lg;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -386,21 +386,21 @@ $transition: all 0.3s ease;
   
     &__answer {
       margin-top: 1rem;
-      font-size: 0.95rem;
-      color: $color5;
+      font-size: $font-size-md;
+      color: $primary-color;
       animation: slideDown 0.3s ease;
   
       a {
         font-weight: 600;
         text-decoration: underline;
-        color: $color3;
+        color: $text;
       }
     }
   
     &__icon {
-      font-size: 1.2rem;
+      font-size: $font-size-md;
       margin-left: 1rem;
-      color: $color5;
+      color: $text;
     }
   
     @keyframes slideDown {
@@ -421,12 +421,12 @@ $transition: all 0.3s ease;
     
     .faq__answer {
       padding-top: 1rem;
-      font-size: 0.95rem;
-      color: $color5;
+      font-size: $font-size-md;
+      color: $text;
       a {
         font-weight: 600;
         text-decoration: underline;
-        color: $color5;
+        color: #11B8E6;
       }
     }
     
@@ -435,16 +435,21 @@ $transition: all 0.3s ease;
       padding: 3rem 1rem;
   
       h2 {
-        font-size: 1.8rem;
+        font-size:$font-size-lg;
       }
   
       &__question {
-        font-size: 1rem;
+        font-size: $font-size-md;
       }
   
       &__answer {
-        font-size: 0.9rem;
+        font-size: $font-size-md;
       }
     }
   }
   
+  .bur{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 25px;
+  }

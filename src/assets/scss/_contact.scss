@@ -2,11 +2,13 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
-  img {
-    width: 100%;
-    height: auto;
-    display: block; // retire les espaces blancs sous l'image
-    object-fit: cover; // optionnel : utile si tu fixes une hauteur
+  .contact1 {
+    width: 500px;
+    padding: 1rem;
+    border-radius: 50px;
   }
 }

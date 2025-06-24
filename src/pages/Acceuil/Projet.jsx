@@ -11,7 +11,7 @@ function Projet() {
       </div>
 
       <div className="projects__image-wrapper">
-        <img src="/logo.webp" alt="Mockup projet Le Comptoir" />
+        <img src="/supahero.webp" alt="Mockup projet Le Comptoir" />
       </div>
     </section>
         </>

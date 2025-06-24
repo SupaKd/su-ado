@@ -37,7 +37,7 @@ function Footer() {
         </form>
 
         <div className="footer-image">
-          <img src="/logo.webp" alt="Illustration" />
+          <img src="/vitrine.webp" alt="Illustration" />
         </div>
 
         <div className="footer-socials">
@@ -45,7 +45,7 @@ function Footer() {
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/supa_c0/"
             target="_blank"
             rel="noopener noreferrer"
           >
