@@ -26,9 +26,8 @@
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0 auto 2rem;
-    line-height: 1.3;
     color: $primary-color;
     @include slide-top;
   }
@@ -140,10 +139,9 @@
 
   .service-card {
     flex: 0 0 260px;
-    background: linear-gradient(to right, #fff, #eee);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff, #eee);
     border-radius: 1.5rem;
-    border: solid 1px #111;
+    border: solid 1px #facc15;
     padding: 5rem 1rem;
     scroll-snap-align: start;
     text-align: center;
