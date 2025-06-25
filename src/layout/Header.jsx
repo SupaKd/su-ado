@@ -21,8 +21,11 @@ function Header() {
         <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
       </Link>
 
-      <Link to="/" onClick={closeMenu} className="logo">
+      <Link to="/" onClick={closeMenu} className="logo_mobile">
         <img src="/logoo.webp" alt="Logo" />
+      </Link>
+      <Link to="/" onClick={closeMenu} className="logo_desktop">
+        <img src="/logo_desk.webp" alt="Logo" />
       </Link>
 
       <Link to="/contact" className="devis" onClick={closeMenu}>

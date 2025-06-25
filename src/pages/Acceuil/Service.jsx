@@ -12,25 +12,26 @@ function Service() {
               <FontAwesomeIcon icon={faStar} className="icon" />
               <h3>Site vitrine</h3>
               <p>
-                Je conçois des sites web modernes, responsives et adaptés à vos
-                besoins. Que ce soit pour présenter votre activité, vendre en
-                ligne ou améliorer votre visibilité, je vous accompagne de A à Z
-                dans la réalisation de votre site vitrine ou e-commerce.
+                Nous concevons des sites vitrines modernes, élégants et adaptés à
+                tous les supports. Idéal pour présenter votre activité, vos
+                services ou votre savoir-faire, le site vitrine renforce votre
+                image professionnelle et améliore votre visibilité en ligne.
               </p>
             </div>
 
             <div className="service-card">
-              <FontAwesomeIcon icon={faStar} className="icon"/>
+              <FontAwesomeIcon icon={faStar} className="icon" />
               <h3>Site e-commerce</h3>
               <p>
-                Je développe des sites vitrines modernes, rapides et adaptés à
-                tous les écrans pour présenter votre activité, vos services ou
-                votre portfolio. L’objectif : vous offrir une présence
-                professionnelle sur internet, claire et efficace.
+                Nous créons des boutiques en ligne performantes, sécurisées et
+                faciles à gérer. Que vous souhaitiez vendre quelques produits ou
+                lancer un catalogue complet, je vous accompagne dans la création
+                d’un site e-commerce sur mesure, optimisé pour convertir vos
+                visiteurs en clients.
               </p>
             </div>
             <div className="service-card">
-              <FontAwesomeIcon icon={faStar} className="icon"/>
+              <FontAwesomeIcon icon={faStar} className="icon" />
               <h3>Logo</h3>
               <p>
                 Votre identité visuelle commence par un logo fort et mémorable.
@@ -39,7 +40,7 @@ function Service() {
               </p>
             </div>
             <div className="service-card">
-              <FontAwesomeIcon icon={faStar} className="icon"/>
+              <FontAwesomeIcon icon={faStar} className="icon" />
               <h3>Flyers</h3>
               <p>
                 Besoin de communiquer efficacement sur vos événements, vos
