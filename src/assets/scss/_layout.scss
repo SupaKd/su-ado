@@ -46,7 +46,7 @@
   .devis {
     color: $text;
     padding: 0.5rem 2rem;
-    border: solid 1px #111;
+    border: solid 1px $text;
     border-radius: $radius-md;
     font-weight: 400;
     text-decoration: none;
@@ -181,7 +181,6 @@
     font-size: $font-size-xl;
     margin-bottom: 2rem;
     text-align: center;
-    color:$text;
   }
 
   .contact-form {
