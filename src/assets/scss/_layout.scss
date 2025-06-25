@@ -245,12 +245,12 @@
   
     .footer-socials {
       display: flex;
-      gap: 1.5rem;
+      gap: 0.1rem;
   
       a {
         font-size: 2.5rem;
-        background: $bg-color;
-        color: $primary-color;
+        background: $primary-color;
+        color: #11B8E6;
         padding: 0.1rem 0.9rem;
         border-radius: $radius-md;
         transition: color 0.3s;
