@@ -250,11 +250,14 @@
   
       a {
         font-size: 2.5rem;
-        color: $danger-color;
+        background: $bg-color;
+        color: $primary-color;
+        padding: 0.1rem 0.9rem;
+        border-radius: $radius-md;
         transition: color 0.3s;
   
         &:hover {
-          color: darken($danger-color, 10%);
+          color: darken(#eee, 10%);
         }
       }
     }
