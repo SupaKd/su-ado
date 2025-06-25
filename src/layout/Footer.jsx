@@ -62,11 +62,11 @@ function Footer() {
 
           <div className="social-btn">
           <div className="footer-socials">
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faWhatsapp} />
+          <a href="https://wa.me/33783052412?text=Bonjour%20je%20souhaite%20des%20infos%20sur%20vos%20services" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faWhatsapp} />
           </a>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/supa_c0/"
             target="_blank"
             rel="noopener noreferrer"
             >
