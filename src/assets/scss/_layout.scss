@@ -50,12 +50,17 @@
     border-radius: $radius-md;
     font-weight: 400;
     text-decoration: none;
-    transition: border-radius 0.3s ease-in-out;
-
+  
+    // applique la transition sur toutes les propriétés concernées
+    transition: border-radius 0.6s ease, background-color 0.6s ease, color 0.6s ease;
+  
     &:hover {
-      border-radius: $radius-pill;
+      background: $text; // fond qui se remplit
+      color: #fff; // texte qui passe en blanc par exemple
     }
   }
+  
+  
 
   .header__nav {
     position: absolute;
@@ -82,10 +87,10 @@
       border-radius: $radius-sm;
       text-decoration: none;
       font-weight: 500;
+      transition: border-radius 0.6s ease, background-color 0.6s ease, color 0.6s ease;
 
-      &.active {
-        background-color: $hover;
-        padding: 0.5rem;
+      &:hover {
+        color: $button; // texte qui passe en blanc par exemple
       }
     }
 
@@ -143,11 +148,6 @@
         color: $text;
         text-align: left;
         font-weight: 500;
-
-        &.active {
-          border: 4px solid $hover;
-
-        }
       }
     }
   }
