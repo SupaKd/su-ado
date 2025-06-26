@@ -1,17 +1,27 @@
 // src/layout/Header.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20); // dès 20px de scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <Link
         className={`burger ${isOpen ? "rotate" : ""}`}
         onClick={toggleMenu}
@@ -40,7 +50,7 @@ function Header() {
           Accueil
         </NavLink>
         <NavLink to="/portfolio" onClick={closeMenu}>
-          Modèles
+          Projets
         </NavLink>
         <NavLink to="/contact" onClick={closeMenu}>
           Contact

@@ -7,14 +7,14 @@
 
     h3{
         @include flex-center;
-        font-size: $font-size-md;
+        font-size: $font-size-lg;
     }
   
     .slider-track {
       display: flex;
       width: fit-content;
       animation: scroll 25s linear infinite;
-      padding: 1rem;
+      padding: 3rem;
   
       .slide {
         display: flex;

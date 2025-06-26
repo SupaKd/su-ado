@@ -14,7 +14,13 @@
   justify-content: space-between;
   align-items: center;
 
-  // Nouveau : centrer absolument le logo
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.2); // semi-transparent
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  }
+
   .logo_mobile {
     position: absolute;
     left: 50%;
@@ -141,6 +147,7 @@
       gap: 2rem;
       padding: 0;
       margin-left: 3rem;
+      background-color:transparent;
 
       a {
         width: auto;
