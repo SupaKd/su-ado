@@ -1,0 +1,73 @@
+.logo-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: #fff;
+    padding: 1rem 0;
+
+    h3{
+        @include flex-center;
+        font-size: $font-size-md;
+    }
+  
+    .slider-track {
+      display: flex;
+      width: fit-content;
+      animation: scroll 25s linear infinite;
+      padding: 1rem;
+  
+      .slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+  
+        img {
+          height: 50px;
+          width: auto;
+          object-fit: contain;
+          border-radius: $radius-lg;
+        }
+      }
+    }
+  
+    // Tablet: ≥ 640px (ou selon ta config)
+    @media (min-width: 768px) {
+      .slider-track {
+        animation-duration: 40s;
+      }
+  
+      .slide {
+        padding: 0 1.5rem;
+  
+        img {
+          height: 50px;
+        }
+      }
+    }
+  
+    // Desktop: ≥ 1024px
+    @media (min-width: 1024px) {
+      .slider-track {
+        animation-duration: 30s;
+      }
+  
+      .slide {
+        padding: 0 2rem;
+  
+        img {
+          height: 60px;
+        }
+      }
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

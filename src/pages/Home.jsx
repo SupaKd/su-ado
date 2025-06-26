@@ -2,6 +2,7 @@ import Hero from "./Acceuil/Hero";
 import Service from "./Acceuil/Service";
 import Method from "./Acceuil/Method";
 import Question from "./Acceuil/Question";
+import LogoSlider from "../components/LogoSlider";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
     <main>
       <Hero />
       <Service />
+      <LogoSlider />
       <Method />
       <Question />
       <section class="project-section">
