@@ -1,105 +1,106 @@
 .services {
-    padding: 3rem 1.5rem;
-    margin: 1rem;
-    border-radius: $radius-sm;
-    background-color: $bg-color;
-    color: $text;
-  
-    h2 {
-      font-size: $font-size-xl;
-      margin-bottom: 2rem;
-      text-align: center;
+  padding: 3rem 1.5rem;
+  margin: 1rem;
+  border-radius: $radius-sm;
+  background-color: $bg-color;
+  color: $text;
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__slider {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    @include slide-left;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
-  
+  }
+
+  &__track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+  }
+
+  .service-card {
+    flex: 0 0 260px;
+    border-radius: 1.5rem;
+    border: solid 1px #facc15;
+    padding: 5rem 1rem;
+    scroll-snap-align: start;
+    text-align: center;
+
+    .icon {
+      font-size: 2.5rem;
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: $font-size-md;
+      color: $text;
+    }
+  }
+}
+
+// ==============================
+// Desktop layout (grille 2 colonnes)
+// ==============================
+
+@media (min-width: 768px) {
+  .services {
     &__slider {
-      overflow-x: auto;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      @include slide-left;
-  
-  
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      overflow: visible;
+      padding: 0;
     }
-  
+
     &__track {
-      display: flex;
-      gap: 1.5rem;
-      width: max-content;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      width: 100%;
     }
-  
+
     .service-card {
-      flex: 0 0 260px;
-      border-radius: 1.5rem;
-      border: solid 1px #facc15;
-      padding: 5rem 1rem;
-      scroll-snap-align: start;
-      text-align: center;
-  
-      .icon {
-        font-size: 2.5rem; 
-        color: #facc15; 
-        margin-bottom: 1rem;
-      }
-  
-      h3 {
-        font-size: $font-size-lg;
-        margin-bottom: 0.5rem;
-      }
-  
+      flex: unset;
+      padding: 3rem 2rem;
+      scroll-snap-align: unset;
       p {
-        font-size: $font-size-md;
-        color: $text;
+        text-align: start;
       }
     }
   }
-  
-  // ==============================
-  // Desktop layout (grille 2 colonnes)
-  // ==============================
-  
-  @media (min-width: 768px) {
-    .services {
-      &__slider {
-        overflow: visible;
-        padding: 0;
-      }
-  
-      &__track {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        width: 100%;
-      }
-  
-      .service-card {
-        flex: unset;
-        padding: 3rem 2rem;
-        scroll-snap-align: unset;
-      }
+}
+
+.contacter {
+  padding: 8rem 2rem;
+  margin: 1rem;
+  background-color: $bg-color;
+  border-radius: $radius-lg;
+  color: $text;
+
+  button {
+    border: solid 1px #111;
+    color: $button;
+    padding: 1rem 2rem;
+    border-radius: $radius-md;
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+
+    &:hover {
+      border-radius: 20px;
+      transform: translateY(-0px);
     }
   }
-  
-    .contacter {
-      padding:8rem 2rem;
-      margin: 1rem;
-      background-color: $bg-color;
-      border-radius: $radius-lg;
-      color:$text;
-  
-      button {
-        border: solid 1px #111;
-        color:$button;
-        padding: 1rem 2rem;
-        border-radius: $radius-md;
-        transition: transform 0.3s ease, border-radius 0.3s ease;
-      
-        &:hover {
-          border-radius: 20px;
-          transform: translateY(-0px);
-        }
-      }
-      
-    }
+}

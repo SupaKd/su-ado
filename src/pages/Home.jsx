@@ -9,10 +9,10 @@ function Home() {
     <main>
       <Hero />
       <Service />
-      <LogoSlider />
       <Method />
-      <Question />
+      <LogoSlider />
       <Img />
+      <Question />
     </main>
   );
 }
