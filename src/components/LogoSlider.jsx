@@ -4,13 +4,14 @@ const logos = [
   '/logo.webp',
   'logoo.webp',
   'logoo.webp',
-  'logo.webp',
-  'logooo.webp',
   '/logo.webp',
   'logoo.webp',
   'logoo.webp',
   'logo.webp',
-  'logooo.webp',
+  '/logo.webp',
+  'logoo.webp',
+  'logoo.webp',
+  'logo.webp',
   // Ajoute autant de logos que nécessaire
 ];
 

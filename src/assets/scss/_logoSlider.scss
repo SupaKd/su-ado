@@ -12,8 +12,8 @@
   
     .slider-track {
       display: flex;
-      width: fit-content;
-      animation: scroll 25s linear infinite;
+      width:max-content;
+      animation: scroll 30s linear infinite;
       padding: 3rem;
   
       .slide {
