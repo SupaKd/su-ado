@@ -1,17 +1,22 @@
 import React from 'react';
 
 const logos = [
-  '/logo.webp',
-  'logoo.webp',
-  'logoo.webp',
-  '/logo.webp',
-  'logoo.webp',
-  'logoo.webp',
-  'logo.webp',
-  '/logo.webp',
-  'logoo.webp',
-  'logoo.webp',
-  'logo.webp',
+  '/2onbini.webp',
+  'belli.webp',
+  'supa.webp',
+  '/supasushi.webp',
+  '/2onbini.webp',
+  'belli.webp',
+  'supa.webp',
+  '/supasushi.webp',
+  '/2onbini.webp',
+  'belli.webp',
+  'supa.webp',
+  '/supasushi.webp',
+  '/2onbini.webp',
+  'belli.webp',
+  'supa.webp',
+  '/supasushi.webp',
   // Ajoute autant de logos que nécessaire
 ];
 

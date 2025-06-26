@@ -13,7 +13,7 @@
     .slider-track {
       display: flex;
       width:max-content;
-      animation: scroll 30s linear infinite;
+      animation: scroll 99s linear infinite;
       padding: 3rem;
   
       .slide {
@@ -34,7 +34,7 @@
     // Tablet: ≥ 640px (ou selon ta config)
     @media (min-width: 768px) {
       .slider-track {
-        animation-duration: 40s;
+        animation-duration: 99s;
       }
   
       .slide {
@@ -49,7 +49,7 @@
     // Desktop: ≥ 1024px
     @media (min-width: 1024px) {
       .slider-track {
-        animation-duration: 30s;
+        animation-duration: 90s;
       }
   
       .slide {

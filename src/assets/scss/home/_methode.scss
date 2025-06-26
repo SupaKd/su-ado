@@ -1,0 +1,102 @@
+.method {
+    background-color:$hover;
+    padding: 4rem 2rem;
+    margin: 1rem;
+    border-radius: $radius-lg;
+    position: relative;
+    @include slide-left;
+    
+    h2 {
+      margin: 2rem;
+      font-size: $font-size-xl;
+      text-align: center;
+    }
+    &__title {
+      font-size: $font-size-xl;
+      color: $text;
+      font-weight: 800;
+      text-transform: lowercase;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+  
+    &__steps {
+      position: relative;
+      border-left: 2px solid #111;
+      margin-left: 1rem;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    &__step {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        left: -2.4rem;
+        top: 0.3rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $bg-color;
+      }
+  
+      h3 {
+        font-size: $font-size-md;
+        font-weight: 700;
+        background-color: $bg-color;
+        border: solid 1px #111;
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        border-radius: $radius-md;
+        margin: 0;
+      }
+  
+      p {
+        font-size: $font-size-md;
+        color: $text;
+        margin-top: 0.3rem;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method {
+      &__steps {
+        flex-direction: row;
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        justify-content: space-between;
+      }
+  
+      &__step {
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 0;
+        position: relative;
+  
+        &::before {
+          left: 0; 
+          top: -2rem;
+          margin: auto;
+        }
+  
+        h3 {
+          font-size: $font-size-lg;
+        }
+  
+        p {
+          font-size: $font-size-md;
+        }
+      }
+    }
+  }

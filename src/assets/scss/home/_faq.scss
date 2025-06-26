@@ -1,0 +1,132 @@
+.faq {
+    background-color: $primary-color;
+    text-align: center;
+  
+    &__intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+  
+      .faq__label {
+        background: #eee;
+        color: $text;
+        padding: 0.4rem 1.2rem;
+        border-radius: $radius-lg;
+        font-weight: 600;
+        font-size: $font-size-sm;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+  
+      h2 {
+        font-size: $font-size-xl;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: $font-size-md;
+        color: $text;
+      }
+    }
+  
+    &__list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    &__item {
+      background-color: $hover;
+      color:$text;
+      border-radius: $radius-md;
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  
+      &:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+  
+      &.open {
+        .faq__question {
+          color: $text;
+        }
+      }
+    }
+  
+    &__question {
+      font-weight: 700;
+      font-size: $font-size-lg;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+  
+    &__answer {
+      margin-top: 1rem;
+      font-size: $font-size-md;
+      color: $primary-color;
+      animation: slideDown 0.1s ease;
+  
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+        color: $text;
+      }
+    }
+  
+    &__icon {
+      font-size: $font-size-lg;
+      margin-left: 1rem;
+      color: $text;
+    }
+  
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .faq__answer-wrapper {
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .faq__answer {
+      padding-top: 1rem;
+      font-size: $font-size-md;
+      color: $text;
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+        color: #11B8E6;
+      }
+    }
+    
+  
+    @media (max-width: 768px) {
+      padding: 3rem 1rem;
+  
+      h2 {
+        font-size:$font-size-lg;
+      }
+  
+      &__question {
+        font-size: $font-size-md;
+      }
+  
+      &__answer {
+        font-size: $font-size-md;
+      }
+    }
+  }

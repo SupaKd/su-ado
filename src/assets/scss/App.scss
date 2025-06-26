@@ -1,8 +1,13 @@
-@import "./variable";
-@import "./base";
-@import "./mixins";
-@import "./home";
+@import "./base/base";
+@import "./base/variable";
+@import "./base/mixins";
 @import "./layout";
+@import "./home/hero";
+@import "./home/service";
+@import "./home/methode";
+@import "./home/faq";
+@import "./home/logoSlider";
+@import "./home";
+
 @import "./contact";
-@import "./logoSlider";
 @import "./portfolio";
