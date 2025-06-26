@@ -36,7 +36,7 @@ function Header() {
         className={`header__nav ${isOpen ? "show" : ""}`}
         aria-label="Navigation principale"
       >
-        <NavLink to="/" onClick={closeMenu}>
+        <NavLink to="/" className="acceuil" onClick={closeMenu}>
           Accueil
         </NavLink>
         <NavLink to="/portfolio" onClick={closeMenu}>

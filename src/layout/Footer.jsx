@@ -8,7 +8,7 @@ function Footer() {
       <section>
       <form
   className="contact-form"
-  action="https://formsubmit.co/supaco.digital@gmail.com"
+  action="https://formsubmit.co/contac@supaco.fr"
   method="POST"
 >
   <h2>Partage-nous ton projet !</h2>
@@ -47,7 +47,7 @@ function Footer() {
   <input type="hidden" name="_captcha" value="false" />
   <input type="hidden" name="_template" value="table" />
   <input type="hidden" name="_honey" style={{ display: "none" }} />
-  <input type="hidden" name="_next" value="https://tonsite.fr/merci" />
+  <input type="hidden" name="_next" value="https://supaco.fr/merci" />
 
   <div className="social-btn">
     <div className="footer-socials">
