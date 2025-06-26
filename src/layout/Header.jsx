@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +28,7 @@ function Header() {
         aria-label="Menu mobile"
         aria-expanded={isOpen}
       >
-        <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
+        <FontAwesomeIcon icon={isOpen ? faXmark : faBarsStaggered} />
       </Link>
 
       <Link to="/" onClick={closeMenu} className="logo_mobile">

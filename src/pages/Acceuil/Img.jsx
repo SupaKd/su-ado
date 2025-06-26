@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 function Img () {
     return(
         <>
-            <section class="project-section">
-  <div class="project-card">
-    <div class="project-content">
+            <section className="project-section">
+  <div className="project-card">
+    <div className="project-content">
       <h2>Ton avenir digital commence ici !</h2>
       <p>
       C’est le moment idéal pour développer ton image en ligne avec des supports modernes et adaptés à ta marque.
@@ -15,7 +15,7 @@ function Img () {
       <button>Discutons ensemble</button>
       </Link>
     </div>
-    <div class="project-image">
+    <div className="project-image">
       <img src="/flyers.webp" alt="Mockup site web"/>
     </div>
   </div>

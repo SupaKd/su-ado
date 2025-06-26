@@ -78,10 +78,11 @@
     right: 0;
     background-color: $primary-color;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 1.2rem;
     padding: 0.5rem;
+    border-bottom: solid 4px $button;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -89,11 +90,12 @@
 
     a {
       color: $text;
-      background-color: #eee;
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
+      margin: 1rem;
       text-align: center;
-      border-radius: $radius-sm;
+      border-radius: $radius-lg;
+      border: solid 1px $text;
       text-decoration: none;
       font-weight: 500;
       transition: border-radius 0.6s ease, background-color 0.6s ease, color 0.6s ease;
@@ -154,6 +156,7 @@
       padding: 0;
       margin-left: 3rem;
       background-color:transparent;
+      border: none;
 
       a {
         width: auto;
@@ -162,6 +165,7 @@
         color: $text;
         text-align: left;
         font-weight: 500;
+        border: none;
       }
     }
   }
