@@ -8,7 +8,7 @@ function Footer() {
       <section>
       <form
   className="contact-form"
-  action="https://formsubmit.co/contac@supaco.fr"
+  action="https://formsubmit.co/contact@supaco.fr"
   method="POST"
 >
   <h2>Partage-nous ton projet !</h2>
