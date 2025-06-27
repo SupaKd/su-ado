@@ -1,5 +1,5 @@
 .method {
-    background-color:$hover;
+    background-color: #ede0d4;
     padding: 3rem 2rem;
     margin: 3rem 2rem;
     border-radius: $radius-lg;
@@ -23,7 +23,7 @@
   
     &__steps {
       position: relative;
-      border-left: 2px solid #111;
+      border-left: 2px solid $text;
       margin-left: 1rem;
       padding-left: 2rem;
       display: flex;
@@ -45,7 +45,7 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: $bg-color;
+        background-color: $text;
       }
   
       h3 {

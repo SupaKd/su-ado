@@ -64,7 +64,7 @@ function Footer() {
 
 
         <div className="footer-image">
-          <img src="/logo.webp" alt="Illustration" />
+          <img src="/fond_logo.webp" alt="Illustration" />
         </div>
 
         
