@@ -8,12 +8,12 @@
     display: flex;
     border-radius: 20px;
     overflow: hidden;
-    max-width: 800px;
+    max-width: 1000px;
   }
   
   .project-content {
     background-color: $danger-color;
-    color: white;
+    color: $primary-color;
     padding: 2rem;
     flex: 1;
     display: flex;
