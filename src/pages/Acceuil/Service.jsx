@@ -4,7 +4,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 function Service() {
   return (
     <>
-      <section className="services">
+      <section className="services" id="service">
         <h2>Nos services</h2>
         <div className="services__slider">
           <div className="services__track">

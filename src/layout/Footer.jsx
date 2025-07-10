@@ -29,7 +29,7 @@ function Footer() {
   };
 
   return (
-    <footer className="footer-form">
+    <footer className="footer-form" id="devis">
       <section>
         <form className="contact-form" onSubmit={handleSubmit}>
           <h2>Partage-nous ton projet !</h2>

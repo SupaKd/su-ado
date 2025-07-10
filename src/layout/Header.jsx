@@ -38,9 +38,8 @@ function Header() {
         <img src="/desk_logo.webp" alt="Logo" />
       </Link>
 
-      <Link to="/contact" className="devis" onClick={closeMenu}>
-        Devis
-      </Link>
+      <a href="#devis" className="devis">Devis</a>
+
 
       <nav
         className={`header__nav ${isOpen ? "show" : ""}`}
@@ -55,6 +54,8 @@ function Header() {
         <NavLink to="/contact" onClick={closeMenu}>
           Contact
         </NavLink>
+        <a href="#service">Service</a>
+
       </nav>
     </header>
   );
