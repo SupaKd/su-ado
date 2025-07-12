@@ -8,9 +8,9 @@ function Hero() {
         <Typewriter
           options={{
             strings: [
-              "Boostez votre présence en ligne 🚀",
-              "Des sites modernes, rapides et efficaces",
-              "Créons ensemble votre vitrine digitale 💻",
+              "Boostez votre présence en ligne",
+              "Des sites modernes",
+              "Créons ensemble votre site web",
             ],
             autoStart: true,
             loop: true,
@@ -18,7 +18,7 @@ function Hero() {
         />
       </h1>
 
-      <p className="text-lg max-w-xl mx-auto mb-6">
+      <p>
         Sites web, logos, identité visuelle : SupaCo transforme vos idées en résultats concrets.
         Design moderne, impact garanti.
       </p>

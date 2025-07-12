@@ -16,16 +16,17 @@
     text-align: center;
   
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: $primary-color;
-      margin-bottom: 1rem;
+      margin-bottom: 5rem;
       font-weight: 700;
       line-height: 1.1;
       @include slide-top;
     }
   
     p {
-      font-size: 1.4rem;
+      font-size: 1rem;
+      font-weight:400;
       margin: 0 auto 2rem;
       color: $primary-color;
       @include slide-top;
