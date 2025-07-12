@@ -18,11 +18,12 @@
     background-color: rgba(255, 255, 255, 0.2); // semi-transparent
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+      box-shadow 0.3s ease;
 
     .devis {
       background: $bg-color;
-      color:$primary-color;
+      color: $primary-color;
       border: none;
     }
   }
@@ -31,7 +32,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    
+
     img {
       width: 50px;
     }
@@ -62,15 +63,16 @@
     border-radius: $radius-md;
     font-weight: 400;
     text-decoration: none;
-    transition: border-radius 0.6s ease, background-color 0.6s ease, color 0.6s ease;
-  
+    transition: border-radius 0.6s ease, background-color 0.6s ease,
+      color 0.6s ease;
+
     &:hover {
-      background: $text; 
+      background: $text;
       border-radius: $radius-lg;
-      color: $primary-color; 
+      color: $primary-color;
     }
   }
-  
+
   .header__nav {
     position: absolute;
     top: 100%;
@@ -97,10 +99,11 @@
       border: solid 1px $text;
       text-decoration: none;
       font-weight: 500;
-      transition: border-radius 0.6s ease, background-color 0.6s ease, color 0.6s ease;
+      transition: border-radius 0.6s ease, background-color 0.6s ease,
+        color 0.6s ease;
 
       &:hover {
-        color: $button; 
+        color: $button;
       }
     }
 
@@ -154,7 +157,7 @@
       gap: 2rem;
       padding: 0;
       margin-left: 3rem;
-      background-color:transparent;
+      background-color: transparent;
       border: none;
 
       a {
@@ -170,8 +173,6 @@
   }
 }
 
-
-
 // ==============================
 // FOOTER
 // ==============================
@@ -179,16 +180,19 @@
 .footer-form {
   background-color: $bg-color;
   padding: 4rem 1.5rem;
-  
+
+  img {
+    width: 100%;
+  }
   .footer__bottom {
     text-align: center;
     border-top: 1px solid #eee;
     padding-top: 2rem;
     margin-top: 2rem;
     font-size: $font-size-sm;
-    color:$text;
+    color: $text;
   }
-  
+
   section {
     max-width: 1200px;
     margin: 0 auto;
@@ -205,97 +209,132 @@
     display: flex;
     flex-direction: column;
     gap: 2.3rem;
-  
+    margin: 2rem;
+
     input,
     textarea {
       padding: 1rem;
       border-radius: $radius-md;
       border: none;
       background-color: $hover;
-      font-size: $font-size-md;
-      font-family: 'Inter', sans-serif;
+      font-size: $font-size-lg;
+      font-weight: 700;
       width: 100%;
       box-sizing: border-box;
     }
-  
+
     textarea {
       min-height: 120px;
       resize: vertical;
-      font-family:'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
     }
-  
-    fieldset {
+
+    .checkbox-tabs {
       border: none;
-      padding: 0;
+      padding: 1.5rem;
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
       gap: 1rem;
-  
+      background-color: #f9fafc;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
       legend {
-        font-weight: bold;
-        font-size: $font-size-md;
+        width: 100%;
+        font-weight: 600;
+        font-size: $font-size-lg;
         margin-bottom: 0.5rem;
+        color: $text;
       }
-  
-      label {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        font-size: $font-size-md;
+
+      .checkbox-tab {
+        position: relative;
         cursor: pointer;
-  
+
         input[type="checkbox"] {
-          width: 18px;
-          height: 18px;
-          accent-color: $text;
-          cursor: pointer;
+          display: none;
+        }
+
+        span {
+          display: inline-block;
+          padding: 1rem 1.5rem;
+          border: solid 2px #000;
+          color: $text;
+          border-radius: $radius-lg;
+          font-size: $font-size-md;
+          font-weight: bold;
+          transition: background-color 0.3s, color 0.3s;
+        }
+
+        input[type="checkbox"]:checked + span {
+          background: $bg-color;
+          color: #fff;
+        }
+
+        span:hover {
+          background-color: #dbe6f9;
         }
       }
     }
   }
-  
+
   .social-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0rem 4rem 0rem 4rem;
     gap: 2rem;
-  
+
     .footer-socials {
       display: flex;
       gap: 0.1rem;
-  
+
       a {
-        font-size: 2.5rem;
+        font-size: 3rem;
         background: $primary-color;
-        color: #11B8E6;
+        color: #000;
         padding: 0.1rem 0.9rem;
         border-radius: $radius-md;
         transition: color 0.3s;
-  
+
         &:hover {
-          color: darken(#eee, 10%);
+          color: $button;
         }
       }
     }
-  
+
     button {
-      background: $bg-color;
-      color:$primary-color;
-      border: none;
-      padding: 2rem 4rem;
       font-size: $font-size-lg;
       font-weight: 600;
-      border-radius: $radius-md;
+      border: none;
       cursor: pointer;
-      transition: $transition-base;
-  
-      &:hover {
-        background-color: #eee;
-      }
+      border-radius: 12px;
+      background: #000;
+      padding: 0;
+    }
+
+    /* Partie haute du bouton */
+    .button_top {
+      display: block;
+      box-sizing: border-box;
+      border: 2px solid #000;
+      border-radius: $radius-md;
+      padding: 2rem 4rem;
+      background: $bg-color;
+      color: $primary-color;
+      transform: translateY(-0.2em);
+      transition: transform 0.1s ease, background-color 0.2s ease;
+    }
+
+    button:hover .button_top {
+      transform: translateY(-0.5em);
+    }
+
+    button:active .button_top {
+      transform: translateY(0);
     }
   }
-  
+
   .footer-credit {
     text-align: center;
     font-size: $font-size-md;
@@ -303,25 +342,73 @@
   }
 }
 
-  .footer-image {
-    display: none; // Masqué par défaut (mobile & tablette)
+.footer-image {
+  display: none; // Masqué par défaut (mobile & tablette)
 
-    @media (min-width: 1024px) {
-      display: block;
+  @media (min-width: 1024px) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    img {
       width: 100%;
-      height: auto;
-      border-radius: 1rem;
-      overflow: hidden;
-      
-      img {
-        width: 100%;
-        height: 470px;
-        object-fit: cover;
-        border-radius: 2rem;
-      }
+      height: 470px;
+      object-fit: cover;
+      border-radius: 2rem;
     }
   }
+}
+// Message d'erreur
+.error {
+  color: $danger-color;
+  font-size: $font-size-sm;
+  margin: 1px;
+  border: 1px solid $danger-color;
+  width: 30%;
+  border-radius: $radius-sm;
+  padding: 0.3rem;
+  font-weight: 500;
+  text-align: center;
+}
 
+.success-message {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: $valid-color;
+  color: $primary-color;
+  padding: 1.6rem 2.4rem;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 99999;
+  cursor: default;
+  animation: slideInFadeOut 4s forwards;
+  max-width: 300px;
+  user-select: none;
+}
+
+@keyframes slideInFadeOut {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) translateY(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) translateY(0);
+  }
+}
 // ==============================
 // Desktop Layout
 // ==============================
@@ -337,59 +424,14 @@
 
     h2 {
       grid-column: 1 / -1;
-      text-align: center;       // centre horizontalement
+      text-align: center; // centre horizontalement
       justify-self: center;
-      font-size: $font-size-xl;     // centre dans la grille
+      font-size: $font-size-xl; // centre dans la grille
     }
 
     .footer-socials,
     .footer-credit {
       grid-column: 1 / -1;
-    }
-  }
-}
-
-.success-modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  @include slide-top;
-
-  .success-modal {
-    background-color: #fff;
-    padding: 9rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    button {
-      background: $bg-color;
-      color: $primary-color;
-      border: none;
-      padding: 1rem 1.5rem;
-      border-radius: $radius-md;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background: $text;
-      }
     }
   }
 }

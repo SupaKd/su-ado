@@ -54,7 +54,6 @@ function Header() {
         <NavLink to="/contact" onClick={closeMenu}>
           Contact
         </NavLink>
-        <a href="#service">Service</a>
 
       </nav>
     </header>

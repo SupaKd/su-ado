@@ -1,14 +1,36 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import confetti from "canvas-confetti";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
-  const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const launchConfetti = () => {
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 },
+    });
+  };
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+
+    formData.append("_captcha", "false");
+    formData.append("_template", "table");
 
     try {
       const response = await fetch("https://formsubmit.co/contact@supaco.fr", {
@@ -17,8 +39,11 @@ function Footer() {
       });
 
       if (response.ok) {
-        setShowModal(true);
-        form.reset();
+        launchConfetti();
+        setShowSuccess(true);
+        reset();
+
+        setTimeout(() => setShowSuccess(false), 4000);
       } else {
         alert("Erreur lors de l'envoi.");
       }
@@ -31,75 +56,123 @@ function Footer() {
   return (
     <footer className="footer-form" id="devis">
       <section>
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <img src="supacofooter.webp" alt="footer" />
+        <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <h2>Partage-nous ton projet !</h2>
 
-          <input type="text" name="Nom" placeholder="Nom" required />
-          <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required />
-          <input type="email" name="Email" placeholder="Adresse e-mail" required />
+          <input
+            type="text"
+            placeholder="Nom"
+            {...register("Nom", { required: "Le nom est requis" })}
+            className={errors.Nom ? "input-error" : ""}
+          />
+          {errors.Nom && <p className="error">{errors.Nom.message}</p>}
 
-          <fieldset>
+          <input
+            type="tel"
+            placeholder="Téléphone"
+            {...register("Téléphone", {
+              required: "Le numéro est requis",
+              pattern: {
+                value: /^(\+33|0)[1-9](\d{2}){4}$/,
+                message: "Numéro de téléphone invalide",
+              },
+            })}
+            className={errors.Téléphone ? "input-error" : ""}
+          />
+          {errors.Téléphone && (
+            <p className="error">{errors.Téléphone.message}</p>
+          )}
+
+          <input
+            type="email"
+            placeholder="E-mail"
+            {...register("Email", {
+              required: "L'email est requis",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Adresse email invalide",
+              },
+            })}
+            className={errors.Email ? "input-error" : ""}
+          />
+          {errors.Email && <p className="error">{errors.Email.message}</p>}
+
+          <fieldset class="checkbox-tabs">
             <legend>Que souhaitez-vous ?</legend>
-            <label>
-              <input type="checkbox" name="Prestation" value="Site vitrine" />
-              Site vitrine
+
+            <label class="checkbox-tab">
+              <input
+                type="checkbox"
+                value="Site vitrine"
+                {...register("Prestation")}
+              />
+              <span>Site vitrine</span>
             </label>
-            <label>
-              <input type="checkbox" name="Prestation" value="Site e-commerce" />
-              Site e-commerce
+
+            <label class="checkbox-tab">
+              <input
+                type="checkbox"
+                value="Site e-commerce"
+                {...register("Prestation")}
+              />
+              <span>Site e-commerce</span>
             </label>
-            <label>
-              <input type="checkbox" name="Prestation" value="Logo" />
-              Logo
+
+            <label class="checkbox-tab">
+              <input type="checkbox" value="Logo" {...register("Prestation")} />
+              <span>Logo</span>
             </label>
-            <label>
-              <input type="checkbox" name="Prestation" value="Flyers" />
-              Flyers
+
+            <label class="checkbox-tab">
+              <input
+                type="checkbox"
+                value="Flyers"
+                {...register("Prestation")}
+              />
+              <span>Flyers</span>
             </label>
           </fieldset>
 
-          <textarea
-            name="Projet"
-            placeholder="Décrivez votre projet en quelques mots"
-            required
-          ></textarea>
-
-          {/* Sécurité & paramètres */}
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_honey" style={{ display: "none" }} />
+          <textarea placeholder="Votre projet..."></textarea>
+          {errors.Projet && <p className="error">{errors.Projet.message}</p>}
 
           <div className="social-btn">
             <div className="footer-socials">
-              <a href="https://wa.me/33783052412?text=Bonjour%20je%20souhaite%20des%20infos%20sur%20vos%20services" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://wa.me/33783052412"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faWhatsapp} />
               </a>
-              <a href="https://www.instagram.com/supa_c0/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/supa_c0/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>
-            <button type="submit">Envoyer</button>
+            <div>
+              <button type="submit">
+                <span class="button_top">Envoyer</span>
+              </button>
+            </div>
           </div>
         </form>
 
-        <div className="footer-image">
-          <img src="/fond_logo.webp" alt="Illustration" />
-        </div>
+        {/* Message de succès + confettis */}
+        {showSuccess && (
+          <div className="success-message">
+            🎉 Votre formulaire a été envoyé avec succès !
+          </div>
+        )}
       </section>
 
       <div className="footer__bottom">
         <p>&copy; 2025 SupaCo Digital. Tous droits réservés.</p>
       </div>
-
-      {/* MODALE DE SUCCÈS */}
-      {showModal && (
-        <div className="success-modal-backdrop">
-          <div className="success-modal">
-            <p>🎉 Merci ! Votre message a bien été envoyé.</p>
-            <button onClick={() => setShowModal(false)}>Fermer</button>
-          </div>
-        </div>
-      )}
     </footer>
   );
 }
