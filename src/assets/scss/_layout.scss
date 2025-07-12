@@ -226,57 +226,59 @@
     textarea {
       min-height: 120px;
       resize: vertical;
-      font-family: "Inter", sans-serif;
     }
+  }
 
-    .checkbox-tabs {
-      border: none;
-      padding: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background-color: #f9fafc;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
-      legend {
-        width: 100%;
-        font-weight: 600;
-        font-size: $font-size-lg;
-        margin-bottom: 0.5rem;
-        color: $text;
-      }
-
-      .checkbox-tab {
-        position: relative;
-        cursor: pointer;
-
-        input[type="checkbox"] {
-          display: none;
-        }
-
-        span {
-          display: inline-block;
-          padding: 1rem 1.5rem;
-          border: solid 2px #000;
-          color: $text;
-          border-radius: $radius-lg;
-          font-size: $font-size-md;
-          font-weight: bold;
-          transition: background-color 0.3s, color 0.3s;
-        }
-
-        input[type="checkbox"]:checked + span {
+  .checkbox-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: none;
+    padding: 1rem;
+  
+    legend {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      font-size: $font-size-lg;
+    }
+  
+    .checkbox-tab {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+  
+      input[type="checkbox"] {
+        display: none;
+  
+        &:checked + span {
           background: $bg-color;
           color: #fff;
+          border-color: #fff;
         }
-
-        span:hover {
-          background-color: #dbe6f9;
+      }
+  
+      span {
+        display: inline-block;
+        padding: 0.5rem 0.9rem;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        color: #333;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-size: $font-size-md;
+  
+        &:hover {
+          background-color: #e2e6ea;
         }
       }
     }
   }
+  
+  
+  
+
+
 
   .social-btn {
     display: flex;

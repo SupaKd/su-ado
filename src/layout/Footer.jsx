@@ -99,7 +99,7 @@ function Footer() {
           {errors.Email && <p className="error">{errors.Email.message}</p>}
 
           <fieldset class="checkbox-tabs">
-            <legend>Que souhaitez-vous ?</legend>
+            <legend>Que souhaitez‑vous&nbsp;?</legend>
 
             <label class="checkbox-tab">
               <input
@@ -107,7 +107,7 @@ function Footer() {
                 value="Site vitrine"
                 {...register("Prestation")}
               />
-              <span>Site vitrine</span>
+              <span>Vitrine</span>
             </label>
 
             <label class="checkbox-tab">
@@ -116,7 +116,7 @@ function Footer() {
                 value="Site e-commerce"
                 {...register("Prestation")}
               />
-              <span>Site e-commerce</span>
+              <span>E-commerce</span>
             </label>
 
             <label class="checkbox-tab">
