@@ -9,11 +9,10 @@ function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
-  // Simule le chargement initial
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // tu peux ajuster le temps selon tes besoins
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);

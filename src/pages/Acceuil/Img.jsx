@@ -16,7 +16,7 @@ function Img () {
       </Link>
     </div>
     <div className="project-image">
-      <img src="/flyers.webp" alt="Mockup site web"/>
+      <img src="/vitrine.webp" alt="Mockup site web"/>
     </div>
   </div>
 </section>

@@ -5,10 +5,22 @@ import Question from "./Acceuil/Question";
 import LogoSlider from "../components/LogoSlider";
 import Img from "../pages/Acceuil/Img";
 import ScrollRevealWrapper from "../components/ScrollRevealWrapper";
+import { motion } from "framer-motion";
+
+const pageTransition = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+};
 
 function Home() {
   return (
-    <main>
+    <motion.main
+      variants={pageTransition}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <ScrollRevealWrapper>
         <Hero />
       </ScrollRevealWrapper>
@@ -32,7 +44,7 @@ function Home() {
       <ScrollRevealWrapper delay={0.5}>
         <Question />
       </ScrollRevealWrapper>
-    </main>
+    </motion.main>
   );
 }
 

@@ -98,10 +98,10 @@ function Footer() {
           />
           {errors.Email && <p className="error">{errors.Email.message}</p>}
 
-          <fieldset class="checkbox-tabs">
+          <fieldset className="checkbox-tabs">
             <legend>Que souhaitez‑vous&nbsp;?</legend>
 
-            <label class="checkbox-tab">
+            <label className="checkbox-tab">
               <input
                 type="checkbox"
                 value="Site vitrine"
@@ -110,7 +110,7 @@ function Footer() {
               <span>Vitrine</span>
             </label>
 
-            <label class="checkbox-tab">
+            <label className="checkbox-tab">
               <input
                 type="checkbox"
                 value="Site e-commerce"
@@ -119,18 +119,18 @@ function Footer() {
               <span>E-commerce</span>
             </label>
 
-            <label class="checkbox-tab">
+            <label className="checkbox-tab">
               <input type="checkbox" value="Logo" {...register("Prestation")} />
               <span>Logo</span>
             </label>
 
-            <label class="checkbox-tab">
+            <label className="checkbox-tab">
               <input
                 type="checkbox"
                 value="Flyers"
                 {...register("Prestation")}
               />
-              <span>Flyers</span>
+              <span>Visuelle</span>
             </label>
           </fieldset>
 
@@ -156,7 +156,7 @@ function Footer() {
             </div>
             <div>
               <button type="submit">
-                <span class="button_top">Envoyer</span>
+                <span className="button_top">Envoyer</span>
               </button>
             </div>
           </div>
