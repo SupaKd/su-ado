@@ -1,35 +1,36 @@
 import React from 'react';
+import Marquee from 'react-fast-marquee';
 
 const logos = [
   '/2onbini.webp',
   'belli.webp',
-  'supa.webp',
+  'aqua.webp',
   '/supasushi.webp',
   '/2onbini.webp',
   'belli.webp',
-  'supa.webp',
+  'aqua.webp',
   '/supasushi.webp',
-  '/2onbini.webp',
-  'belli.webp',
-  'supa.webp',
-  '/supasushi.webp',
-  '/2onbini.webp',
-  'belli.webp',
-  'supa.webp',
-  '/supasushi.webp',
-  // Ajoute autant de logos que nécessaire
 ];
 
 const LogoSlider = () => {
   return (
-    <div className="logo-slider">
-        <h3>Des projets, des rencontres, de la confiance</h3>
-      <div className="slider-track">
-        {logos.concat(logos).map((logo, index) => (
-          <div className="slide" key={index}>
-            <img src={logo} alt={`logo-${index}`} />
-          </div>
-        ))}
+    <div className="logo-slider-container">
+      <h3 className="title">Des projets, des rencontres, de la confiance</h3>
+      <div className="marquee-wrapper">
+        <Marquee
+          direction="right"
+          speed={40}
+          gradient={true}
+          gradientColor={[255, 255, 255]} // blanc
+          gradientWidth={100}
+          pauseOnHover={true}
+        >
+          {logos.map((logo, index) => (
+            <div key={index} className="logo-slide">
+              <img src={logo} alt={`logo-${index}`} className="logo-img" />
+            </div>
+          ))}
+        </Marquee>
       </div>
     </div>
   );
