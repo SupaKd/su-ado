@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 
-const pageTransition = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
-};
-
 function Portfolio() {
+  const pageTransition = {
+    initial: { opacity: 0, y: 30 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
+
   return (
     <motion.section
       className="portfolio"
@@ -22,7 +26,11 @@ function Portfolio() {
           <div className="content">
             <h3>BelliFood</h3>
             <p>Projet pour un site vitrine de restauration.</p>
-            <a href="https://bellifood.vercel.app" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://bellifood.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Voir le site
             </a>
           </div>

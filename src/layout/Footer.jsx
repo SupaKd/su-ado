@@ -162,7 +162,6 @@ function Footer() {
           </div>
         </form>
 
-        {/* Message de succès + confettis */}
         {showSuccess && (
           <div className="success-message">
             🎉 Votre formulaire a été envoyé avec succès !

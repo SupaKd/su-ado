@@ -2,25 +2,69 @@
   padding: 2rem;
   background: #f9f9f9;
 
-.serv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 2rem;
-  gap:4rem;
-  img {
-    width: 130px;
-    height: 100px;
+  .serv {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content:space-between;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  
+    img {
+      width: 150px;
+      height: auto;
+      object-fit: contain;
+      animation: fadeIn 1s ease-in-out;
+    }
+  
+    h2 {
+      font-size: $font-size-xl;
+      font-weight: bold;
+      color: $text;
+      text-align: center;
+      animation: slideIn 1s ease-in-out;
+    }
+  
+    // Version desktop/tablette
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      gap: 2.5rem;
+  
+      h2 {
+        font-size: 2.5rem;
+        text-align: left;
+      }
+  
+      img {
+        width: 100px;
+      }
+    }
   }
-}
-
-  h2 {
-    text-align:start;
-    font-size: $font-size-xl;
-    margin-bottom: 4rem;
-    border-bottom: solid 3px #111;
-
+  
+  // Animations
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+ 
 }
 
 .slider-wrapper {

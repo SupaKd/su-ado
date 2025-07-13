@@ -1,40 +1,48 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
-const services = [
-  {
-    title: "Site vitrine >",
-    description:
-      "Nous concevons des sites vitrines modernes, élégants et adaptés à tous les supports. Idéal pour présenter votre activité, vos services ou votre savoir-faire, le site vitrine renforce votre image professionnelle et améliore votre visibilité en ligne.",
-    image: "supacofooter.webp",
-  },
-  {
-    title: "Site e-commerce >",
-    description:
-      "Nous créons des boutiques en ligne performantes, sécurisées et faciles à gérer. Que vous souhaitiez vendre quelques produits ou lancer un catalogue complet, je vous accompagne dans la création d’un site e-commerce sur mesure, optimisé pour convertir vos visiteurs en clients.",
-    image: "supacofooter.webp",
-  },
-  {
-    title: "Logo >",
-    description:
-      "Votre identité visuelle commence par un logo fort et mémorable. Je crée pour vous un logo unique, à votre image, qui véhicule les valeurs de votre marque ou activité.",
-    image: "supacofooter.webp",
-  },
-  {
-    title: "Flyers >",
-    description:
-      "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
-    image: "supacofooter.webp",
-  },
-];
+import Typewriter from "typewriter-effect";
 
 function Service() {
+  const services = [
+    {
+      title: "Site vitrine >",
+      description:
+        "Nous concevons des sites vitrines modernes, élégants et adaptés à tous les supports. Idéal pour présenter votre activité, vos services ou votre savoir-faire, le site vitrine renforce votre image professionnelle et améliore votre visibilité en ligne.",
+      image: "supacofooter.webp",
+    },
+    {
+      title: "Site e-commerce >",
+      description:
+        "Nous créons des boutiques en ligne performantes, sécurisées et faciles à gérer. Que vous souhaitiez vendre quelques produits ou lancer un catalogue complet, je vous accompagne dans la création d’un site e-commerce sur mesure, optimisé pour convertir vos visiteurs en clients.",
+      image: "supacofooter.webp",
+    },
+    {
+      title: "Logo >",
+      description:
+        "Votre identité visuelle commence par un logo fort et mémorable. Je crée pour vous un logo unique, à votre image, qui véhicule les valeurs de votre marque ou activité.",
+      image: "supacofooter.webp",
+    },
+    {
+      title: "Flyers >",
+      description:
+        "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
+      image: "supacofooter.webp",
+    },
+  ];
   return (
     <section className="services" id="service">
       <div className="serv">
         <img src="deco.webp" alt="deco" />
-        <h2>Nos services</h2>
+        <h2>
+          <Typewriter
+            options={{
+              strings: ["Nos services"],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </h2>
       </div>
       <div className="services__slider">
         {services.map((service, index) => (

@@ -2,41 +2,41 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const faqs = [
-  {
-    question: "Combien de temps pour la création d'un site internet ?",
-    answer: (
-      <>
-        Afin de répondre au mieux à vos besoins, nous aimons vous recevoir
-        dans le but de cibler votre demande. <br />
-        Suite à ce premier contact, nous vous envoyons un cahier des
-        charges/devis contenant toutes les étapes requises, ce qui nous permet
-        d'avancer dans la sérénité.
-        <br />
-        <br />
-        Les étapes varient selon le projet… alors,{" "}
-        <a href="/contact">contactez-nous !</a>
-      </>
-    ),
-  },
-  {
-    question: "Ça coûte combien un logo ?",
-    answer:
-      "Le prix dépend du style, du nombre de propositions, et de l’utilisation prévue. On s’adapte à votre budget : parlons-en !",
-  },
-  {
-    question: "Combien coûte un site ?",
-    answer:
-      "Un site vitrine ? E-commerce ? Landing page ? Chaque projet est unique ! Discutons de vos besoins pour établir un devis clair et transparent.",
-  },
-];
-
 function Question() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
     setOpenIndex(index === openIndex ? null : index);
   };
+
+  const faqs = [
+    {
+      question: "Combien de temps pour la création d'un site internet ?",
+      answer: (
+        <>
+          Afin de répondre au mieux à vos besoins, nous aimons vous recevoir
+          dans le but de cibler votre demande. <br />
+          Suite à ce premier contact, nous vous envoyons un cahier des
+          charges/devis contenant toutes les étapes requises, ce qui nous permet
+          d'avancer dans la sérénité.
+          <br />
+          <br />
+          Les étapes varient selon le projet… alors,{" "}
+          <a href="/contact">contactez-nous !</a>
+        </>
+      ),
+    },
+    {
+      question: "Ça coûte combien un logo ?",
+      answer:
+        "Le prix dépend du style, du nombre de propositions, et de l’utilisation prévue. On s’adapte à votre budget : parlons-en !",
+    },
+    {
+      question: "Combien coûte un site ?",
+      answer:
+        "Un site vitrine ? E-commerce ? Landing page ? Chaque projet est unique ! Discutons de vos besoins pour établir un devis clair et transparent.",
+    },
+  ];
 
   return (
     <section className="faq">

@@ -1,7 +1,6 @@
 function Projet() {
-    return(
-        <>
-            <section className="projects">
+  return (
+    <section className="projects">
       <div className="projects__content">
         <h2>Quelques réalisations</h2>
         <p>
@@ -14,7 +13,6 @@ function Projet() {
         <img src="/supahero.webp" alt="Mockup projet Le Comptoir" />
       </div>
     </section>
-        </>
-    )
+  );
 }
 export default Projet;

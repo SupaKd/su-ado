@@ -1,19 +1,22 @@
-import Hero from "./Acceuil/Hero";
-import Service from "./Acceuil/Service";
-import Method from "./Acceuil/Method";
-import Question from "./Acceuil/Question";
-import LogoSlider from "../components/LogoSlider";
-import Img from "../pages/Acceuil/Img";
-import ScrollRevealWrapper from "../components/ScrollRevealWrapper";
+import Hero from "../home/Hero";
+import Service from "../home/Service";
+import Method from "../home/Method";
+import Question from "../home/Question";
+import LogoSlider from "../../components/LogoSlider";
+import Img from "../home/Img";
+import ScrollRevealWrapper from "../../components/ScrollRevealWrapper";
 import { motion } from "framer-motion";
 
-const pageTransition = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
-};
-
 function Home() {
+  const pageTransition = {
+    initial: { opacity: 0, y: 30 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
   return (
     <motion.main
       variants={pageTransition}
