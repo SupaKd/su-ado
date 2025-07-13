@@ -16,7 +16,7 @@ function Footer() {
 
   const launchConfetti = () => {
     confetti({
-      particleCount: 200,
+      particleCount: 500,
       spread: 100,
       origin: { y: 0.6 },
     });

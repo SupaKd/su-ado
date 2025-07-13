@@ -5,8 +5,8 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <h1>Bienvenue chez SupaCo !</h1>
-        <h2>
+      <h1>Bienvenue chez <span className="highlight-title">SupaCo</span> !</h1>
+      <h2>
           <Typewriter
             options={{
               strings: [
