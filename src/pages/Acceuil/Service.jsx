@@ -74,6 +74,7 @@ function Service() {
                 >
                   {service.description}
                 </Dialog.Description>
+                <button className="modal-btn">Devis</button>
                 <Dialog.Close
                   className="modal-close"
                   aria-label="Fermer la fenêtre modale"
