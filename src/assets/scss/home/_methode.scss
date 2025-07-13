@@ -1,102 +1,88 @@
 .method {
-    background-color: #ede0d4;
-    padding: 3rem 2rem;
-    margin: 3rem 1rem;
-    border-radius: $radius-lg;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5rem ;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, #11B8E6 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, #1C60E7 0%, transparent 50%);
+    animation: moveGradient 15s infinite linear;
+    z-index: 0;
+    opacity: 0.25;       /* augmente l’opacité */
+    filter: blur(50px);  /* moins de flou */
+    pointer-events: none;
+  }
+
+
+  &__container {
     position: relative;
-    @include slide-left;
-    
-    h2 {
-      margin: 2rem;
-      font-size: $font-size-xl;
-      text-align: center;
-    }
-    &__title {
-      font-size: $font-size-xl;
-      color: $text;
-      font-weight: 800;
-      text-transform: lowercase;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-  
-    &__steps {
-      position: relative;
-      border-left: 2px solid $text;
-      margin-left: 1rem;
-      padding-left: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-  
-    &__step {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-  
-      &::before {
-        content: "";
-        position: absolute;
-        left: -2.4rem;
-        top: 0.3rem;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: $text;
-      }
-  
-      h3 {
-        font-size: $font-size-md;
-        font-weight: 700;
-        background-color: $bg-color;
-        border: solid 1px #111;
-        display: inline-block;
-        padding: 0.4rem 1rem;
-        border-radius: $radius-md;
-        margin: 0;
-      }
-  
-      p {
-        font-size: $font-size-md;
-        color: $text;
-        margin-top: 0.3rem;
-      }
+    z-index: 1;
+  }
+
+
+  &__title {
+    font-size: $font-size-xl;
+    text-align: center;
+    font-weight: 700;
+    margin: 2rem;
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 4rem;
     }
   }
 
-  @media (min-width: 1024px) {
-    .method {
-      &__steps {
-        flex-direction: row;
-        border-left: none;
-        margin-left: 0;
-        padding-left: 0;
-        justify-content: space-between;
-      }
-  
-      &__step {
-        flex: 1;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 0;
-        position: relative;
-  
-        &::before {
-          left: 0; 
-          top: -2rem;
-          margin: auto;
-        }
-  
-        h3 {
-          font-size: $font-size-lg;
-        }
-  
-        p {
-          font-size: $font-size-md;
-        }
-      }
+  &__card {
+    background-color: $primary-color;
+    border-radius: $radius-lg;
+    padding: 2rem;
+    margin: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
   }
+
+  &__icon {
+    font-size: $font-size-xl;
+    color: $button;
+    margin-bottom: 0rem;
+  }
+
+  &__card-desc {
+    font-size: 1.3rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+}
+
+@keyframes moveGradient {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10%, 10%) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}

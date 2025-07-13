@@ -1,40 +1,54 @@
 // src/components/Method.jsx
-function Method() {
-    return (
-      <section className="method">
-                  <h2>Nos méthodes</h2>
+import { motion } from "framer-motion";
+import { FaSearch, FaLightbulb, FaTools, FaRocket } from "react-icons/fa";
 
-        <div className="method__steps">
-          {[
-            {
-                title: "1. Découverte",
-                desc: "Échange initial pour comprendre tes besoins, objectifs et contraintes.",
-              },
-              {
-                title: "2. Stratégie",
-                desc: "Définition d’un plan d’action clair adapté à ton activité et ton audience.",
-              },
-              {
-                title: "3. Construction",
-                desc: "Développement du projet avec suivi régulier et ajustements en temps réel.",
-              },
-              {
-                title: "4. Livraison",
-                desc: "Mise en ligne finale, optimisations et accompagnement post-lancement.",
-              },
-          ].map((step, index) => (
-            <div className="method__step" key={index}>
-              <div className="method__bullet" />
-              <div className="method__content">
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
-            </div>
+const steps = [
+  {
+    title: "Découverte",
+    desc: "Échange initial pour comprendre tes besoins, objectifs et contraintes.",
+    icon: <FaSearch />,
+  },
+  {
+    title: "Stratégie",
+    desc: "Définition d’un plan d’action clair adapté à ton activité et ton audience.",
+    icon: <FaLightbulb />,
+  },
+  {
+    title: "Construction",
+    desc: "Développement du projet avec suivi régulier et ajustements en temps réel.",
+    icon: <FaTools />,
+  },
+  {
+    title: "Livraison",
+    desc: "Mise en ligne finale, optimisations et accompagnement post-lancement.",
+    icon: <FaRocket />,
+  },
+];
+
+function Method() {
+  return (
+    <section className="method">
+      <div className="method__container">
+        <h2 className="method__title">Nos méthodes</h2>
+        <div className="method__timeline">
+          {steps.map((step, index) => (
+            <motion.div
+              className="method__card"
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <div className="method__icon">{step.icon}</div>
+              <h3 className="method__card-title">{step.title}</h3>
+              <p className="method__card-desc">{step.desc}</p>
+            </motion.div>
           ))}
         </div>
-      </section>
-    );
-  }
-  
-  export default Method;
-  
+      </div>
+    </section>
+  );
+}
+
+export default Method;
