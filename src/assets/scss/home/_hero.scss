@@ -14,9 +14,16 @@
     padding: 20rem 1.5rem 9rem 1.5rem;
     margin: 0;
     text-align: center;
-  
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      @include slide-top;
+    }
+    h2 {
+      font-size: 1.5rem;
       color: $primary-color;
       margin-bottom: 5rem;
       font-weight: 700;
@@ -35,20 +42,28 @@
     button {
       background: $bg-color;
       color: $primary-color;
-      border: none;
       padding: 1.5rem 2rem;
       font-size: 1.5rem;
-      border-radius: $radius-md;
-      cursor: pointer;
       font-weight: 600;
-      transition: $transition-base;
+      cursor: pointer;
+      border: 2px solid $bg-color; // bordure visible
+      border-radius: $radius-md;
+      transition: all 0.2s ease;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
       @include slide-top;
-  
-  
+    
       &:hover {
         border-radius: $radius-lg;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 1); // ombre plus forte au hover
+        transform: translateY(-2px); // petit lift au survol
+      }
+    
+      &:active {
+        transform: translate(2px, 2px); // effet d’appui enfoncé
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); // ombre plus petite
       }
     }
+    
   }
   
   // ==============================

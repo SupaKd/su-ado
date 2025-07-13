@@ -25,6 +25,16 @@
       background: $bg-color;
       color: $primary-color;
       border: none;
+      color: $primary-color;
+      padding: 1rem 2rem;
+      font-size: $font-size-md;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid $bg-color; // bordure visible
+      border-radius: $radius-md;
+      transition: all 0.2s ease;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
+      @include slide-top;
     }
   }
 
@@ -58,7 +68,7 @@
 
   .devis {
     color: $text;
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 2rem;
     border: solid 1px $text;
     border-radius: $radius-md;
     font-weight: 400;
