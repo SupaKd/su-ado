@@ -12,6 +12,14 @@ const LogoSlider = () => {
     "belli.webp",
     "aqua.webp",
     "/supasushi.webp",
+    "/2onbini.webp",
+    "belli.webp",
+    "aqua.webp",
+    "/supasushi.webp",
+    "/2onbini.webp",
+    "belli.webp",
+    "aqua.webp",
+    "/supasushi.webp",
   ];
   return (
     <section className="logo-slider-container">
@@ -32,8 +40,7 @@ const LogoSlider = () => {
         </Marquee>
           <h3 className="title">Des projets, des rencontres, de la confiance</h3>
       </div>
-      <NavLink className="voir" to="/portfolio">Voir plus</NavLink>
-
+      <NavLink className="voir" to="/portfolio">PROJETS</NavLink>
     </section>
   );
 };

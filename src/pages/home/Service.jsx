@@ -2,6 +2,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Typewriter from "typewriter-effect";
+import { NavLink } from "react-router-dom";
 
 function Service() {
   const services = [
@@ -9,7 +10,7 @@ function Service() {
       title: "Site vitrine >",
       description:
         "Nous concevons des sites vitrines modernes, élégants et adaptés à tous les supports. Idéal pour présenter votre activité, vos services ou votre savoir-faire, le site vitrine renforce votre image professionnelle et améliore votre visibilité en ligne.",
-      image: "supacofooter.webp",
+      image: "vitrine2.webp",
     },
     {
       title: "Site e-commerce >",
@@ -21,13 +22,13 @@ function Service() {
       title: "Logo >",
       description:
         "Votre identité visuelle commence par un logo fort et mémorable. Je crée pour vous un logo unique, à votre image, qui véhicule les valeurs de votre marque ou activité.",
-      image: "supacofooter.webp",
+      image: "logo2.webp",
     },
     {
       title: "Flyers >",
       description:
         "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
-      image: "supacofooter.webp",
+      image: "fly2.webp",
     },
   ];
   return (
@@ -82,7 +83,9 @@ function Service() {
                 >
                   {service.description}
                 </Dialog.Description>
-                <button className="modal-btn">Devis</button>
+                <NavLink to="service">
+                  <button className="modal-btn">Devis</button>
+                </NavLink>
                 <Dialog.Close
                   className="modal-close"
                   aria-label="Fermer la fenêtre modale"

@@ -56,7 +56,7 @@ function Footer() {
   return (
     <footer className="footer-form" id="devis">
       <section>
-        <img src="supacofooter.webp" alt="footer" />
+        <img src="contact2.webp" alt="footer" />
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <h2>Partage-nous ton projet !</h2>
 

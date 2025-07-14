@@ -4,43 +4,42 @@
 
   .serv {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
-  
+
     img {
-      width: 150px;
+      width: 100px;
       height: auto;
       object-fit: contain;
       animation: fadeIn 1s ease-in-out;
     }
-  
+
     h2 {
-      font-size: $font-size-xl;
+      font-size: 2.4rem;
       font-weight: bold;
       color: $text;
       text-align: center;
       animation: slideIn 1s ease-in-out;
     }
-  
+
     // Version desktop/tablette
     @media screen and (min-width: 768px) {
       flex-direction: row;
       gap: 2.5rem;
-  
+
       h2 {
-        font-size: 2.5rem;
-        text-align: left;
+        display: none;
       }
-  
+
       img {
-        width: 100px;
+        width: 200px;
       }
     }
   }
-  
+
   // Animations
   @keyframes fadeIn {
     from {
@@ -52,7 +51,7 @@
       transform: scale(1);
     }
   }
-  
+
   @keyframes slideIn {
     from {
       transform: translateY(20px);
@@ -63,8 +62,6 @@
       opacity: 1;
     }
   }
-  
- 
 }
 
 .slider-wrapper {
@@ -93,7 +90,7 @@
 
 .service-card {
   flex: 0 0 250px;
-  background: white;
+  background: #fff;
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
@@ -107,12 +104,12 @@
   img {
     width: 100%;
     height: 100px;
-    object-fit:contain;
-    margin-top: 2rem;
+    object-fit: contain;
+    margin-top: 6rem;
   }
 
   &__content {
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
 
     h3 {
@@ -161,30 +158,29 @@
     animation: dialogShow 0.3s forwards;
   }
 
-  p{
+  p {
     font-size: $font-size-md;
   }
   button {
-      background: transparent;
-      color: $text;
-      padding: 1rem 1.5rem;
-      margin:1rem;
-      font-size: $font-size-md;
-      font-weight: 600;
-      cursor: pointer;
-      border: 4px solid #111; // bordure visible
-      border-radius: $radius-md;
-      transition: all 0.2s ease;
-      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
-  
-      &:hover {
-        border-radius: $radius-lg;
-        box-shadow: 8px 8px 0 rgba(0, 0, 0, 1); // ombre plus forte au hover
-        transform: translateY(-2px); // petit lift au survol
-      }
+    background: transparent;
+    color: $text;
+    padding: 1rem 1.5rem;
+    margin:1rem;
+    font-size: $font-size-md;
+    font-weight: 600;
+    cursor: pointer;
+    border: 4px solid #111; // bordure visible
+    border-radius: $radius-md;
+    transition: all 0.2s ease;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
+
+    &:hover {
+      border-radius: $radius-lg;
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 1); // ombre plus forte au hover
+      transform: translateY(-2px); // petit lift au survol
+    }
   }
 }
-
 
 .modal-close {
   position: absolute;
@@ -202,13 +198,15 @@
     padding: 3rem;
     font-size: 1.1rem;
   }
-
+  h2{
+font-size: 6rem;
+  }
   .service-card {
     flex: 0 0 300px;
   }
 
   .services__slider {
-    gap: 1.5rem;
+    gap: 6rem;
     padding-bottom: 2rem;
   }
 }
