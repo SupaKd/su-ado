@@ -58,6 +58,7 @@
       overflow: hidden;
       transition: all 0.3s ease;
       text-align: center;
+      @include flex-center;
 
       &:hover {
         border-radius: $radius-lg;
@@ -71,8 +72,7 @@
       }
 
       img {
-        width: 100%;
-        height: auto;
+        width: 150px;
         display: block;
       }
 
@@ -116,6 +116,7 @@
           }
         }
       }
+      
     }
   }
 }
@@ -127,7 +128,9 @@
       h2 {
         font-size: 3.5rem;
       }
-
+.card {
+  @include flex-column;
+}
       .grid {
         grid-template-columns: repeat(3, 1fr);
       }

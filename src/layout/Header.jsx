@@ -38,7 +38,7 @@ function Header() {
         <img src="/desk_logo.webp" alt="Logo" />
       </Link>
 
-      <a href="#devis" className="devis">Devis</a>
+      <a href="#devis" className="devis">DEVIS</a>
 
 
       <nav

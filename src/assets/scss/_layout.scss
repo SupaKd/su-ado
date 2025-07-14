@@ -25,10 +25,9 @@
       background: $bg-color;
       color: $primary-color;
       border: none;
-      color: $primary-color;
       padding: 1rem 2rem;
       font-size: $font-size-md;
-      font-weight: 600;
+      font-weight: bold;
       cursor: pointer;
       border: 4px solid #111; // bordure visible
       border-radius: $radius-md;
@@ -73,7 +72,7 @@
     color: $text;
     padding: 1rem 2rem;
     font-size: $font-size-md;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
     border: 4px solid #111; // bordure visible
     border-radius: $radius-md;

@@ -41,7 +41,6 @@ function Question() {
   return (
     <section className="faq">
       <div className="faq__intro">
-        <span className="faq__label">Questions fréquentes</span>
         <h2>FAQ</h2>
         <p>
           Retrouve ici toutes les réponses à tes interrogations. Et même celles
