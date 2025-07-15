@@ -33,10 +33,13 @@ function Footer() {
     formData.append("_template", "table");
 
     try {
-      const response = await fetch("https://formsubmit.co/contact@supaco.fr", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://formsubmit.co/contact@supaco-digital.com",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         launchConfetti();
@@ -62,7 +65,7 @@ function Footer() {
 
           <input
             type="text"
-            placeholder="Nom"
+            placeholder="NOM"
             {...register("Nom", { required: "Le nom est requis" })}
             className={errors.Nom ? "input-error" : ""}
           />
@@ -70,7 +73,7 @@ function Footer() {
 
           <input
             type="tel"
-            placeholder="Téléphone"
+            placeholder="TÉLÉPHONE"
             {...register("Téléphone", {
               required: "Le numéro est requis",
               pattern: {
@@ -86,7 +89,7 @@ function Footer() {
 
           <input
             type="email"
-            placeholder="E-mail"
+            placeholder="E-MAIL"
             {...register("Email", {
               required: "L'email est requis",
               pattern: {
@@ -134,7 +137,11 @@ function Footer() {
             </label>
           </fieldset>
 
-          <textarea placeholder="Votre projet..."></textarea>
+          <textarea
+            placeholder="Votre projet..."
+            {...register("Projet", { required: "Le projet est requis" })}
+            className={errors.Projet ? "input-error" : ""}
+          />
           {errors.Projet && <p className="error">{errors.Projet.message}</p>}
 
           <div className="social-btn">

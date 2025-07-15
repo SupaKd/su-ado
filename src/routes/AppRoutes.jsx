@@ -4,12 +4,13 @@ import { AnimatePresence } from "framer-motion";
 import Home from "../pages/home/Home";
 import Contact from "../pages/Contact";
 import Portfolio from "../pages/Portfolio";
-
+import ScrollToTop from "../components/ScrollToTop";
 function AppRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
+       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />

@@ -41,9 +41,9 @@ function Portfolio() {
     },
     {
       id: 3,
-      title: "Projet Two",
-      description: "En cours...",
-      img: "/logoo.webp",
+      title: "Projet",
+      description: "Projet bientôt disponible...",
+      img: "/supasushi.webp",
       link: "#",
     },
   ];

@@ -7,19 +7,15 @@ const LogoSlider = () => {
     "/2onbini.webp",
     "belli.webp",
     "aqua.webp",
-    "/supasushi.webp",
     "/2onbini.webp",
     "belli.webp",
     "aqua.webp",
-    "/supasushi.webp",
     "/2onbini.webp",
     "belli.webp",
     "aqua.webp",
-    "/supasushi.webp",
     "/2onbini.webp",
     "belli.webp",
     "aqua.webp",
-    "/supasushi.webp",
   ];
   return (
     <section className="logo-slider-container">
