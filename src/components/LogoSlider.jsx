@@ -24,7 +24,7 @@ const LogoSlider = () => {
           direction="right"
           speed={40}
           gradient={true}
-          gradientColor={[255, 255, 255]}
+          gradientColor={[249, 249, 249]}
           gradientWidth={100}
           pauseOnHover={true}
         >
@@ -34,8 +34,8 @@ const LogoSlider = () => {
             </div>
           ))}
         </Marquee>
-          <h3 className="title">Des projets, des rencontres, de la confiance</h3>
       </div>
+          <h3 className="title">Des projets, des rencontres, de la confiance</h3>
       <NavLink className="voir" to="/portfolio">PROJETS</NavLink>
     </section>
   );
