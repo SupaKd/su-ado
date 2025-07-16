@@ -19,6 +19,12 @@ const LogoSlider = () => {
   ];
   return (
     <section className="logo-slider-container">
+      <div className="title-slide">
+        <h3 className="title">Des projets, des rencontres, de la confiance</h3>
+        <NavLink className="voir" to="/portfolio">
+          PROJETS
+        </NavLink>
+      </div>
       <div className="marquee-wrapper">
         <Marquee
           direction="right"
@@ -35,8 +41,6 @@ const LogoSlider = () => {
           ))}
         </Marquee>
       </div>
-          <h3 className="title">Des projets, des rencontres, de la confiance</h3>
-      <NavLink className="voir" to="/portfolio">PROJETS</NavLink>
     </section>
   );
 };

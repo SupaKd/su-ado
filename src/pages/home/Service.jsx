@@ -11,6 +11,7 @@ function Service() {
       description:
         "Nous concevons des sites vitrines modernes, élégants et adaptés à tous les supports. Idéal pour présenter votre activité, vos services ou votre savoir-faire, le site vitrine renforce votre image professionnelle et améliore votre visibilité en ligne.",
       image: "vitrine2.webp",
+      
     },
     {
       title: "Site e-commerce >",
@@ -33,17 +34,15 @@ function Service() {
   ];
   return (
     <section className="services" id="service">
+      <div className="pre">
+      <h2>RÉIMAGINER VOTRE IMAGE</h2>
+      <p>Sites web, logos, identité visuelle, SupaCo transforme vos idées en résultats concrets. Design moderne, impact garanti.</p>
+      </div>
       <div className="serv">
         <img src="deco.webp" alt="deco" />
-        <h2>
-          <Typewriter
-            options={{
-              strings: ["Nos services"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h2>
+        <p>
+          Nos services
+        </p>
       </div>
       <div className="services__slider">
         {services.map((service, index) => (

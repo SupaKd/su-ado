@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import confetti from "canvas-confetti";
+import emailjs from "@emailjs/browser"; // ✅ Ajouté
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+// Remplace ces 3 constantes par tes vraies infos EmailJS :
+const SERVICE_ID = "service_i1vee7y";
+const TEMPLATE_ID = "template_l57if82";
+const PUBLIC_KEY = "crjyM7CbUuPkyfBTT";
 
 function Footer() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -23,36 +29,20 @@ function Footer() {
   };
 
   const onSubmit = async (data) => {
-    const formData = new FormData();
-
-    for (const key in data) {
-      formData.append(key, data[key]);
-    }
-
-    formData.append("_captcha", "false");
-    formData.append("_template", "table");
-
     try {
-      const response = await fetch(
-        "https://formsubmit.co/contact@supaco-digital.com",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
 
-      if (response.ok) {
+      if (response.status === 200) {
         launchConfetti();
         setShowSuccess(true);
         reset();
-
         setTimeout(() => setShowSuccess(false), 4000);
       } else {
         alert("Erreur lors de l'envoi.");
       }
     } catch (error) {
+      console.error("Erreur d'envoi :", error);
       alert("Une erreur s'est produite.");
-      console.error(error);
     }
   };
 
@@ -83,9 +73,7 @@ function Footer() {
             })}
             className={errors.Téléphone ? "input-error" : ""}
           />
-          {errors.Téléphone && (
-            <p className="error">{errors.Téléphone.message}</p>
-          )}
+          {errors.Téléphone && <p className="error">{errors.Téléphone.message}</p>}
 
           <input
             type="email"
@@ -123,7 +111,11 @@ function Footer() {
             </label>
 
             <label className="checkbox-tab">
-              <input type="checkbox" value="Logo" {...register("Prestation")} />
+              <input
+                type="checkbox"
+                value="Logo"
+                {...register("Prestation")}
+              />
               <span>Logo</span>
             </label>
 
@@ -133,12 +125,12 @@ function Footer() {
                 value="Flyers"
                 {...register("Prestation")}
               />
-              <span>Visuelle</span>
+              <span>Flyers</span>
             </label>
           </fieldset>
 
           <textarea
-            placeholder="Votre projet..."
+            placeholder="VOTRE PROJET..."
             {...register("Projet", { required: "Le projet est requis" })}
             className={errors.Projet ? "input-error" : ""}
           />
@@ -146,18 +138,10 @@ function Footer() {
 
           <div className="social-btn">
             <div className="footer-socials">
-              <a
-                href="https://wa.me/33783052412"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://wa.me/33783052412" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faWhatsapp} />
               </a>
-              <a
-                href="https://www.instagram.com/supa_c0/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.instagram.com/supa_c0/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>

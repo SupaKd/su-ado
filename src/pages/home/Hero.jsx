@@ -8,11 +8,8 @@ function Hero() {
           Bienvenue chez <span className="highlight-title">SupaCo</span> !
         </h1>
 
-        <h2>Boostez votre présence en ligne</h2>
-        <p>
-          Sites web, logos, identité visuelle : SupaCo transforme vos idées en
-          résultats concrets. Design moderne, impact garanti.
-        </p>
+        <h2>Boostez votre p<span>résence</span> en ligne</h2>
+       
 
         <NavLink to="/contact">
           <button>Contactez‑nous</button>

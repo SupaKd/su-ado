@@ -1,9 +1,13 @@
 .logo-slider-container {
   padding: 2rem 0rem;
+  margin:2rem 0;
   position: relative;
   overflow: hidden;
   text-align: center;
 
+  .title-slide {
+    margin: 1rem 0rem;
+  }
   .voir{
     background: #fff;
     color: #111;
@@ -60,7 +64,7 @@
   .logo-slide {
     display: flex;
     align-items: center;
-    padding-bottom:2rem;
+    padding:2rem 0rem;
     background-color: #f9f9f9;
     margin:1rem;
 

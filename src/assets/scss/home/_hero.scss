@@ -61,21 +61,18 @@
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: $primary-color;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     font-weight: 700;
     line-height: 1.1;
     @include slide-top;
+    span {
+      border-bottom: 3px solid #fff;
+    }
   }
 
-  p {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin: 0 auto 2rem;
-    color: $primary-color;
-    @include slide-top;
-  }
+ 
 
   button {
     background: $bg-color;
