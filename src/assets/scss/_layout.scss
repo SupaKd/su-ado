@@ -183,7 +183,7 @@
         padding: 1rem;
         color: $text;
         text-align: left;
-        font-weight: 500;
+        font-weight: bold;
         border: 2px solid #111;
       }
     }
@@ -197,9 +197,14 @@
 .footer-form {
   background-color: $bg-color;
   padding: 4rem 1.5rem;
+  justify-content: center;
 
+  .foto {
+    text-align: center;
+  }
   img {
-    width: 100%;
+    width: 70%;
+    justify-content: center;
   }
   .footer__bottom {
     text-align: center;
@@ -213,7 +218,6 @@
   section {
     max-width: 1200px;
     margin: 0 auto;
-    @include slide-top;
   }
 
   h2 {
@@ -426,7 +430,7 @@
 // Desktop Layout
 // ==============================
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .footer-form {
     section {
       display: grid;
@@ -445,6 +449,9 @@
     .footer-socials,
     .footer-credit {
       grid-column: 1 / -1;
+    }
+    img{
+      width: 100%;
     }
   }
 }

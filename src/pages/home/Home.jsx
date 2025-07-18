@@ -6,6 +6,7 @@ import LogoSlider from "../../components/LogoSlider";
 import Img from "../home/Img";
 import ScrollRevealWrapper from "../../components/ScrollRevealWrapper";
 import { motion } from "framer-motion";
+import HorizontalScroll from "../../components/HorizontalScroll";
 
 function Home() {
   const pageTransition = {
@@ -43,7 +44,10 @@ function Home() {
       <ScrollRevealWrapper delay={0.4}>
         <Img />
       </ScrollRevealWrapper>
-      
+
+      <ScrollRevealWrapper delay={0.4}>
+      <HorizontalScroll />
+      </ScrollRevealWrapper>
 
       <ScrollRevealWrapper delay={0.5}>
         <Question />

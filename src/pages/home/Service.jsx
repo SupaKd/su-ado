@@ -31,6 +31,12 @@ function Service() {
         "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
       image: "fly2.webp",
     },
+    {
+      title: "Video publicitaire >",
+      description:
+        "Attirez l’attention de vos clients dès le premier regard grâce à une vidéo publicitaire sur-mesure !",
+      image: "fly2.webp",
+    },
   ];
   return (
     <section className="services" id="service">

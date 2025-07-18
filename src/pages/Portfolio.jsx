@@ -30,7 +30,7 @@ function Portfolio() {
       title: "BelliFood",
       description: "Projet pour un site vitrine de restauration.",
       img: "/belli.webp",
-      link: "https://bellifood.vercel.app",
+      link: "https://bellifood.com/",
     },
     {
       id: 2,
