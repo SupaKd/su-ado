@@ -29,7 +29,7 @@ function Question() {
     {
       question: "Ça coûte combien un logo ?",
       answer:
-        "Le prix dépend du style, du nombre de propositions, et de l’utilisation prévue. On s’adapte à votre budget : parlons-en !",
+        "Le prix dépend du style, du nombre de propositions, et de l’utilisation prévue. Nous proposons des solutions sur mesure, adaptées à vos besoins et à vos envies. Quel que soit votre budget, nous trouvons ensemble la meilleure formule. Contactez-nous pour en discuter sereinement et obtenir un devis personnalisé.",
     },
     {
       question: "Combien coûte un site ?",
