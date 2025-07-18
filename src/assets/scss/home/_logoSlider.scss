@@ -64,7 +64,7 @@
   .logo-slide {
     display: flex;
     align-items: center;
-    padding:2rem 0rem;
+    padding:4rem 0rem;
     background-color: #f9f9f9;
     margin:1rem;
 
@@ -81,6 +81,19 @@
       }
     }
   }
+
+  .touch-scroll-wrapper {
+    touch-action: pan-x;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  
+    // Cache la scrollbar
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
   @media (min-width: 768px) {
     .title{
       font-size: 2.5rem;

@@ -33,15 +33,17 @@ function Home() {
       </ScrollRevealWrapper>
 
       <ScrollRevealWrapper delay={0.2}>
-        <LogoSlider />
+        <Method />
       </ScrollRevealWrapper>
 
       <ScrollRevealWrapper delay={0.3}>
+        <LogoSlider />
+      </ScrollRevealWrapper>
+
+      <ScrollRevealWrapper delay={0.4}>
         <Img />
       </ScrollRevealWrapper>
-      <ScrollRevealWrapper delay={0.4}>
-        <Method />
-      </ScrollRevealWrapper>
+      
 
       <ScrollRevealWrapper delay={0.5}>
         <Question />

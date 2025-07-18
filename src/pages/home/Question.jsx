@@ -21,7 +21,7 @@ function Question() {
           d'avancer dans la sérénité.
           <br />
           <br />
-          Les étapes varient selon le projet… alors,{" "}
+          Les étapes varient selon le projet…
           <a href="/contact">contactez-nous !</a>
         </>
       ),
