@@ -1,33 +1,13 @@
-import React, { useRef, useState } from "react";
-import Marquee from "react-fast-marquee";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import { NavLink } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/autoplay";
+
 
 const LogoSlider = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const marqueeRef = useRef(null);
-  const touchStartX = useRef(0);
-  const scrollStartX = useRef(0);
-
-  const handleTouchStart = (e) => {
-    setIsPaused(true); // pause le scroll auto
-    touchStartX.current = e.touches[0].clientX;
-    scrollStartX.current = marqueeRef.current.scrollLeft;
-  };
-
-  const handleTouchMove = (e) => {
-    const touchX = e.touches[0].clientX;
-    const deltaX = touchStartX.current - touchX;
-    marqueeRef.current.scrollLeft = scrollStartX.current + deltaX;
-  };
-
-  const handleTouchEnd = () => {
-    setIsPaused(false); // relance le scroll auto
-  };
-
   const logos = [
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
     "/2onbini.webp",
     "belli.webp",
     "aqua.webp",
@@ -47,29 +27,23 @@ const LogoSlider = () => {
           PROJETS
         </NavLink>
       </div>
-      <div
-        className="marquee-wrapper touch-scroll-wrapper"
-        ref={marqueeRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <Marquee
-          direction="right"
-          speed={40}
-          gradient={true}
-          gradientColor={[249, 249, 249]}
-          gradientWidth={100}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          play={!isPaused}
+      <div className="swiper-wrapper-logo">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={30}
+          slidesPerView={"auto"}
+          loop={true}
+          autoplay={{ delay: 0, disableOnInteraction: false }}
+          speed={4000}
+          grabCursor={true}
+          freeMode={true}
         >
           {logos.map((logo, index) => (
-            <div key={index} className="logo-slide">
+            <SwiperSlide key={index} className="logo-slide">
               <img src={logo} alt={`logo-${index}`} className="logo-img" />
-            </div>
+            </SwiperSlide>
           ))}
-        </Marquee>
+        </Swiper>
       </div>
     </section>
   );
