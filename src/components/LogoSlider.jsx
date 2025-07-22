@@ -39,9 +39,9 @@ const LogoSlider = () => {
 
   return (
     <section className="logo-slider-container">
-      
-
       <div className="swiper-wrapper-logo">
+        <h3 className="title">Des projets, des rencontres, de la confiance.</h3>
+
         <Swiper
           modules={[Autoplay, FreeMode]}
           slidesPerView={"auto"}
@@ -59,9 +59,8 @@ const LogoSlider = () => {
         >
           {logos.map((logo, index) => (
             <SwiperSlide key={index} className="logo-slide">
-        <NavLink to="/portfolio">
-
-              <img src={logo} alt={`logo-${index}`} className="logo-img" />
+              <NavLink to="/portfolio">
+                <img src={logo} alt={`logo-${index}`} className="logo-img" />
               </NavLink>
             </SwiperSlide>
           ))}
@@ -69,7 +68,6 @@ const LogoSlider = () => {
       </div>
 
       <div className="title-slide">
-        <h3 className="title">Des projets, des rencontres, de la confiance.</h3>
         <NavLink className="voir" to="/portfolio">
           PROJETS
         </NavLink>

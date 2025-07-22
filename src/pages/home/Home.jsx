@@ -37,15 +37,15 @@ function Home() {
       </ScrollRevealWrapper>
 
       <ScrollRevealWrapper delay={0.3}>
-        <LogoSlider />
-      </ScrollRevealWrapper>
-
-      <ScrollRevealWrapper delay={0.4}>
         <Img />
       </ScrollRevealWrapper>
 
-      <ScrollRevealWrapper delay={0.5}>
+      <ScrollRevealWrapper delay={0.4}>
         <Question />
+      </ScrollRevealWrapper>
+
+      <ScrollRevealWrapper delay={0.5}>
+        <LogoSlider />
       </ScrollRevealWrapper>
     </motion.main>
   );

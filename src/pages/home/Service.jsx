@@ -1,7 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import Typewriter from "typewriter-effect";
 import { NavLink } from "react-router-dom";
 
 function Service() {
@@ -29,12 +28,6 @@ function Service() {
       title: "Flyers >",
       description:
         "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
-      image: "fly2.webp",
-    },
-    {
-      title: "Video publicitaire >",
-      description:
-        "Attirez l’attention de vos clients dès le premier regard grâce à une vidéo publicitaire sur-mesure !",
       image: "fly2.webp",
     },
   ];

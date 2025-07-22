@@ -3,7 +3,7 @@
   background: #f9f9f9;
 
   .pre {
-    margin: 0rem 1rem;
+    margin: 2rem 1rem;
   }
 
   .serv {
@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     gap: 1.5rem;
 
     img {
@@ -157,7 +157,7 @@
   border-radius: 1rem;
   padding: 2rem;
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -167,7 +167,7 @@
     transform: translate(-50%, -50%) scale(1);
     animation: dialogShow 0.3s forwards;
   }
-
+  
   p {
     font-size: $font-size-md;
   }
@@ -204,12 +204,12 @@
 
 @media (min-width: 768px) {
   .modal-content {
-    max-width: 600px;
+    max-width: 400px;
     padding: 3rem;
     font-size: 1.1rem;
   }
   h2{
-font-size: 6rem;
+font-size: 3rem;
   }
   .service-card {
     flex: 0 0 300px;
