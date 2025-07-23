@@ -41,9 +41,9 @@ function Portfolio() {
     },
     {
       id: 3,
-      title: "Projet",
-      description: "Projet bientôt disponible...",
-      img: "/supasushi.webp",
+      title: "Yojeme",
+      description: "Projet pour une association insertion ",
+      img: "/logo-yojeme.webp",
       link: "#",
     },
   ];
