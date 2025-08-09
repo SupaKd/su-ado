@@ -8,22 +8,22 @@ function Service() {
   const services = [
     {
       title: "Site vitrine >",
-      description: "Nous concevons des sites vitrines modernes...",
+      description: "Nous concevons des sites vitrines modernes, élégants et adaptés à tous les supports. Idéal pour présenter votre activité, vos services ou votre savoir-faire, le site vitrine renforce votre image professionnelle et améliore votre visibilité en ligne.",
       image: "vitrine2.webp",
     },
     {
       title: "Site e-commerce >",
-      description: "Nous créons des boutiques en ligne performantes...",
+      description: "Nous créons des boutiques en ligne performantes, sécurisées et faciles à gérer. Que vous souhaitiez vendre quelques produits ou lancer un catalogue complet, je vous accompagne dans la création d’un site e-commerce sur mesure, optimisé pour convertir vos visiteurs en clients.",
       image: "supacofooter.webp",
     },
     {
       title: "Logo >",
-      description: "Votre identité visuelle commence par un logo fort...",
+      description: "Votre identité visuelle commence par un logo fort et mémorable. Je crée pour vous un logo unique, à votre image, qui véhicule les valeurs de votre marque ou activité.",
       image: "logo2.webp",
     },
     {
       title: "Flyers >",
-      description: "Besoin de communiquer efficacement sur vos événements...",
+      description: "Besoin de communiquer efficacement sur vos événements, vos services ou vos offres ? Je réalise vos flyers, cartes de visite, affiches ou brochures avec un design percutant et professionnel.",
       image: "fly2.webp",
     },
   ];

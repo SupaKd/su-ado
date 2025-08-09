@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 function Question() {
@@ -56,26 +55,23 @@ function Question() {
             <div
               key={index}
               className={`faq__item ${isOpen ? "open" : ""}`}
-              onClick={() => toggle(index)}
             >
-              <div className="faq__question">
+              <div className="faq__question" onClick={() => toggle(index)}>
                 <span>{item.question}</span>
                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
               </div>
 
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    className="faq__answer"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="faq__answer-inner">{item.answer}</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                className="faq__answer"
+                style={{
+                  maxHeight: isOpen ? "1000px" : "0",
+                  overflow: "hidden",
+                  opacity: isOpen ? 1 : 0,
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <div className="faq__answer-inner">{item.answer}</div>
+              </div>
             </div>
           );
         })}

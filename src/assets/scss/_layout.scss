@@ -54,7 +54,7 @@
     background: none;
     border: none;
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 2.3rem;
     cursor: pointer;
     color: #111;
     transition: transform 0.3s ease;
@@ -120,7 +120,8 @@
       @include slide-top;
 
       &:hover {
-        color: $button;
+        color: $primary-color;
+        background-color: $text;
       }
     }
 

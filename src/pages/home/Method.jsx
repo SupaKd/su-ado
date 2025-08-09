@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import { FaSearch, FaLightbulb, FaTools, FaRocket } from "react-icons/fa";
 
@@ -25,10 +24,11 @@ function Method() {
       icon: <FaRocket />,
     },
   ];
+
   return (
     <section className="method">
       <div className="method__container">
-      <h2 className="method__title">
+        <h2 className="method__title">
           <Typewriter
             options={{
               strings: ["Nos méthodes"],
@@ -36,24 +36,15 @@ function Method() {
               loop: true,
             }}
           />
-        </h2>        <div className="method__timeline">
+        </h2>
+
+        <div className="method__timeline">
           {steps.map((step, index) => (
-            <motion.div
-              className="method__card"
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.2 }}
-            >
+            <div className="method__card" key={index}>
               <div className="method__icon">{step.icon}</div>
-
-              <h3 className="method__card-title">
-                {step.titles}
-              </h3>
-
+              <h3 className="method__card-title">{step.titles}</h3>
               <p className="method__card-desc">{step.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
