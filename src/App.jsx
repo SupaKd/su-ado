@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import AppRoutes from "./routes/AppRoutes";
@@ -9,20 +9,12 @@ function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); 
-
-    return () => clearTimeout(timer);
-  }, []);
-
   function handlePathname() {
     return location.pathname === "/" ? "home" : location.pathname.slice(1);
   }
 
   if (loading) {
-    return <Loader />;
+    return <Loader onFinish={() => setLoading(false)} />;
   }
 
   return (

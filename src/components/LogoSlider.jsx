@@ -1,95 +1,91 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode } from "swiper/modules";
-import { NavLink } from "react-router-dom";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/free-mode";
+import React, { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
-const LogoSlider = () => {
-  const logos = [
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-    "logo-yojeme.webp",
-    "supasushi.webp",
-    "/2onbini.webp",
-    "belli.webp",
-    "aqua.webp",
-  ];
+const projets = [
+  {
+    id: 1,
+    title: "Site web associative",
+    img: "/logo-yojeme.webp",
+  },
+  {
+    id: 2,
+    title: "Site web plombier",
+    img: "/aqua.webp",
+  },
+  {
+    id: 3,
+    title: "Site web restauration",
+    img: "belli.webp",
+  }
+];
+
+export default function SectionProjets() {
+  const [index, setIndex] = useState(0);
+  const cardRef = useRef(null);
+
+  // Animation GSAP au changement de projet
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const tl = gsap.timeline();
+    tl.fromTo(
+      cardRef.current,
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+    );
+
+    return () => {
+      tl.kill();
+    };
+  }, [index]);
+
+  const prevProject = () => {
+    setIndex((prev) => (prev === 0 ? projets.length - 1 : prev - 1));
+  };
+
+  const nextProject = () => {
+    setIndex((prev) => (prev === projets.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentProject = projets[index];
 
   return (
-    <section className="logo-slider-container">
-      <div className="swiper-wrapper-logo">
-        <h3 className="title">Des projets, des rencontres, de la confiance.</h3>
+    <section className="section-projets" aria-label="Aperçu de mes projets">
+      <h2 className="section-projets__title">Nos projets</h2>
 
-        <Swiper
-          modules={[Autoplay, FreeMode]}
-          slidesPerView={"auto"}
-          spaceBetween={30}
-          loop={true}
-          freeMode={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          speed={6000} // plus la valeur est grande, plus le défilement est lent
-          grabCursor={true}
-          allowTouchMove={true}
-          dir="rtl" // ← ← ← sens droite vers gauche
+      <div className="section-projets__carousel">
+        <button
+          className="section-projets__btn section-projets__btn--left"
+          aria-label="Projet précédent"
+          onClick={prevProject}
         >
-          {logos.map((logo, index) => (
-            <SwiperSlide key={index} className="logo-slide">
-              <NavLink to="/portfolio">
-                <img src={logo} alt={`logo-${index}`} className="logo-img" />
-              </NavLink>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+          ‹
+        </button>
 
-      <div className="title-slide">
-        <NavLink className="voir" to="/portfolio">
-          PROJETS
-        </NavLink>
+        <a
+          href={currentProject.url}
+          className="projet-card"
+          ref={cardRef}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            className="projet-card__img"
+            src={currentProject.img}
+            alt={`Aperçu du projet ${currentProject.title}`}
+            loading="lazy"
+          />
+          <h3 className="projet-card__title">{currentProject.title}</h3>
+        </a>
+
+        <button
+          className="section-projets__btn section-projets__btn--right"
+          aria-label="Projet suivant"
+          onClick={nextProject}
+        >
+          ›
+        </button>
       </div>
     </section>
   );
-};
-
-export default LogoSlider;
+}

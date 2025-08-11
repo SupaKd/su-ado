@@ -20,20 +20,55 @@
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
       box-shadow 0.3s ease;
 
-    .devis {
-      background: $bg-color;
-      color: $primary-color;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: $font-size-md;
-      font-weight: bold;
-      cursor: pointer;
-      border: 4px solid #111; // bordure visible
-      border-radius: $radius-md;
-      transition: all 0.2s ease;
-      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
-      @include slide-top;
-    }
+      .devis {
+        background: $bg-color;
+        color: $primary-color;
+        border: none;
+        padding: 0.8rem 1rem;
+        font-size: $font-size-md;
+        font-weight: bold;
+        border: 4px solid #111;
+        border-radius: $radius-md;
+        @include slide-top;
+      
+        @include button-press-effect;
+      
+        &:hover {
+          background: $text;
+          color: $primary-color;
+        }
+      }
+      
+      
+      .header__nav {
+        // ...
+        a {
+          @include flex-center;
+          background: #fff;
+          color: $primary-color;
+          border: none;
+          color: $text;
+          padding: 1rem 2rem;
+          font-size: $font-size-md;
+          font-weight: 600;
+          border: 4px solid #111; // bordure visible
+          border-radius: $radius-md;
+          transition: all 0.2s ease;
+          box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
+          @include slide-top;
+      
+          &:hover {
+            color: $primary-color;
+            background-color: $text;
+          }
+      
+          &:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+      
   }
 
   .logo_mobile {
@@ -66,25 +101,23 @@
 
   .devis {
     background: #fff;
-    color: $primary-color;
-    border: none;
     color: $text;
+    border: none;
     padding: 0.8rem 1rem;
     font-size: $font-size-md;
     font-weight: bold;
-    cursor: pointer;
-    border: 4px solid #111; // bordure visible
+    border: 4px solid #111;
     border-radius: $radius-md;
-    transition: all 0.2s ease;
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
     @include slide-top;
-
+  
+    @include button-press-effect;
+  
     &:hover {
       background: $text;
-      border-radius: $radius-lg;
       color: $primary-color;
     }
   }
+  
 
   .header__nav {
     @include flex-center;

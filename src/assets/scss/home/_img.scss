@@ -4,64 +4,81 @@
   background-color: #f9f9f9;
   margin: 2rem 0;
   width: 100%;
+  padding: 0 1rem;
 }
 
 .project-card {
   display: flex;
   flex-direction: row;
-  width: 100%; // Prend toute la largeur
+  width: 100%;
+  max-width: 2000px; // Limite la largeur pour un meilleur confort
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: $radius-md;
   overflow: hidden;
+  background-color: #fff;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .project-content {
   background-color: $danger-color;
   color: $primary-color;
-  padding: 2rem;
+  padding: 3rem 2.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-}
+  user-select: none;
 
-.project-content h2 {
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-  text-align: center;
-}
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
 
-.project-content p {
-  margin-bottom: 1.5rem;
-  font-size: $font-size-md;
-  text-align: center;
-}
+  p {
+    margin-bottom: 2rem;
+    font-size: $font-size-md;
+  }
 
-.project-content button {
-  background: #fff;
-  color: #111;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: $font-size-md;
-  font-weight: 600;
-  cursor: pointer;
-  border: 4px solid #111; 
-  border-radius: $radius-md;
-  transition: all 0.2s ease;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+  button {
+    align-self: center;
+    background: #fff;
+    color: #111;
+    border: 4px solid #111;
+    padding: 1rem 3rem;
+    font-size: $font-size-md;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: $radius-md;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
 
-  &:hover {
-    border-radius: $radius-lg;
+   @include button-press-effect;
   }
 }
 
 .project-image {
   flex: 1;
   background: #f4f4f4;
+  overflow: hidden;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 250px; // fixe une hauteur raisonnable sur mobile
   }
 }

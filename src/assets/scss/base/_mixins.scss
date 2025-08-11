@@ -128,4 +128,21 @@
       @media (max-width: 1280px) { @content; }
     }
   }
+
+  @mixin button-press-effect {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+  
+    &:hover {
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    }
+  }
+  
   
