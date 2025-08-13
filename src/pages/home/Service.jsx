@@ -50,7 +50,7 @@ function Service() {
 
       <div className="serv">
         <img src="deco.webp" alt="deco" />
-        <p>Nos services</p>
+        <p>SERVICES</p>
       </div>
 
       {/* Slider */}

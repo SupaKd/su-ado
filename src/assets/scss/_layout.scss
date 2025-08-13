@@ -20,55 +20,53 @@
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
       box-shadow 0.3s ease;
 
-      .devis {
-        background: $bg-color;
+    .devis {
+      background: $bg-color;
+      color: $primary-color;
+      border: none;
+      padding: 0.8rem 1rem;
+      font-size: $font-size-md;
+      font-weight: bold;
+      border: 4px solid #111;
+      border-radius: $radius-md;
+      @include slide-top;
+
+      @include button-press-effect;
+
+      &:hover {
+        background: $text;
+        color: $primary-color;
+      }
+    }
+
+    .header__nav {
+      // ...
+      a {
+        @include flex-center;
+        background: #fff;
         color: $primary-color;
         border: none;
-        padding: 0.8rem 1rem;
+        color: $text;
+        padding: 1rem 2rem;
         font-size: $font-size-md;
-        font-weight: bold;
-        border: 4px solid #111;
+        font-weight: 600;
+        border: 4px solid #111; // bordure visible
         border-radius: $radius-md;
+        transition: all 0.2s ease;
+        box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
         @include slide-top;
-      
-        @include button-press-effect;
-      
+
         &:hover {
-          background: $text;
           color: $primary-color;
+          background-color: $text;
+        }
+
+        &:active {
+          transform: translate(2px, 2px);
+          box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
         }
       }
-      
-      
-      .header__nav {
-        // ...
-        a {
-          @include flex-center;
-          background: #fff;
-          color: $primary-color;
-          border: none;
-          color: $text;
-          padding: 1rem 2rem;
-          font-size: $font-size-md;
-          font-weight: 600;
-          border: 4px solid #111; // bordure visible
-          border-radius: $radius-md;
-          transition: all 0.2s ease;
-          box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8); // ombre vers la droite
-          @include slide-top;
-      
-          &:hover {
-            color: $primary-color;
-            background-color: $text;
-          }
-      
-          &:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
-          }
-        }
-      }
-      
+    }
   }
 
   .logo_mobile {
@@ -109,15 +107,14 @@
     border: 4px solid #111;
     border-radius: $radius-md;
     @include slide-top;
-  
+
     @include button-press-effect;
-  
+
     &:hover {
       background: $text;
       color: $primary-color;
     }
   }
-  
 
   .header__nav {
     @include flex-center;
@@ -242,9 +239,9 @@
   }
   .footer__bottom {
     text-align: center;
-    border-top: 1px solid #eee;
     padding-top: 2rem;
-    margin-top: 2rem;
+    margin-top: 5rem;
+    border-top: solid 2px #111;
     font-size: $font-size-sm;
     color: $text;
   }
@@ -281,6 +278,9 @@
     textarea {
       min-height: 120px;
       resize: vertical;
+      border: solid 2px #111;
+      border-radius: $radius-md;
+      @include button-press-effect;
     }
   }
 
@@ -484,7 +484,7 @@
     .footer-credit {
       grid-column: 1 / -1;
     }
-    img{
+    img {
       width: 100%;
     }
   }

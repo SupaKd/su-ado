@@ -1,6 +1,5 @@
 .services {
   padding: 2rem 1rem;
-  background-color: #f9f9f9;
 
   .pre {
     margin: 2rem 0;
@@ -40,12 +39,15 @@
       text-align: center;
       font-size: 1.6rem;
       font-weight: 600;
-      color: #111;
-      background-color: #caf0f8; // un bleu clair doux
+      border: 2px solid #111;
       padding: 1rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
       user-select: none;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 0.5rem;
+      border-radius: 1rem 8rem 2rem 8rem;
+      background-color: #eee;
     }
 
     @media screen and (min-width: 768px) {
@@ -57,8 +59,7 @@
       }
 
       p {
-        font-size: 2.5rem;
-        background-color: #4D91F0; // un bleu un peu plus marqué
+        display: none;
       }
     }
   }
@@ -81,18 +82,22 @@
 
 .service-card {
   flex: 0 0 260px;
-  background-color: #caf0f8;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #f9f9f9;
   border-radius: 1rem;
+  border: solid 4px #111;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @include button-press-effect;
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    outline: none;
+    border-radius: $radius-lg;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+    transform: translateY(-2px);
   }
 
   img {
@@ -197,14 +202,13 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease,
       box-shadow 0.3s ease;
+    @include button-press-effect;
 
     &:hover,
     &:focus-visible {
-      background-color: #023047;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(2, 48, 71, 0.6);
-      outline: none;
-      transform: translateY(-3px);
+      border-radius: $radius-lg;
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+      transform: translateY(-2px);
     }
   }
 }
@@ -236,7 +240,7 @@
   margin: 1.5rem 0;
 
   .slider-btn {
-    background-color: #fff;
+    background-color: #F5EFE6;
     border: 2px solid #023047;
     color: #023047;
     padding: 1rem 1.2rem;
@@ -249,14 +253,7 @@
     justify-content: center;
     transition: background-color 0.25s ease, color 0.25s ease,
       transform 0.25s ease;
-
-    &:hover,
-    &:focus-visible {
-      background-color: #023047;
-      color: #fff;
-      transform: scale(1.15);
-      outline: none;
-    }
+      @include button-press-effect;
   }
 }
 
@@ -311,8 +308,9 @@
   .service-card {
     flex: none; // Annule le flex-grow/shrink
     width: 100%; // Chaque carte remplit sa colonne
+    
     img {
-      height: 140px;
+      height: 200px;
       margin-top: 4rem;
     }
 
@@ -327,4 +325,3 @@
     font-size: 1.15rem;
   }
 }
-

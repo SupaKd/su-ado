@@ -30,10 +30,7 @@ function Home() {
       <ScrollRevealWrapper delay={0.4}>
         <Question />
       </ScrollRevealWrapper>
-
-      <ScrollRevealWrapper delay={0.5}>
-        <LogoSlider />
-      </ScrollRevealWrapper>
+      
     </main>
   );
 }

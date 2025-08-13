@@ -41,10 +41,10 @@ function Portfolio() {
     },
     {
       id: 3,
-      title: "Yojeme",
-      description: "Projet pour un site vitrine d'une association",
-      img: "/logo-yojeme.webp",
-      link: "#",
+      title: "2onBini",
+      description: "Projet pour un site e-commerce",
+      img: "/2onbini.webp",
+      link: "https://konbini-es6ba694k-supakds-projects.vercel.app",
     },
   ];
 
