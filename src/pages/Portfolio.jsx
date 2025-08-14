@@ -30,7 +30,7 @@ function Portfolio() {
       title: "BelliFood",
       description: "Projet pour un site vitrine de restauration.",
       img: "/belli.webp",
-      link: "https://bellifood.com/",
+      link: "https://bellifood.com",
     },
     {
       id: 2,
@@ -44,7 +44,7 @@ function Portfolio() {
       title: "2onBini",
       description: "Projet pour un site e-commerce",
       img: "/2onbini.webp",
-      link: "https://konbini-es6ba694k-supakds-projects.vercel.app",
+      link: "https://konbini-smoky.vercel.app",
     },
   ];
 
