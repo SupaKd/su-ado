@@ -28,6 +28,8 @@ $transition-medium: 0.35s ease;
   padding: 4rem 2rem;
   background-color: #f9faff;
   border-bottom: solid 5px #111;
+  height: 100vh;
+
   &::before {
     content: "";
     position: absolute;
@@ -62,7 +64,7 @@ $transition-medium: 0.35s ease;
       font-weight: 700;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      color: darken($primary-color, 10%);
+      color: #111;
       user-select: none;
     }
 

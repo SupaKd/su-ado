@@ -34,10 +34,10 @@ function Portfolio() {
     },
     {
       id: 2,
-      title: "AquaFix",
-      description: "Projet pour un site vitrine d'un plombier",
-      img: "/aqua.webp",
-      link: "https://aquafix-theta.vercel.app",
+      title: "Yojeme",
+      description: "Projet pour une association",
+      img: "/logomobile.png",
+      link: "https://yojemev2.vercel.app/",
     },
     {
       id: 3,

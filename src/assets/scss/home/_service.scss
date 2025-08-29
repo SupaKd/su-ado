@@ -34,21 +34,7 @@
       }
     }
 
-    p {
-      flex-grow: 1;
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: 600;
-      border: 2px solid #111;
-      padding: 1rem 2rem;
-      user-select: none;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #222;
-      margin-bottom: 0.5rem;
-      border-radius: 1rem 8rem 2rem 8rem;
-      background-color: #eee;
-    }
+  
 
     @media screen and (min-width: 768px) {
       padding: 4rem 2rem;
@@ -299,7 +285,7 @@
 
   @media (min-width: 1024px) {
     .services__slider {
-      grid-template-columns: repeat(3, 1fr); // 3 colonnes sur desktop large
+      grid-template-columns: repeat(4, 1fr); // 3 colonnes sur desktop large
       gap: 4rem;
       padding-bottom: 3rem;
     }
