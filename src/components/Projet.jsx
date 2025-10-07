@@ -15,18 +15,18 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Site vitrine pour restaurant japonais",
-      desc: "Un site moderne avec commande en ligne, interface admin et design inspiré du Japon contemporain. Optimisé pour le référencement local.",
+      title: "Site vitrine pour un serrurier",
+      desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
       tech: ["React", "Node.js", "MySQL", "Framer Motion"],
-      img: "/logoo.webp",
-      link: "#",
+      img: "/logo2.svg",
+      link: "https://depannage-gemeaux.vercel.app/",
     },
     {
       title: "Plateforme pour association solidaire",
       desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes dans des zones rurales du Maroc.",
       tech: ["React", "SCSS", "AOS", "Vite"],
       img: "yojeme.png",
-      link: "#",
+      link: "https://www.yojeme.fr/",
     },
   ];
 

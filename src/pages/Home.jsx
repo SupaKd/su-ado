@@ -8,11 +8,9 @@ function Home() {
   return (
     <main className="home">
       <Hero />
-
       <Presentation />
-      <Projet />
       <Method />
-
+      <Projet />
       <Question />
     </main>
   );

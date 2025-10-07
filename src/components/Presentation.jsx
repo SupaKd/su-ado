@@ -17,7 +17,7 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Nous concevons des sites web modernes, rapides et optimisés pour le référencement.
+          Nous concevons des sites web modernes, rapides et optimisés pour le référencement. Des logos et identité visuelle distinctives, des interfaces intuitives et des fonctionnalités performantes.
           Notre objectif est simple&nbsp;: propulser votre entreprise locale sur le web grâce à
           une expérience utilisateur fluide et un design inspiré des plus grandes marques.
         </motion.p>
@@ -25,7 +25,7 @@ export default function Presentation() {
        
 
         <motion.a
-          href="#contact"
+          href="/contact"
           className="presentation__cta"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
