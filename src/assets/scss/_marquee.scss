@@ -1,0 +1,119 @@
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  
+    .marquee__wrapper {
+      position: relative;
+      width: 50%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  
+    .marquee__track {
+      display: flex;
+      align-items: center;
+      animation: scroll var(--marquee-duration, 20s) linear infinite;
+      animation-direction: var(--marquee-direction, normal);
+  
+      &:hover {
+        animation-play-state: paused;
+      }
+  
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  
+    .marquee__group {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+  
+      @media (max-width: 1024px) {
+        gap: 2rem;
+      }
+  
+      @media (max-width: 768px) {
+        gap: 2rem;
+      }
+  
+      @media (max-width: 480px) {
+        gap: 1.2rem;
+      }
+    }
+  
+    .marquee__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+      opacity: 0.85;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+  
+      img {
+        height: 45px;
+        width: auto;
+        filter: brightness(0) invert(40%);
+        object-fit: contain;
+  
+        @media (min-width: 768px) {
+          height: 60px;
+        }
+  
+        @media (min-width: 1200px) {
+          height: 60px;
+        }
+  
+        @media (max-width: 480px) {
+          height: 30px;
+        }
+      }
+  
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+  
+    /* --- Fades latéraux --- */
+    .marquee__fade {
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+  
+      &--left {
+        left: 0;
+      }
+  
+      &--right {
+        right: 0;
+      }
+  
+      @media (max-width: 768px) {
+        width: 50px;
+      }
+  
+      @media (max-width: 480px) {
+        width: 30px;
+      }
+    }
+  
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
+  

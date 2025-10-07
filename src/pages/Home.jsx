@@ -1,5 +1,6 @@
 import Contact from "../components/Contact";
 import Hero from "../components/Hero";
+import Marquee from "../components/Marquee";
 import Method from "../components/Method";
 import Presentation from "../components/Presentation";
 import Projet from "../components/Projet";
@@ -10,6 +11,7 @@ function Home() {
     <main className="home">
       <Hero />
       <Presentation />
+      <Marquee />
       <Method />
       <Projet />
       <Question />
