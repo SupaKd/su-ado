@@ -88,9 +88,9 @@ function Header() {
           aria-label="Retour à l'accueil"
         >
           <picture>
-            <source srcSet="/desk_logo.webp" media="(min-width: 768px)" />
+            <source srcSet="/newlogo.png" media="(min-width: 768px)" />
             <img 
-              src="/logoo.webp" 
+              src="/newlogo.png" 
               alt="Logo" 
               className="header__logo-image"
               width="120"
