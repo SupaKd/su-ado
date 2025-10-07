@@ -1,148 +1,129 @@
+// ==============================
+// Flexbox shortcuts
+// ==============================
 
-  // ==============================
-  // Flexbox shortcuts
-  // ==============================
-  
-  @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  @mixin flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  @mixin flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  @mixin flex-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  // ==============================
-  // Transition 
-  // ==============================
-  
-  @mixin transition($properties: all, $duration: 0.3s, $timing: ease-in-out) {
-    transition: $properties $duration $timing;
-  }
-  
-  @mixin slide-left($duration: 1s, $distance: 100%) {
-    animation: slide-left $duration ease-out forwards;
-  
-    @keyframes slide-left {
-      0% {
-        transform: translateX(#{$distance});
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  }
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  @mixin slide-top($duration: 1s, $distance: 100%) {
-    animation: slide-top $duration ease-out forwards;
-  
-    @keyframes slide-top {
-      0% {
-        transform: translateY(#{$distance});
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  }
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  @mixin slide-bottom($duration: 1s, $distance: 100%) {
-    animation: slide-bottom $duration ease-out forwards;
-  
-    @keyframes slide-bottom {
-      0% {
-        transform: translateY(-#{$distance});
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  }
-  
-  
-  
-  // ==============================
-  // Effet 
-  // ==============================
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
-  @mixin shake-hover($duration: 0.5s, $distance: 5px) {
-    transition: transform 0.1s ease-in-out;
-  
-    &:hover {
-      animation: shake $duration infinite;
+// ==============================
+// Transition
+// ==============================
+
+@mixin transition($properties: all, $duration: 0.3s, $timing: ease-in-out) {
+  transition: $properties $duration $timing;
+}
+
+@mixin slide-left($duration: 1s, $distance: 100%) {
+  animation: slide-left $duration ease-out forwards;
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(#{$distance});
+      opacity: 0;
     }
-  
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-#{$distance}); }
-      50% { transform: translateX(#{$distance}); }
-      75% { transform: translateX(-#{$distance}); }
-      100% { transform: translateX(0); }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
-  
-  @mixin responsive-font($min-size, $max-size) {
-    font-size: clamp($min-size, 2vw, $max-size);
-  }
-  
-  @mixin respond-to($breakpoint) {
-    @if $breakpoint == xs {
-      @media (max-width: 480px) { @content; }
-    } @else if $breakpoint == sm {
-      @media (max-width: 768px) { @content; }
-    } @else if $breakpoint == md {
-      @media (max-width: 1024px) { @content; }
-    } @else if $breakpoint == lg {
-      @media (max-width: 1280px) { @content; }
+}
+
+@mixin slide-top($duration: 1s, $distance: 100%) {
+  animation: slide-top $duration ease-out forwards;
+
+  @keyframes slide-top {
+    0% {
+      transform: translateY(#{$distance});
+      opacity: 0;
     }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slide-bottom($duration: 1s, $distance: 100%) {
+  animation: slide-bottom $duration ease-out forwards;
+
+  @keyframes slide-bottom {
+    0% {
+      transform: translateY(-#{$distance});
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button-press-effect {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+    transform: translateY(-2px);
   }
 
-  @mixin button-press-effect {
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
-  
-    &:hover {
-      box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
-      transform: translateY(-2px);
-    }
-  
-    &:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
-    }
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
   }
-  
-  
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

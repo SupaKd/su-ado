@@ -1,0 +1,93 @@
+.hero {
+  height: 100vh;
+  background: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  &__stage {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  &__card {
+    position: absolute;
+    width: 70vw;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border: 4px solid #111;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: transform 1s ease, opacity 1s ease;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 7;
+    color: #fff;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+    padding: 0 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  &.animate {
+    .hero__card--center {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.1s;
+    }
+
+    .hero__card--left {
+      opacity: 1;
+      transform: translateX(-180px) rotate(-10deg) scale(1);
+      transition-delay: 0.8s;
+    }
+
+    .hero__card--right {
+      opacity: 1;
+      transform: translateX(180px) rotate(10deg) scale(0.95);
+      transition-delay: 1s;
+    }
+
+    .hero__title {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1.2s;
+    }
+  }
+}
+
+/* Tablette */
+@media (min-width: 768px) {
+  .hero {
+    &__card {
+      width: 40vw;
+    }
+    &__title {
+      font-size: 5rem;
+    }
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .hero {
+    margin-top: 2rem;
+    &__card {
+      width: min(28vw, 420px);
+    }
+    &__title {
+      font-size: 7rem;
+    }
+  }
+}

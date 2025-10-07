@@ -2,13 +2,12 @@
 @import "./base/variable";
 @import "./base/mixins";
 
-@import "./layout";
+@import "./header";
+@import "./footer";
 
-@import "./home/hero";
-@import "./home/service";
-@import "./home/methode";
-@import "./home/faq";
-@import "./home/logoSlider";
-@import "./home/img";
+@import "./hero";
+@import "./presentation";
+@import "./projet";
+@import "./methode";
+@import "./faq";
 
-@import "./portfolio";

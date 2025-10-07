@@ -3,22 +3,22 @@
 // ==============================
 
 $primary-color: #fff;
-$secondary-color: #F5F6F8;
-$bg-color:linear-gradient(135deg, #1FE1B0 0%, #11B8E6 50%, #1C60E7 100%);
-$text:#495057;
-$button:#4A90E2;
-$hover:#edf2f4;
-$danger-color: #FF6B6B;
-$valid-color:#2dc653;
+$secondary-color: #f5f6f8;
+$bg-color: linear-gradient(135deg, #1fe1b0 0%, #11b8e6 50%, #1c60e7 100%);
+$text: #495057;
+$button: #4a90e2;
+$hover: #edf2f4;
+$danger-color: #ff6b6b;
+$valid-color: #2dc653;
 
 // ==============================
 // Typography
 // ==============================
 
-$font-size-sm: 0.75rem;   
-$font-size-md: 1.1rem;      
-$font-size-lg: 1.5rem;   
-$font-size-xl: 3rem;    
+$font-size-sm: 0.75rem;
+$font-size-md: 1.6rem;
+$font-size-lg: 1.5rem;
+$font-size-xl: 3rem;
 
 // ==============================
 // Border Radius
@@ -46,3 +46,14 @@ $breakpoint-md: 1024px;
 $breakpoint-lg: 1280px;
 
 $transition-base: all 0.3s ease-in-out;
+
+// Variables
+$header-height-mobile: 60px;
+$header-height-desktop: 80px;
+$header-z-index: 1000;
+$ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+$shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+
+
