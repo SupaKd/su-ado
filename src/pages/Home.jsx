@@ -1,3 +1,4 @@
+import Contact from "../components/Contact";
 import Hero from "../components/Hero";
 import Method from "../components/Method";
 import Presentation from "../components/Presentation";
@@ -12,6 +13,7 @@ function Home() {
       <Method />
       <Projet />
       <Question />
+      <Contact />
     </main>
   );
 }

@@ -9,7 +9,7 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Création de sites web sur mesure à Saint-Genis-Pouilly
+          Création de sites web sur mesure à Saint-Genis-Pouilly.
         </motion.h1>
 
         <motion.p
@@ -25,7 +25,7 @@ export default function Presentation() {
        
 
         <motion.a
-          href="/contact"
+          href="#devis"
           className="presentation__cta"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

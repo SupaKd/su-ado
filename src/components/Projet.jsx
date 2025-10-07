@@ -23,7 +23,7 @@ export default function Projects() {
     },
     {
       title: "Plateforme pour association solidaire",
-      desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes dans des zones rurales du Maroc.",
+      desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes.",
       tech: ["React", "SCSS", "AOS", "Vite"],
       img: "yojeme.png",
       link: "https://www.yojeme.fr/",

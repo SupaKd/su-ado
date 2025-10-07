@@ -42,7 +42,7 @@
     height: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1rem;
     @include flex-center;
     justify-content: space-between;
   }
@@ -89,7 +89,7 @@
   }
 
   &__logo-image {
-    height: 60px;
+    height: 45px;
     width: auto;
     transition: all 0.3s $ease-out-quart;
   }
@@ -208,7 +208,7 @@
   transition: all 0.3s $ease-out-quart;
 
   &--primary {
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: #1d1d1f;
     font-size: 1.6rem;
