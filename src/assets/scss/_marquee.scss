@@ -5,11 +5,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
   
     .marquee__wrapper {
       position: relative;
-      width: 50%;
+      width: 60%;
       max-width: 1200px;
       margin: 0 auto;
       overflow: hidden;
@@ -57,7 +57,7 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
   
       img {
-        height: 45px;
+        height: 60px;
         width: auto;
         filter: brightness(0) invert(40%);
         object-fit: contain;
@@ -71,7 +71,7 @@
         }
   
         @media (max-width: 480px) {
-          height: 30px;
+          height: 50px;
         }
       }
   
