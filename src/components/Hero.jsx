@@ -6,7 +6,6 @@ export default function Hero() {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Lance l'animation après le montage du composant
     const timer = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -34,7 +33,10 @@ export default function Hero() {
         />
       </div>
 
-      <h1 className="hero__title">Bienvenue chez SupaCo !</h1>
+      <div className="hero__text">
+        <h1>Bienvenue chez SupaCo !</h1>
+      <p>Votre Agence Web sur mesure.</p>
+      </div>
     </section>
   );
 }

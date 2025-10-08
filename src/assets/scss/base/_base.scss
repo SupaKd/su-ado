@@ -46,3 +46,30 @@ main {
   max-width: 100%;
   padding: 0;
 }
+
+.text-gradient {
+  
+    position: relative;
+    background: linear-gradient(90deg, #0166CC, #00AEEF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #0166CC, #00AEEF);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }

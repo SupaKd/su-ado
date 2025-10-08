@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faPhone,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,17 +17,20 @@ function Footer() {
             <img src="/newlogo.png" alt="Logo agence" />
           </Link>
           <p className="footer__desc">
-            Nous concevons des expériences web sur mesure pour révéler l’identité de votre marque et booster votre visibilité en ligne.
+            Nous concevons des expériences web sur mesure pour révéler
+            l’identité de votre marque et booster votre visibilité en ligne.
           </p>
         </div>
 
         <div className="footer__links">
           <h3>Navigation</h3>
           <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/projets">Projets</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li>
+              <Link to="/">Accueil</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
           </ul>
         </div>
 
@@ -33,11 +40,14 @@ function Footer() {
             <li>
               <FontAwesomeIcon icon={faEnvelope} /> contact@supaco-digital.com
             </li>
-            <li>+33 7 83 05 24 12</li>
-            <li>Saint-Genis-Pouilly, France</li>
+            <li>
+              <FontAwesomeIcon icon={faPhone} /> +33 7 83 05 24 12
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faLocationDot} /> Saint-Genis-Pouilly,
+              France
+            </li>
           </ul>
-
-          
         </div>
       </div>
 

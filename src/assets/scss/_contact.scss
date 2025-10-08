@@ -14,6 +14,10 @@
   img {
     width: 70%;
     justify-content: center;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 2rem;
+    filter: brightness(0) invert(40%);
   }
   .contact__bottom {
     text-align: center;
@@ -33,6 +37,7 @@
     font-size: $font-size-xl;
     margin-bottom: 2rem;
     text-align: center;
+    
   }
 
   .contact-form {
@@ -157,6 +162,7 @@
 
     button:hover .button_top {
       transform: translateY(-0.5em);
+      background-color: #EBF1F9;
     }
 
     button:active .button_top {
@@ -185,10 +191,11 @@
     overflow: hidden;
 
     img {
-      width: 100%;
-      height: 470px;
-      object-fit: cover;
+      width: 80%;
+      height: 400px;
+      object-fit: contain;
       border-radius: 2rem;
+      filter: brightness(0) invert(40%);
     }
   }
 }
@@ -266,7 +273,11 @@
       grid-column: 1 / -1;
     }
     img {
-      width: 100%;
+      width: 80%;
+      height: 400px;
+      object-fit: contain;
+      border-radius: 2rem;
+      filter: brightness(0) invert(40%);
     }
   }
 }

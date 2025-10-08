@@ -51,10 +51,10 @@ function Contact() {
       <section>
         <div className="foto">
 
-        <img src="contact2.webp" alt="contact" />
+        <img src="newlogo.png" alt="contact" />
         </div>
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-          <h2>Partage-nous ton projet !</h2>
+          <h2>Partage-nous ton <span className="text-gradient">projet</span> !</h2>
 
           <input
             type="text"

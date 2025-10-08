@@ -15,7 +15,7 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Site vitrine pour un serrurier",
+      title: "Site vitrine pour un serrurier, électricien",
       desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
       tech: ["React", "Node.js", "MySQL", "Framer Motion"],
       img: "/logo2.svg",
@@ -27,6 +27,13 @@ export default function Projects() {
       tech: ["React", "SCSS", "AOS", "Vite"],
       img: "yojeme.png",
       link: "https://www.yojeme.fr/",
+    },
+    {
+      title: "Site vitrine pour un fast-food de French Tacos",
+      desc: "Un site vitrine en ligne pour un fast-food de French Tacos, offrant une visibilité accrue sur son travail et ses services.",
+      tech: ["React", "SCSS", "AOS", "Vite"],
+      img: "belli.webp",
+      link: "https://bellifood.com/",
     },
   ];
 
@@ -54,7 +61,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Nos Réalisations
+          Ils nous ont fait confiance.
         </motion.h2>
 
         {isMobile ? (

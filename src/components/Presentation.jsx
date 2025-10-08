@@ -9,7 +9,7 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Création de sites web sur mesure à Saint-Genis-Pouilly.
+          Création de <span className="text-gradient">sites web</span> et <span className="text-gradient">logos</span> sur mesure à Saint-Genis-Pouilly.
         </motion.h1>
 
         <motion.p
@@ -17,12 +17,13 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Nous concevons des sites web modernes, rapides et optimisés pour le référencement. Des logos et identité visuelle distinctives, des interfaces intuitives et des fonctionnalités performantes.
-          Notre objectif est simple&nbsp;: propulser votre entreprise locale sur le web grâce à
-          une expérience utilisateur fluide et un design inspiré des plus grandes marques.
+          Nous concevons des sites web modernes, rapides et optimisés pour le
+          référencement. Des logos et identité visuelle distinctives, des
+          interfaces intuitives et des fonctionnalités performantes. Notre
+          objectif est simple&nbsp;: propulser votre entreprise locale sur le
+          web grâce à une expérience utilisateur fluide et un design inspiré des
+          plus grandes marques.
         </motion.p>
-
-       
 
         <motion.a
           href="#devis"
