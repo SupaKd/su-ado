@@ -31,6 +31,9 @@ function Footer() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+            <li>
+              <Link to="/confidentialite">Mentions Légales</Link>
+            </li>
           </ul>
         </div>
 

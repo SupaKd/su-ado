@@ -17,8 +17,8 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Nous concevons des sites web modernes, rapides et optimisés pour le
-          référencement. Des logos et identité visuelle distinctives, des
+          Nous concevons des <strong>sites web modernes</strong>, rapides et optimisés pour le
+          référencement. Des <strong>logos</strong> et identité visuelle distinctives, des
           interfaces intuitives et des fonctionnalités performantes. Notre
           objectif est simple&nbsp;: propulser votre entreprise locale sur le
           web grâce à une expérience utilisateur fluide et un design inspiré des

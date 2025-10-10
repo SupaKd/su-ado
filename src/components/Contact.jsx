@@ -5,9 +5,8 @@ import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-// Remplace ces 3 constantes par tes vraies infos EmailJS :
-const SERVICE_ID = "service_i1vee7y";
-const TEMPLATE_ID = "template_l57if82";
+const SERVICE_ID = "service_z9k3dwd";
+const TEMPLATE_ID = "template_ctzcgwt";
 const PUBLIC_KEY = "crjyM7CbUuPkyfBTT";
 
 function Contact() {
@@ -50,8 +49,7 @@ function Contact() {
     <section className="contact-form" id="devis">
       <section>
         <div className="foto">
-
-        <img src="newlogo.png" alt="contact" />
+      <img src="/fo.png" alt="" />
         </div>
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <h2>Partage-nous ton <span className="text-gradient">projet</span> !</h2>

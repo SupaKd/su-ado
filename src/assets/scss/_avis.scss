@@ -1,0 +1,117 @@
+.avis {
+  padding: 6rem 1.5rem 0rem 1.5rem;
+  background: #f9f9f9;
+  text-align: center;
+  overflow: hidden;
+
+  &__title {
+    font-size: 4rem;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    @media screen and (min-width: 768px) {
+      font-size: 6rem;
+    }
+  }
+
+  // Slider mobile
+  &__list {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      overflow: visible;
+      scroll-snap-type: none;
+      margin: 0 5rem;
+    }
+  }
+
+  &__card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 2px solid #111;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (min-width: 768px) {
+      flex: none;
+    }
+  }
+
+  &__google {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__stars {
+    color: #f2b01e;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__commentaire {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  &__nom {
+    font-weight: 600;
+    color: #222;
+    font-size: 1.3rem;
+  }
+
+  // Ville du client
+  .avis_ville {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 0.25rem;
+  }
+
+  // Points du slider (mobile uniquement)
+  &__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+
+      &:nth-child(1) {
+        background: #2a3f58;
+      }
+    }
+  }
+}

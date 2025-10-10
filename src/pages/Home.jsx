@@ -1,3 +1,4 @@
+import Avis from "../components/Avis";
 import Contact from "../components/Contact";
 import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
@@ -13,9 +14,11 @@ function Home() {
       <Hero />
       <Waves />
       <Presentation />
-      <Marquee />
       <Method />
+      <Waves />
       <Projet />
+      <Marquee />
+      <Avis />
       <Question />
       <Contact />
     </main>
