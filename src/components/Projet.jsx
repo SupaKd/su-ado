@@ -17,22 +17,29 @@ export default function Projects() {
     {
       title: "Site vitrine pour un serrurier, électricien",
       desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
-      tech: ["React", "Node.js", "MySQL", "Framer Motion"],
-      img: "/depanne.png",
+      logo: "/2.png",
+      imgHover: "/depanne.webp",
       link: "https://depannage-gemeaux.vercel.app/",
+    },
+    {
+      title: "Site e-commerce pour un reseller.",
+      desc: "Un site vitrine pour un reseller de boisson énergisante, offrant une visibilité accrue sur ses produits.",
+      logo: "/1.png",
+      imgHover: "/redseller.webp",
+      link: "https://konbini-smoky.vercel.app/",
     },
     {
       title: "Plateforme pour association solidaire",
       desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes.",
-      tech: ["React", "SCSS", "AOS", "Vite"],
-      img: "yoje.png",
+      logo: "/logomobile.png",
+      imgHover: "/yoje.webp",
       link: "https://www.yojeme.fr/",
     },
     {
-      title: "Site vitrine pour un fast-food de French Tacos",
-      desc: "Un site vitrine en ligne pour un fast-food de French Tacos, offrant une visibilité accrue sur son travail et ses services.",
-      tech: ["React", "SCSS", "AOS", "Vite"],
-      img: "belli.png",
+      title: "Site vitrine pour un fast-food.",
+      desc: "Un site vitrine pour un fast-food de French Tacos, offrant une visibilité accrue sur ses produits.",
+      logo: "/belli.logo.webp",
+      imgHover: "/belli.webp",
       link: "https://bellifood.com/",
     },
   ];
@@ -53,6 +60,28 @@ export default function Projects() {
     });
   };
 
+  const renderCard = (p, i) => (
+    <motion.div
+      className="project-card"
+      key={i}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.15, duration: 0.6 }}
+    >
+      <div className="project-card__image">
+        <img src={p.logo} alt={`${p.title} logo`} className="logo" loading="lazy" />
+        <img src={p.imgHover} alt={`${p.title} site`} className="hover" loading="lazy" />
+      </div>
+      <div className="project-card__info">
+        <h3>{p.title}</h3>
+        <p>{p.desc}</p>
+        <a href={p.link} target="_blank" rel="noreferrer">
+          Voir le projet
+        </a>
+      </div>
+    </motion.div>
+  );
+
   return (
     <section className="projects">
       <div className="projects__container">
@@ -71,21 +100,7 @@ export default function Projects() {
               ref={sliderRef}
               onScroll={handleScroll}
             >
-              {projects.map((p, i) => (
-                <div className="project-card" key={i}>
-                  <div className="project-card__image">
-                    <img src={p.img} alt={p.title} loading="lazy" />
-                  </div>
-                  <div className="project-card__info">
-                    <h3>{p.title}</h3>
-                    <p>{p.desc}</p>
-                    
-                    <a href={p.link} target="_blank" rel="noreferrer">
-                      Voir le projet
-                    </a>
-                  </div>
-                </div>
-              ))}
+              {projects.map(renderCard)}
             </div>
 
             <div className="projects__dots">
@@ -99,29 +114,7 @@ export default function Projects() {
             </div>
           </>
         ) : (
-          <div className="projects__grid">
-            {projects.map((p, i) => (
-              <motion.div
-                className="project-card"
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
-              >
-                <div className="project-card__image">
-                  <img src={p.img} alt={p.title} loading="lazy" />
-                </div>
-                <div className="project-card__info">
-                  <h3>{p.title}</h3>
-                  <p>{p.desc}</p>
-                  
-                  <a href={p.link} target="_blank" rel="noreferrer">
-                    Voir le projet
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <div className="projects__grid">{projects.map(renderCard)}</div>
         )}
       </div>
     </section>

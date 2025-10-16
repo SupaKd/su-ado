@@ -9,7 +9,7 @@ export default function Presentation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Création de <span className="text-gradient">sites web</span> et <span className="text-gradient">logos</span> sur mesure à Saint-Genis-Pouilly.
+          Création de <span className="text-gradient">sites web</span> et <span className="text-gradient">logos</span> sur mesure dans le pays de Gex.
         </motion.h1>
 
         <motion.p

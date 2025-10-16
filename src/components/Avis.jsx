@@ -46,11 +46,7 @@ export default function Avis() {
             ))}
           </div>
   
-          <div className="avis__dots">
-            {avis.map((_, i) => (
-              <span key={i} className="dot"></span>
-            ))}
-          </div>
+          
         </div>
       </section>
     );
