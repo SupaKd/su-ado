@@ -4,7 +4,7 @@
 
 .contact-form {
   background-color: #f9f9f9;
-  margin-top: 3rem;
+  margin-top: 5rem;
   padding: 4rem 1.5rem;
   justify-content: center;
 
@@ -36,7 +36,6 @@
     font-size: 3.2rem;
     margin-bottom: 2rem;
     text-align: center;
-    
   }
 
   .contact-form {
@@ -69,9 +68,13 @@
     width: 100%;
     display: flex;
     flex-direction: column; // affichage en colonne
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1rem 0;
     border: none;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      gap: 1rem;
+    }
 
     legend {
       font-weight: bold;
@@ -97,9 +100,9 @@
         background: #fff;
         color: #111;
         border: 2px solid #111;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         padding: 0.5rem;
-        font-size: $font-size-lg;
+        font-size: 1.2rem;
         font-weight: bold;
         transition: all 0.2s ease;
         display: block;
@@ -124,7 +127,7 @@
       gap: 0.1rem;
 
       a {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: #000;
         padding: 0.1rem 0.9rem;
         border-radius: $radius-md;
@@ -274,7 +277,6 @@
       height: auto;
       object-fit: contain;
       border-radius: 2rem;
-      
     }
   }
 }

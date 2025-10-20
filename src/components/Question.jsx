@@ -40,7 +40,7 @@ function Question() {
   return (
     <section className="faq">
       <div className="faq__intro">
-        <h2>FAQ</h2>
+        <h2 className="text-gradient">FAQ</h2>
         <p>
           Retrouve ici toutes les réponses à tes interrogations. Et même celles
           que tu ne t’imagines pas !

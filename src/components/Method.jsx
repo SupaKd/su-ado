@@ -75,11 +75,11 @@ export default function Promesses() {
     <section className="promesses" ref={ref}>
       <div className="promesses__left">
         <div className="promesses__left-content">
-          <h2>Notre approche</h2>
+          <h2 className="text-gradient">Notre approche</h2>
           <p>
-            Une méthode simple, claire et humaine.
+            Une méthode <span>simple</span>, claire et <span>humaine</span>.
             Nous avançons à vos côtés, étape par étape — de la découverte à la livraison.
-            Chaque phase est pensée pour donner du sens, de la cohérence et de l’impact à votre projet.
+            Chaque phase est pensée pour donner du sens, de la cohérence et de l’impact à votre <span>projet</span>.
           </p>
         </div>
       </div>

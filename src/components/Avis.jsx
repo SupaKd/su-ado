@@ -26,7 +26,7 @@ export default function Avis() {
     return (
       <section className="avis">
         <div className="avis__container">
-          <h2 className="avis__title">Ce que disent nos clients</h2>
+          <h2 className="text-gradient">Ce que disent nos clients</h2>
   
           <div className="avis__list">
             {avis.map((a, i) => (
@@ -35,12 +35,12 @@ export default function Avis() {
   
                 <img src="/google.png" alt="google" />
                 </div>
+                <p className="avis__nom">– {a.nom}</p>
                 <div className="avis__stars">
                   {"★".repeat(a.note)}
                   {"☆".repeat(5 - a.note)}
                 </div>
                 <p className="avis__commentaire">“{a.commentaire}”</p>
-                <p className="avis__nom">– {a.nom}</p>
                 <p className="avis_ville">{a.ville}</p>
               </div>
             ))}

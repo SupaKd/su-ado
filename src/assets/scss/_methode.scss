@@ -39,7 +39,10 @@
         font-size: 1.6rem;
         text-align: start;
         line-height: 1.6;
-        color: var(--muted);
+        color: #555;
+      }
+      span{
+        font-weight: bold;
       }
     }
   }

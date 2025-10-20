@@ -19,7 +19,7 @@ export default function Projects() {
       desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
       logo: "/2.png",
       imgHover: "/depanne.webp",
-      link: "https://depannage-gemeaux.vercel.app/",
+      link: "https://depannage-gemeaux.fr/",
     },
     {
       title: "Site e-commerce pour un reseller.",
@@ -89,6 +89,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="text-gradient"
         >
           Ils nous ont fait confiance.
         </motion.h2>
