@@ -38,146 +38,172 @@
     text-align: center;
   }
 
+  // ==============================
+  // CONTACT — Landing 2025
+  // ==============================
+
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 2.3rem;
-    margin: 2rem;
+    gap: 3rem;
+    margin: 3rem 1.5rem;
 
     input,
     textarea {
-      padding: 1rem;
+      padding: 1.2rem 1rem;
       border: none;
-      background-color: transparent;
-      border-bottom: solid 2px #111;
-      font-size: $font-size-lg;
-      font-weight: 700;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      font-size: 1.2rem;
+      font-weight: 400;
       width: 100%;
-      box-sizing: border-box;
+      transition: 0.25s ease;
+      outline: none;
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 140px;
       resize: vertical;
-      border: solid 2px #111;
-      border-radius: 1.5rem;
     }
   }
+
+  // ==============================
+  // FIELDSET — Options modernisées
+  // ==============================
 
   fieldset {
     width: 100%;
     display: flex;
-    flex-direction: column; // affichage en colonne
-    gap: 1.5rem;
-    padding: 1rem 0;
+    flex-direction: column;
+    gap: 1.7rem;
+    padding: 1.5rem 0;
     border: none;
+
     @media screen and (min-width: 768px) {
       flex-direction: row;
-      gap: 1rem;
     }
 
     legend {
-      font-weight: bold;
+      font-weight: 700;
+      font-size: $font-size-lg;
+      margin-bottom: 0.5rem;
     }
 
     .checkbox-tab {
       position: relative;
-      display: block;
-      width: 100%; // chaque tab prend toute la largeur du parent
+      width: 100%;
       cursor: pointer;
 
       input[type="checkbox"] {
         display: none;
 
         &:checked + span {
-          background: rgba(0, 113, 227, 0.2);
-          color: #111;
-          border-color: #111;
+          background: rgba(0, 113, 227, 0.18);
+          backdrop-filter: blur(16px);
+          border-color: rgba(0, 113, 227, 0.5);
+          color: #0d0d0d;
+          box-shadow: 0 6px 20px rgba(0, 113, 227, 0.2);
         }
       }
 
       span {
-        background: #fff;
-        color: #111;
-        border: 2px solid #111;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: all 0.2s ease;
         display: block;
         text-align: center;
+        padding: 0.9rem 1rem;
+        border-radius: 1.4rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+
+        background: rgba(255, 255, 255, 0.45);
+        border: 2px solid rgba(17, 17, 17, 0.2);
+        box-shadow: 0 3px 16px rgba(0, 0, 0, 0.03);
+
+        transition: all 0.25s ease;
 
         &:hover {
-          @include button-press-effect;
+          transform: translateY(-3px);
+          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
         }
       }
     }
-  }
-
-  .social-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0rem 2rem 0rem 2rem;
-    gap: 2rem;
-
-    .contact-socials {
-      display: flex;
-      gap: 0.1rem;
-
-      a {
-        font-size: 3rem;
-        color: #000;
-        padding: 0.1rem 0.9rem;
-        border-radius: $radius-md;
-        transition: color 0.3s;
-
-        &:hover {
-          color: $button;
-        }
-      }
-    }
-
-    button {
-      font-size: $font-size-lg;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      border-radius: 12px;
-      background: #000;
-      padding: 0;
-    }
-
-    /* Partie haute du bouton */
-    .button_top {
-      display: block;
-      box-sizing: border-box;
-      border: 3px solid #000;
-      border-radius: $radius-md;
-      padding: 1.5rem 2.5rem;
-      background: #fff;
-      color: #111;
-      transform: translateY(-0.5em);
-      transition: transform 0.1s ease, background-color 0.2s ease;
-    }
-
-    button:hover .button_top {
-      transform: translateY(-0.5em);
-      background-color: #fdc500;
-    }
-
-    button:active .button_top {
-      transform: translateY(0);
-    }
-  }
-
-  .contact-credit {
-    text-align: center;
-    font-size: $font-size-md;
-    color: $text;
   }
 }
+
+.social-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 2rem 0rem 2rem;
+  gap: 2rem;
+
+  .contact-socials {
+    display: flex;
+    gap: 0.1rem;
+
+    a {
+      font-size: 3rem;
+      color: #111;
+      padding: 0.1rem 0.9rem;
+      border-radius: $radius-md;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $button;
+      }
+    }
+  }
+
+  button {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+    border-radius: 2rem;
+  }
+
+  .button_top {
+    display: block;
+    padding: 1.3rem 2.8rem;
+    border-radius: 2rem;
+
+    background: linear-gradient(135deg, #0071e3, #7a56ff, #ff3ea5);
+    background-size: 200%;
+    color: #fff;
+
+    border: none;
+    transform: translateY(-0.4em);
+    transition: transform 0.25s ease, background-position 0.4s ease,
+      box-shadow 0.3s ease;
+  }
+
+  button:hover .button_top {
+    transform: translateY(-0.65em);
+    background-position: 100%;
+    box-shadow: 0 10px 30px rgba(255, 62, 165, 0.3);
+  }
+
+  button:active .button_top {
+    transform: translateY(0);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.contact-credit {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $text;
+}
+
 .contact__bottom {
   font-size: 2rem;
 }

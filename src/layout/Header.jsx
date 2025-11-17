@@ -115,14 +115,12 @@ function Header() {
           role="navigation"
         >
           <div className="header__nav-content">
-            <img className="header__nav-logo" src="/logoo.webp" alt="logo-nav" />
             <NavLink 
               to="/" 
               className={({ isActive }) => 
                 `header__nav-link ${isActive ? "header__nav-link--active" : ""}`
               }
               onClick={closeMenu}
-              end
             >
               Accueil
             </NavLink>

@@ -6,20 +6,20 @@ import Method from "../components/Method";
 import Presentation from "../components/Presentation";
 import Projet from "../components/Projet";
 import Question from "../components/Question";
+import Tarifs from "../components/Tarifs";
 import Waves from "../components/Waves";
 
 function Home() {
   return (
     <main className="home">
       <Hero />
-      <Waves />
       <Presentation />
+      <Tarifs />
       <Method />
-      <Waves />
       <Projet />
-      <Marquee />
       <Avis />
       <Question />
+      <Marquee />
       <Contact />
     </main>
   );
