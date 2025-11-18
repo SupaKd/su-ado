@@ -47,11 +47,11 @@ export default function Hero() {
           transform: `perspective(900px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
         }}
       >
-        <img src="/supahero.webp" alt="hero visuel" className="hero__image" />
+        <img src="/hero3.jpg" alt="hero visuel" className="hero__image" />
       </div>
 
       <div className="hero__text">
-        <h1>Des <span className="text-gradient">sites vitrines professionnels</span> , rapides et modernes dès <span className="text-gradient">200€</span>.</h1>
+        <h1>Des sites vitrines professionnels , rapides et modernes dès <span className="text-gradient">500€</span>.</h1>
         <p>
           Idéal pour artisans, freelances, commerces et petites entreprises
           voulant une présence en ligne efficace.

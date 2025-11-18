@@ -5,7 +5,32 @@
   margin-top: 5rem;
   display: flex;
   justify-content: center;
-  background: #fafafa;
+
+  width: 100%;
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+  padding: 4rem 1.5rem;
+
+  /* Dégradé vertical + brume */
+  background: linear-gradient(to bottom, #f9f9f9 0%, #dce4ff 50%, #f9f9f9 100%);
+  position: relative;
+  overflow: hidden;
+
+  /* Effet de brume */
+  .pricing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.6) 45%,
+      rgba(255, 255, 255, 0.2) 75%
+    );
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    pointer-events: none;
+  }
 
   .presentation__grid {
     max-width: 1200px;

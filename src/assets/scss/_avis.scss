@@ -1,5 +1,6 @@
 .avis {
   padding: 6rem 1.5rem 0rem 1.5rem;
+  height: 80vh;
   background: #f9f9f9;
   text-align: center;
   overflow: hidden;
@@ -38,10 +39,10 @@
     flex: 0 0 85%;
     scroll-snap-align: center;
     background: white;
-    border-radius: 1rem;
     padding: 2rem 1.5rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    border: 2px solid #111;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
     transition: transform 0.3s ease;
 
    

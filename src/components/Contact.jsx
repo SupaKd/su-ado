@@ -120,14 +120,7 @@ function Contact() {
               <span>Logo</span>
             </label>
 
-            <label className="checkbox-tab">
-              <input
-                type="checkbox"
-                value="Flyers"
-                {...register("Prestation")}
-              />
-              <span>Flyers</span>
-            </label>
+            
           </fieldset>
 
           <textarea

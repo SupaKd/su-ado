@@ -51,7 +51,7 @@ export default function Presentation() {
           </p>
 
           <ul>
-            <li>Prix imbattable : site vitrine dès 200€</li>
+            <li>Prix imbattable : site vitrine dès 500€</li>
             <li>Livraison express sous 72h</li>
             <li>Design 100% personnalisé</li>
             <li>SEO & performances inclus</li>

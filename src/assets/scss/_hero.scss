@@ -81,14 +81,14 @@
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
-    background: linear-gradient(135deg, #6e00ff, #00d4ff);
+    background: linear-gradient(135deg, #017BFF, #00d4ff);
     border: none;
     border-radius: 12px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 12px 30px rgba(110, 0, 255, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 51, 255, 0.3);
 
     &:hover {
       transform: translateY(-4px) scale(1.05);

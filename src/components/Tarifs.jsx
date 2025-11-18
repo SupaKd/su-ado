@@ -42,7 +42,7 @@ export default function Pricing() {
             initial="hidden"
             whileInView="visible"
           >
-            <h3>💎 Offre Starter — <span>200€</span></h3>
+            <h3>💎 Offre Starter — <span>500€</span></h3>
             <p className="pricing__desc">
               Parfaite pour artisans, indépendants et micro-entreprises.
             </p>
@@ -72,7 +72,7 @@ export default function Pricing() {
             initial="hidden"
             whileInView="visible"
           >
-            <h3>🚀 Offre Business — <span>500€</span></h3>
+            <h3>🚀 Offre Business — <span>1000€</span></h3>
             <p className="pricing__desc">
               Pour plus de contenu, plus de crédibilité et plus de visibilité.
             </p>
