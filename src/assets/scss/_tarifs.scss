@@ -1,30 +1,15 @@
 .pricing {
   width: 100%;
-  margin-top: 15rem;
-  margin-bottom: 5rem;
   padding: 4rem 1.5rem;
-
-  /* Dégradé vertical + brume */
-  background: linear-gradient(to bottom, #f9f9f9 0%, #dce4ff 50%, #f9f9f9 100%);
   position: relative;
   overflow: hidden;
 
-  /* Effet de brume */
-  .pricing::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at 50% 30%,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.6) 45%,
-      rgba(255, 255, 255, 0.2) 75%
-    );
-    mix-blend-mode: screen;
-    opacity: 0.9;
-    pointer-events: none;
-  }
-  
+  /* Dégradé + brume */
+  background: linear-gradient(to bottom, #f9f9f9 0%, #dce4ff 50%, #f9f9f9 100%);
+
+  /* -------------------------------------- */
+  /* STRUCTURE */
+  /* -------------------------------------- */
 
   &__container {
     max-width: 1200px;
@@ -50,14 +35,20 @@
     gap: 2rem;
   }
 
+  /* -------------------------------------- */
+  /* CARD */
+  /* -------------------------------------- */
+
   &__card {
     background: #fff;
     padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid #eaeaea;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
@@ -113,13 +104,16 @@
 
     .pricing__cta {
       display: inline-block;
-      text-decoration: none;
-      font-weight: 600;
       padding: 0.7rem 1.4rem;
+      text-decoration: none;
+
       border-radius: 12px;
-      background: #fff;
       border: 2px solid #0166cc;
+
+      font-weight: 600;
       color: #0166cc;
+      background: #fff;
+
       transition: all 0.3s ease;
 
       &:hover {
@@ -130,10 +124,14 @@
     }
   }
 
+  /* -------------------------------------- */
+  /* CARD HIGHLIGHT */
+  /* -------------------------------------- */
+
   .pricing__card--highlight {
     background: linear-gradient(10deg, #0166cc 0%, #00aeef 100%);
-    color: #fff;
     border: none;
+    color: #fff;
     box-shadow: 0 10px 15px rgba(110, 0, 255, 0.25);
 
     h3,
@@ -144,9 +142,9 @@
     }
 
     .pricing__cta {
+      background: #fff;
       border: 2px solid #fff;
       color: #0166cc;
-      background: #fff;
 
       &:hover {
         background: #fff;
@@ -161,12 +159,12 @@
     }
   }
 
-  /* -----------------------------
-     DESKTOP / TABLETTE
-  ------------------------------ */
+  /* -------------------------------------- */
+  /* RESPONSIVE DESKTOP / TABLET */
+  /* -------------------------------------- */
+
   @media (min-width: 768px) {
     padding: 6rem 2rem;
-    margin-top:0;
 
     &__title {
       font-size: clamp(3rem, 4vw, 5rem);
@@ -216,11 +214,9 @@
       }
     }
 
-    .pricing__card--highlight {
-      &:hover {
-        transform: translateY(-8px) scale(1.04);
-        box-shadow: 0 35px 60px rgba(110, 0, 255, 0.35);
-      }
+    .pricing__card--highlight:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 35px 60px rgba(110, 0, 255, 0.35);
     }
   }
 }

@@ -5,7 +5,6 @@ import Marquee from "../components/Marquee";
 import Method from "../components/Method";
 import Presentation from "../components/Presentation";
 import Projet from "../components/Projet";
-import Question from "../components/Question";
 import Tarifs from "../components/Tarifs";
 
 function Home() {
@@ -14,10 +13,9 @@ function Home() {
       <Hero />
       <Presentation />
       <Tarifs />
-      <Projet />
       <Method />
+      <Projet />
       <Avis />
-      <Question />
       <Contact />
       <Marquee />
     </main>
