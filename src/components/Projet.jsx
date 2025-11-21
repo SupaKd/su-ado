@@ -29,6 +29,13 @@ export default function Projects() {
       link: "https://konbini-smoky.vercel.app/",
     },
     {
+      title: "Site de réservation pour un coiffeur.",
+      desc: "Un site vitrine pour un coiffeur, offrant une visibilité accrue sur son travail et ses services.",
+      logo: "/logohair.png",
+      imgHover: "/coif.png",
+      link: "https://konbini-smoky.vercel.app/",
+    },
+    {
       title: "Plateforme pour association solidaire",
       desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes.",
       logo: "/logomobile.png",
@@ -76,7 +83,7 @@ export default function Projects() {
         <h3>{p.title}</h3>
         <p>{p.desc}</p>
         <a href={p.link} target="_blank" rel="noreferrer">
-          Voir le projet
+          Voir 
         </a>
       </div>
     </motion.div>
