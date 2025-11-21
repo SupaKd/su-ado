@@ -24,7 +24,7 @@ export default function Projects() {
     {
       title: "Site vitrine pour un serrurier, électricien",
       desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
-      logo: "/2.png",
+      logo: "/depanne.png",
       imgHover: "/depanne.webp",
       link: "https://depannage-gemeaux.fr/",
     },
@@ -38,7 +38,7 @@ export default function Projects() {
     {
       title: "Site e-commerce pour un reseller.",
       desc: "Un site vitrine pour un reseller de boisson énergisante, offrant une visibilité accrue sur ses produits.",
-      logo: "/1.png",
+      logo: "/redo.png",
       imgHover: "/redseller.webp",
       link: "https://konbini-smoky.vercel.app/",
     },

@@ -13,8 +13,8 @@ function Home() {
       <Hero />
       <Presentation />
       <Tarifs />
-      <Method />
       <Projet />
+      <Method />
       <Avis />
       <Contact />
       <Marquee />
