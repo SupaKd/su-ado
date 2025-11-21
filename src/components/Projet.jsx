@@ -15,25 +15,18 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Site de réservation pour un coiffeur.",
+      desc: "Un site vitrine pour un coiffeur, offrant une visibilité accrue sur son travail et ses services.",
+      logo: "/logohair.png",
+      imgHover: "/coif.png",
+      link: "https://barber-ten-bay.vercel.app/",
+    },
+    {
       title: "Site vitrine pour un serrurier, électricien",
       desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
       logo: "/2.png",
       imgHover: "/depanne.webp",
       link: "https://depannage-gemeaux.fr/",
-    },
-    {
-      title: "Site e-commerce pour un reseller.",
-      desc: "Un site vitrine pour un reseller de boisson énergisante, offrant une visibilité accrue sur ses produits.",
-      logo: "/1.png",
-      imgHover: "/redseller.webp",
-      link: "https://konbini-smoky.vercel.app/",
-    },
-    {
-      title: "Site de réservation pour un coiffeur.",
-      desc: "Un site vitrine pour un coiffeur, offrant une visibilité accrue sur son travail et ses services.",
-      logo: "/logohair.png",
-      imgHover: "/coif.png",
-      link: "https://konbini-smoky.vercel.app/",
     },
     {
       title: "Plateforme pour association solidaire",
@@ -42,6 +35,15 @@ export default function Projects() {
       imgHover: "/yoje.webp",
       link: "https://www.yojeme.fr/",
     },
+    {
+      title: "Site e-commerce pour un reseller.",
+      desc: "Un site vitrine pour un reseller de boisson énergisante, offrant une visibilité accrue sur ses produits.",
+      logo: "/1.png",
+      imgHover: "/redseller.webp",
+      link: "https://konbini-smoky.vercel.app/",
+    },
+    
+   
     {
       title: "Site vitrine pour un fast-food.",
       desc: "Un site vitrine pour un fast-food de French Tacos, offrant une visibilité accrue sur ses produits.",

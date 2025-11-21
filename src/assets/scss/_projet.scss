@@ -23,11 +23,11 @@
     text-align: center;
 
     h2 {
-      font-size: clamp(2rem, 3vw, 3.2rem);
+      font-size: clamp(2rem, 3vw, 4rem);
       font-weight: 700;
       letter-spacing: 0.6px;
       margin-bottom: 3rem;
-      background: linear-gradient(90deg, #fff, #ffcf33);
+      background: linear-gradient(90deg, #fff, #0D1B2A);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -85,8 +85,8 @@
 
 /* ---------- Project Card ---------- */
 .project-card {
-  background: #E0E0E0;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f9f9f9;
+  border: 1px solid #eee;
   border-radius: var(--radius);
   padding: 1.5rem;
   backdrop-filter: blur(14px);
@@ -103,13 +103,12 @@
 .project-card__image {
   width: 100%;
   height: 200px;
-  border-radius: var(--radius);
   position: relative;
   overflow: hidden;
 
   img {
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: contain;
     transition: opacity var(--transition);
     position: absolute;

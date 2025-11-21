@@ -166,24 +166,13 @@
 
   @media (max-width: 600px) {
 
-    .presentation__left h1 {
+    .presentation__left  {
       font-size: 2.8rem;
+      text-align: center;
     }
 
     .presentation__right {
-      padding: 1.8rem;
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      ul li {
-        font-size: 1rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
+      display: none;
 
     }
   }
