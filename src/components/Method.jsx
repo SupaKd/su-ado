@@ -1,135 +1,137 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { useIsMobile, useScrollProgress } from "../hooks/useScroll";
+import { METHOD_CARDS } from "../constants";
 
-export default function Promesses() {
-  const cards = [
-    {
-      t: "Découverte",
-      d: "Chaque projet commence par une rencontre. Nous plongeons dans votre univers, écoutons votre histoire et décryptons vos besoins. Cette immersion nous permet de cerner vos ambitions et de poser des fondations solides pour une collaboration inspirée et sur-mesure."
-    },
-    {
-      t: "Stratégie",
-      d: "Nous transformons vos idées en une vision claire et motivante. Grâce à une feuille de route précise, nous traçons le chemin vers vos objectifs, en alliant créativité, innovation et pragmatisme. Notre ambition : bâtir une stratégie qui vous distingue et qui inspire confiance."
-    },
-    {
-      t: "Développement",
-      d: "C’est ici que la magie opère : nous donnons vie à vos idées. Entre design élégant et technologie performante, nous créons des expériences mémorables, fluides et centrées sur l’utilisateur. Chaque détail compte pour offrir une solution qui séduit, convainc et évolue avec vous."
-    },
-    {
-      t: "Livraison",
-      d: "Lancement, célébration, mais surtout accompagnement. Nous mettons en ligne votre projet avec soin et veillons à ce qu’il brille dès le premier jour. Et parce qu’un succès se construit dans le temps, nous restons à vos côtés pour optimiser, faire grandir et pérenniser votre réussite."
-    },
-  ];
+// Sous-composant pour une carte de méthode
+function MethodCard({ title, description, style, className = "" }) {
+  return (
+    <article className={`card ${className}`} style={style}>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </article>
+  );
+}
 
-  const ref = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+MethodCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+};
 
-  // Détection mobile
-  const isMobile = window.innerWidth < 768;
-
-  // === SCROLL DETECTION POUR VERSION DESKTOP ===
-  useEffect(() => {
-    if (isMobile) return;
-
-    const handleScroll = () => {
-      const el = ref.current;
-      if (!el) return;
-
-      const rect = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const totalScroll = el.offsetHeight - windowHeight;
-      const progress = Math.min(Math.max(-rect.top / totalScroll, 0), 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
-
-  // === ANIMATION D’APPARITION MOBILE ===
-  const [visibleCards, setVisibleCards] = useState([]);
+// Version Mobile avec Intersection Observer
+function MobileCards() {
+  const [visibleCards, setVisibleCards] = useState(new Set());
 
   useEffect(() => {
-    if (!isMobile) return;
-    const observers = [];
     const elements = document.querySelectorAll(".promesses__mobile .card");
+    const observers = [];
 
-    elements.forEach((el, i) => {
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleCards((prev) => [...new Set([...prev, i])]);
-            }
-          });
+    elements.forEach((el, index) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => new Set([...prev, index]));
+          }
         },
         { threshold: 0.3 }
       );
-      obs.observe(el);
-      observers.push(obs);
+
+      observer.observe(el);
+      observers.push(observer);
     });
 
-    return () => observers.forEach((o) => o.disconnect());
-  }, [isMobile]);
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   return (
-    <section className="promesses" ref={ref}>
+    <div className="promesses__mobile">
+      {METHOD_CARDS.map((card, index) => (
+        <MethodCard
+          key={card.id}
+          title={card.title}
+          description={card.description}
+          className={visibleCards.has(index) ? "visible" : ""}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Version Desktop avec animation au scroll
+function DesktopCards({ scrollProgress }) {
+  const totalCards = METHOD_CARDS.length;
+  const sectionSize = 1 / totalCards;
+
+  const calculateCardStyle = (index) => {
+    const start = index * sectionSize;
+    const end = start + sectionSize;
+    const localProgress = Math.min(
+      Math.max((scrollProgress - start) / (end - start), 0),
+      1
+    );
+
+    const opacity =
+      localProgress < 0.15
+        ? localProgress / 0.15
+        : localProgress > 0.85
+        ? (1 - localProgress) / 0.15
+        : 1;
+
+    const scale = 0.95 + 0.05 * localProgress;
+
+    return {
+      opacity: Math.max(0, Math.min(1, opacity)),
+      transform: `scale(${scale})`,
+    };
+  };
+
+  return (
+    <div className="promesses__sticky">
+      {METHOD_CARDS.map((card, index) => (
+        <MethodCard
+          key={card.id}
+          title={card.title}
+          description={card.description}
+          style={calculateCardStyle(index)}
+        />
+      ))}
+    </div>
+  );
+}
+
+DesktopCards.propTypes = {
+  scrollProgress: PropTypes.number.isRequired,
+};
+
+// Composant principal
+export default function Method() {
+  const sectionRef = useRef(null);
+  const isMobile = useIsMobile();
+  const scrollProgress = useScrollProgress(sectionRef);
+
+  return (
+    <section className="promesses" ref={sectionRef} aria-labelledby="method-title">
       <div className="promesses__left">
         <div className="promesses__left-content">
-          <h2 className="text-gradient">Notre approche</h2>
+          <h2 id="method-title" className="text-gradient">
+            Notre approche
+          </h2>
           <p>
             Une méthode <span>simple</span>, claire et <span>humaine</span>.
-            Nous avançons à vos côtés, étape par étape — de la découverte à la livraison.
-            Chaque phase est pensée pour donner du sens, de la cohérence et de l’impact à votre <span>projet</span>.
+            Nous avançons à vos côtés, étape par étape — de la découverte à la
+            livraison. Chaque phase est pensée pour donner du sens, de la
+            cohérence et de l'impact à votre <span>projet</span>.
           </p>
         </div>
       </div>
 
       <div className="promesses__right">
         {isMobile ? (
-          <div className="promesses__mobile">
-            {cards.map((c, i) => (
-              <article
-                key={c.t}
-                className={`card ${visibleCards.includes(i) ? "visible" : ""}`}
-              >
-                <h3>{c.t}</h3>
-                <p>{c.d}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCards />
         ) : (
-          <div className="promesses__sticky">
-            {cards.map((c, i) => {
-              const sectionSize = 1 / cards.length;
-              const start = i * sectionSize;
-              const end = start + sectionSize;
-              const localProgress = Math.min(
-                Math.max((scrollProgress - start) / (end - start), 0),
-                1
-              );
-              const opacity =
-                localProgress < 0.15
-                  ? localProgress / 0.15
-                  : localProgress > 0.85
-                  ? (1 - localProgress) / 0.15
-                  : 1;
-              const scale = 0.95 + 0.05 * localProgress;
-
-              return (
-                <article
-                  key={c.t}
-                  className="card"
-                  style={{
-                    opacity: Math.max(0, Math.min(1, opacity)),
-                    transform: `scale(${scale})`,
-                  }}
-                >
-                  <h3>{c.t}</h3>
-                  <p>{c.d}</p>
-                </article>
-              );
-            })}
-          </div>
+          <DesktopCards scrollProgress={scrollProgress} />
         )}
       </div>
     </section>

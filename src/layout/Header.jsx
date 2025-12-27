@@ -1,19 +1,21 @@
-// src/layout/Header.jsx
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useScroll, useLockBodyScroll } from "../hooks/useScroll";
+import { NAV_LINKS } from "../constants";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-
+  
   const location = useLocation();
-  const lastY = useRef(0);
-  const ticking = useRef(false);
+  const { scrollY, isScrollingDown, isScrolled } = useScroll(20);
 
-  // Toggle menu
+  // Verrouille le scroll quand le menu est ouvert
+  useLockBodyScroll(isMenuOpen);
+
+  // Toggle menu avec useCallback pour éviter les re-créations
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
@@ -22,52 +24,28 @@ function Header() {
     setIsMenuOpen(false);
   }, []);
 
-  // Close menu on route change
+  // Ferme le menu lors du changement de route
   useEffect(() => {
     closeMenu();
   }, [location.pathname, closeMenu]);
 
-  // Scroll listener (direction + scrolled)
+  // Gère la visibilité du header basée sur le scroll
   useEffect(() => {
-    const handleScroll = () => {
-      if (ticking.current) return;
-
-      ticking.current = true;
-
-      requestAnimationFrame(() => {
-        const currentY = window.scrollY;
-
-        setIsScrolled(currentY > 20);
-
-        if (currentY > 120) {
-          const isScrollingDown = currentY > lastY.current;
-          setShowHeader(!isScrollingDown);
-        } else {
-          setShowHeader(true);
-        }
-
-        lastY.current = currentY;
-        ticking.current = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Disable body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+    if (scrollY > 120) {
+      setShowHeader(!isScrollingDown);
     } else {
-      document.body.style.overflow = "";
+      setShowHeader(true);
     }
+  }, [scrollY, isScrollingDown]);
 
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen]);
+  // Gestion du clavier pour l'accessibilité
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === "Escape") {
+      closeMenu();
+    }
+  }, [closeMenu]);
 
+  // Construction des classes CSS
   const headerClasses = [
     "header",
     isScrolled && "header--scrolled",
@@ -77,7 +55,7 @@ function Header() {
     .filter(Boolean)
     .join(" ");
 
-  const navLinkClass = ({ isActive }) =>
+  const getNavLinkClass = ({ isActive }) =>
     `header__nav-link ${isActive ? "header__nav-link--active" : ""}`;
 
   return (
@@ -100,10 +78,15 @@ function Header() {
         </button>
 
         {/* Logo */}
-        <Link to="/" onClick={closeMenu} className="header__logo" aria-label="Retour à l'accueil">
+        <Link
+          to="/"
+          onClick={closeMenu}
+          className="header__logo"
+          aria-label="Retour à l'accueil"
+        >
           <img
             src="/newlogo.png"
-            alt="Logo"
+            alt="Logo Supaco Digital"
             className="header__logo-image"
             width="120"
             height="40"
@@ -112,7 +95,11 @@ function Header() {
         </Link>
 
         {/* CTA Button */}
-        <a href="#devis" className="header__cta button button--primary" aria-label="Nous contacter">
+        <a
+          href="#devis"
+          className="header__cta button button--primary"
+          aria-label="Nous contacter"
+        >
           Contact
         </a>
 
@@ -123,17 +110,16 @@ function Header() {
           aria-label="Navigation principale"
         >
           <div className="header__nav-content">
-            <NavLink to="/" className={navLinkClass} onClick={closeMenu}>
-              Accueil
-            </NavLink>
-
-            <NavLink to="/contact" className={navLinkClass} onClick={closeMenu}>
-              Contact
-            </NavLink>
-
-            <NavLink to="/projet" className={navLinkClass} onClick={closeMenu}>
-              Projet
-            </NavLink>
+            {NAV_LINKS.map(({ path, label }) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={getNavLinkClass}
+                onClick={closeMenu}
+              >
+                {label}
+              </NavLink>
+            ))}
           </div>
         </nav>
 
@@ -142,7 +128,7 @@ function Header() {
           <div
             className="header__overlay"
             onClick={closeMenu}
-            onKeyDown={(e) => e.key === "Escape" && closeMenu()}
+            onKeyDown={handleKeyDown}
             role="button"
             tabIndex={0}
             aria-label="Fermer le menu"

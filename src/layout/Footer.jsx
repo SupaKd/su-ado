@@ -5,35 +5,37 @@ import {
   faPhone,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+import { CONTACT_INFO, NAV_LINKS } from "../constants/data";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const footerLinks = [
+    ...NAV_LINKS.filter((link) => link.path !== "/projet"),
+    { path: "/confidentialite", label: "Mentions Légales" },
+  ];
 
   return (
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__brand">
           <Link to="/" className="footer__logo">
-            <img src="/newlogo.png" alt="Logo agence" />
+            <img src="/newlogo.png" alt="Logo Supaco Digital" />
           </Link>
           <p className="footer__desc">
             Nous concevons des expériences web sur mesure pour révéler
-            l’identité de votre marque et booster votre visibilité en ligne.
+            l'identité de votre marque et booster votre visibilité en ligne.
           </p>
         </div>
 
         <div className="footer__links">
           <h3>Navigation</h3>
           <ul>
-            <li>
-              <Link to="/">Accueil</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/confidentialite">Mentions Légales</Link>
-            </li>
+            {footerLinks.map(({ path, label }) => (
+              <li key={path}>
+                <Link to={path}>{label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -41,14 +43,13 @@ function Footer() {
           <h3>Contact</h3>
           <ul>
             <li>
-              <FontAwesomeIcon icon={faEnvelope} /> contact@supaco-digital.com
+              <FontAwesomeIcon icon={faEnvelope} /> {CONTACT_INFO.email}
             </li>
             <li>
-              <FontAwesomeIcon icon={faPhone} /> +33 7 83 05 24 12
+              <FontAwesomeIcon icon={faPhone} /> {CONTACT_INFO.phone}
             </li>
             <li>
-              <FontAwesomeIcon icon={faLocationDot} /> Saint-Genis-Pouilly,
-              France
+              <FontAwesomeIcon icon={faLocationDot} /> {CONTACT_INFO.location}
             </li>
           </ul>
         </div>

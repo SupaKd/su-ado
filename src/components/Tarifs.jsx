@@ -1,22 +1,87 @@
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import { PRICING_DATA } from "../constants";
 
-export default function Pricing() {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6 },
-    }),
-  };
+// Configuration des animations
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: index * 0.15, duration: 0.6 },
+  }),
+};
+
+// Sous-composant pour une carte tarif
+function PricingCard({ plan, index }) {
+  const {
+    emoji,
+    name,
+    price,
+    description,
+    features,
+    ideal,
+    isHighlight,
+    ctaText,
+  } = plan;
+
+  const cardClass = `pricing__card ${isHighlight ? "pricing__card--highlight" : ""}`;
+  const ctaClass = `pricing__cta ${isHighlight ? "pricing__cta--primary" : ""}`;
 
   return (
-    <section className="pricing">
-      <div className="pricing__container">
+    <motion.article
+      className={cardClass}
+      custom={index}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <h3>
+        {emoji} {name} — <span>{price}</span>
+      </h3>
+      <p className="pricing__desc">{description}</p>
 
+      <ul>
+        {features.map((feature, featureIndex) => (
+          <li key={featureIndex}>{feature}</li>
+        ))}
+      </ul>
+
+      <p className="pricing__ideal">{ideal}</p>
+
+      <a href="#devis" className={ctaClass}>
+        {ctaText}
+      </a>
+    </motion.article>
+  );
+}
+
+PricingCard.propTypes = {
+  plan: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    emoji: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    ideal: PropTypes.string.isRequired,
+    isHighlight: PropTypes.bool.isRequired,
+    ctaText: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+// Composant principal
+export default function Pricing() {
+  return (
+    <section className="pricing" aria-labelledby="pricing-title">
+      <div className="pricing__container">
         <motion.h2
+          id="pricing-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-gradient"
         >
@@ -26,107 +91,18 @@ export default function Pricing() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="pricing__subtitle"
         >
-          Des solutions adaptées à chaque projet — du site simple au sur-mesure complet.
+          Des solutions adaptées à chaque projet — du site simple au sur-mesure
+          complet.
         </motion.p>
 
         <div className="pricing__grid">
-
-          {/* 🔹 OFFRE STARTER */}
-          <motion.div
-            className="pricing__card"
-            custom={0}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h3>💎 Offre Starter — <span>500€</span></h3>
-            <p className="pricing__desc">
-              Parfaite pour artisans, indépendants et micro-entreprises.
-            </p>
-
-            <ul>
-              <li>Site 1 page (scroll fluide)</li>
-              <li>Design professionnel et sur-mesure</li>
-              <li>Optimisation mobile + vitesse</li>
-              <li>Formulaire de contact connecté</li>
-              <li>SEO technique (structure, performances, titres optimisés)</li>
-              <li>Mise en ligne + configuration du domaine</li>
-              <li>Livraison rapide : 72h</li>
-            </ul>
-
-            <p className="pricing__ideal">
-              Idéal pour : photographe, coiffeur, artisan, coach, freelance.
-            </p>
-
-            <a href="#devis" className="pricing__cta">Commencer</a>
-          </motion.div>
-
-          {/* 🔹 OFFRE BUSINESS */}
-          <motion.div
-            className="pricing__card pricing__card--highlight"
-            custom={1}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h3>🚀 Offre Business — <span>1000€</span></h3>
-            <p className="pricing__desc">
-              Pour plus de contenu, plus de crédibilité et plus de visibilité.
-            </p>
-
-            <ul>
-              <li>Jusqu’à 5 pages (Accueil, Services, À propos, Contact, +1)</li>
-              <li>Blog / actualités intégré</li>
-              <li>SEO avancé (meta, balisage, structure Google)</li>
-              <li>Animations modernes & micro-interactions</li>
-              <li>Intégration réseaux sociaux</li>
-              <li>Sécurité renforcée + sauvegardes</li>
-              <li>Analytics configuré (Google Analytics / Matomo)</li>
-              <li>Assistance 7 jours après livraison</li>
-            </ul>
-
-            <p className="pricing__ideal">
-              Idéal pour : PME, commerces, bien-être, restaurants, associations.
-            </p>
-
-            <a href="#devis" className="pricing__cta pricing__cta--primary">
-              Je choisis cette offre
-            </a>
-          </motion.div>
-
-          {/* 🔹 OFFRE SUR-MESURE */}
-          <motion.div
-            className="pricing__card"
-            custom={2}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h3>🎨 Offre Sur-Mesure — <span>Sur devis</span></h3>
-            <p className="pricing__desc">
-              Pour les projets nécessitant un travail 100% unique.
-            </p>
-
-            <ul>
-              <li>Branding complet</li>
-              <li>Landing page premium</li>
-              <li>Site événementiel</li>
-              <li>Charte graphique</li>
-              <li>Système de réservation</li>
-              <li>Catalogue produits</li>
-              <li>Design + structure + SEO + contenu</li>
-            </ul>
-
-            <p className="pricing__ideal">
-              Pour les projets ambitieux cherchant une identité forte.
-            </p>
-
-            <a href="#devis" className="pricing__cta">Demander un devis</a>
-          </motion.div>
-
+          {PRICING_DATA.map((plan, index) => (
+            <PricingCard key={plan.id} plan={plan} index={index} />
+          ))}
         </div>
       </div>
     </section>

@@ -1,13 +1,15 @@
+import React from 'react';
+import Hero from "../components/Hero";
+import Presentation from "../components/Presentation";
+import Tarifs from "../components/Tarifs";
+import Projet from "../components/Projet";
+import Method from "../components/Method";
 import Avis from "../components/Avis";
 import Contact from "../components/Contact";
-import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
-import Method from "../components/Method";
-import Presentation from "../components/Presentation";
-import Projet from "../components/Projet";
-import Tarifs from "../components/Tarifs";
 
-function Home() {
+
+export default function Home() {
   return (
     <main className="home">
       <Hero />
@@ -21,5 +23,3 @@ function Home() {
     </main>
   );
 }
-
-export default Home;

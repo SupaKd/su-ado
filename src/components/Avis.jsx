@@ -1,54 +1,47 @@
+import PropTypes from "prop-types";
+import { AVIS_DATA } from "../constants";
 
+// Sous-composant pour une carte d'avis
+function AvisCard({ nom, commentaire, note, ville }) {
+  const stars = "★".repeat(note) + "☆".repeat(5 - note);
+
+  return (
+    <article className="avis__card">
+      <div className="avis__google">
+        <img src="/google.png" alt="Avis Google" loading="lazy" />
+      </div>
+      <p className="avis__nom">– {nom}</p>
+      <div className="avis__stars" aria-label={`Note : ${note} sur 5`}>
+        {stars}
+      </div>
+      <p className="avis__commentaire">"{commentaire}"</p>
+      <p className="avis_ville">{ville}</p>
+    </article>
+  );
+}
+
+AvisCard.propTypes = {
+  nom: PropTypes.string.isRequired,
+  commentaire: PropTypes.string.isRequired,
+  note: PropTypes.number.isRequired,
+  ville: PropTypes.string.isRequired,
+};
+
+// Composant principal
 export default function Avis() {
-    const avis = [
-      {
-        nom: "Jérémy",
-        commentaire:"Excellente expérience ! L’équipe a compris mes besoins dès le départ et a livré un site rapide, moderne et bien référencé. Communication fluide du début à la fin.",
-        note: 5,
-        ville: "Saint-Brieuc"
-      },
-      {
-        nom: "Khaled",
-        commentaire: "Très satisfait du design et du suivi technique. L’agence m’a aussi aidée à améliorer mon SEO et mes performances. Excellent rapport qualité-prix.",
-        ville: "Oyonnax",
-        note: 5,
-      },
-      {
-        nom: "Béatrice",
-        commentaire:
-          "Très professionnel, rapide et rigoureux. Après un première échange, il a tout de suite compris notre projet et a su nous accompagner sur la création de notre boutique en ligne avec beaucoup de créativité !",
-          ville: "Saint-Genis-Pouilly",
-        note: 5,
-      },
-      
-    ];
-  
-    return (
-      <section className="avis">
-        <div className="avis__container">
-          <h2 className="text-gradient">Ce que disent nos clients</h2>
-  
-          <div className="avis__list">
-            {avis.map((a, i) => (
-              <div key={i} className="avis__card">
-                <div className="avis__google">
-  
-                <img src="/google.png" alt="google" />
-                </div>
-                <p className="avis__nom">– {a.nom}</p>
-                <div className="avis__stars">
-                  {"★".repeat(a.note)}
-                  {"☆".repeat(5 - a.note)}
-                </div>
-                <p className="avis__commentaire">“{a.commentaire}”</p>
-                <p className="avis_ville">{a.ville}</p>
-              </div>
-            ))}
-          </div>
-  
-          
+  return (
+    <section className="avis" aria-labelledby="avis-title">
+      <div className="avis__container">
+        <h2 id="avis-title" className="text-gradient">
+          Ce que disent nos clients
+        </h2>
+
+        <div className="avis__list">
+          {AVIS_DATA.map((avis) => (
+            <AvisCard key={avis.id} {...avis} />
+          ))}
         </div>
-      </section>
-    );
-  }
-  
+      </div>
+    </section>
+  );
+}

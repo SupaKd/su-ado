@@ -1,109 +1,117 @@
+import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
+import { useIsMobile } from "../hooks/useScroll";
+import { PROJECTS_DATA } from "../constants";
 
+// Configuration des animations
+const CARD_ANIMATION = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+};
+
+// Sous-composant pour une carte projet
+function ProjectCard({ project, index }) {
+  const { title, desc, logo, imgHover, link } = project;
+
+  return (
+    <motion.article
+      className="project-card"
+      {...CARD_ANIMATION}
+      transition={{ delay: index * 0.15, duration: 0.6 }}
+    >
+      <div className="project-card__image">
+        <img
+          src={logo}
+          alt={`${title} logo`}
+          className="logo"
+          loading="lazy"
+        />
+        <img
+          src={imgHover}
+          alt={`${title} aperçu`}
+          className="hover"
+          loading="lazy"
+        />
+      </div>
+      <div className="project-card__info">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          Voir
+        </a>
+      </div>
+    </motion.article>
+  );
+}
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
+    imgHover: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+// Composant de pagination (dots)
+function SliderDots({ count, activeIndex, onDotClick }) {
+  return (
+    <div className="projects__dots" role="tablist" aria-label="Navigation projets">
+      {Array.from({ length: count }, (_, index) => (
+        <button
+          key={index}
+          className={`dot ${activeIndex === index ? "active" : ""}`}
+          onClick={() => onDotClick(index)}
+          role="tab"
+          aria-selected={activeIndex === index}
+          aria-label={`Projet ${index + 1}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+SliderDots.propTypes = {
+  count: PropTypes.number.isRequired,
+  activeIndex: PropTypes.number.isRequired,
+  onDotClick: PropTypes.func.isRequired,
+};
+
+// Composant principal
 export default function Projects() {
-  const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth < 768);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
-
-  const projects = [
-    {
-      title: "Site de commande pour un restaurateur.",
-      desc: "Un site de commande pour un restaurateur, offrant une visibilité accrue et des commandes supplémentaires.",
-      logo: "/logosabai.png",
-      imgHover: "/logosabai.png",
-      link: "https://sabai-thoiry.com",
-    },
-    {
-      title: "Site de réservation pour un coiffeur.",
-      desc: "Un site vitrine pour un coiffeur, offrant une visibilité accrue sur son travail et ses services.",
-      logo: "/logohair.png",
-      imgHover: "/coif.png",
-      link: "https://barber-ten-bay.vercel.app/",
-    },
-    {
-      title: "Site vitrine pour un serrurier, électricien",
-      desc: "Un site vitrine en ligne pour un serrurier, offrant une visibilité accrue sur son travail et ses services.",
-      logo: "/depanne.png",
-      imgHover: "/depanne.webp",
-      link: "https://depannage-gemeaux.fr/",
-    },
-    {
-      title: "Plateforme pour association solidaire",
-      desc: "Un site institutionnel clair et immersif, présentant l’action d’une association aidant les jeunes.",
-      logo: "/logomobile.png",
-      imgHover: "/yoje.webp",
-      link: "https://www.yojeme.fr/",
-    },
-    {
-      title: "Site e-commerce pour un reseller.",
-      desc: "Un site vitrine pour un reseller de boisson énergisante, offrant une visibilité accrue sur ses produits.",
-      logo: "/redo.png",
-      imgHover: "/redseller.webp",
-      link: "https://konbini-smoky.vercel.app/",
-    },
-    
-   
-    {
-      title: "Site vitrine pour un fast-food.",
-      desc: "Un site vitrine pour un fast-food de French Tacos, offrant une visibilité accrue sur ses produits.",
-      logo: "/belli.logo.webp",
-      imgHover: "/belli.webp",
-      link: "https://bellifood.com/",
-    },
-  ];
-
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const slider = sliderRef.current;
     if (!slider) return;
+
     const index = Math.round(slider.scrollLeft / slider.offsetWidth);
     setActiveIndex(index);
-  };
+  }, []);
 
-  const scrollTo = (index) => {
+  const scrollToSlide = useCallback((index) => {
     const slider = sliderRef.current;
     if (!slider) return;
+
     slider.scrollTo({
       left: slider.offsetWidth * index,
       behavior: "smooth",
     });
-  };
-
-  const renderCard = (p, i) => (
-    <motion.div
-      className="project-card"
-      key={i}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.15, duration: 0.6 }}
-    >
-      <div className="project-card__image">
-        <img src={p.logo} alt={`${p.title} logo`} className="logo" loading="lazy" />
-        <img src={p.imgHover} alt={`${p.title} site`} className="hover" loading="lazy" />
-      </div>
-      <div className="project-card__info">
-        <h3>{p.title}</h3>
-        <p>{p.desc}</p>
-        <a href={p.link} target="_blank" rel="noreferrer">
-          Voir 
-        </a>
-      </div>
-    </motion.div>
-  );
+  }, []);
 
   return (
-    <section className="projects">
+    <section className="projects" aria-labelledby="projects-title">
       <div className="projects__container">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          id="projects-title"
+          {...CARD_ANIMATION}
           transition={{ duration: 0.5 }}
           className="text-gradient"
         >
@@ -116,22 +124,33 @@ export default function Projects() {
               className="projects__slider"
               ref={sliderRef}
               onScroll={handleScroll}
+              role="tabpanel"
             >
-              {projects.map(renderCard)}
-            </div>
-
-            <div className="projects__dots">
-              {projects.map((_, i) => (
-                <button
-                  key={i}
-                  className={`dot ${activeIndex === i ? "active" : ""}`}
-                  onClick={() => scrollTo(i)}
+              {PROJECTS_DATA.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
                 />
               ))}
             </div>
+
+            <SliderDots
+              count={PROJECTS_DATA.length}
+              activeIndex={activeIndex}
+              onDotClick={scrollToSlide}
+            />
           </>
         ) : (
-          <div className="projects__grid">{projects.map(renderCard)}</div>
+          <div className="projects__grid">
+            {PROJECTS_DATA.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
         )}
       </div>
     </section>
