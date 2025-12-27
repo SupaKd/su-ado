@@ -15,6 +15,13 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Site de commande pour un restaurateur.",
+      desc: "Un site de commande pour un restaurateur, offrant une visibilité accrue et des commandes supplémentaires.",
+      logo: "/logosabai.png",
+      imgHover: "/logosabai.png",
+      link: "https://sabai-thoiry.com",
+    },
+    {
       title: "Site de réservation pour un coiffeur.",
       desc: "Un site vitrine pour un coiffeur, offrant une visibilité accrue sur son travail et ses services.",
       logo: "/logohair.png",

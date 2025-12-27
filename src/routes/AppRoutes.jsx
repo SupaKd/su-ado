@@ -4,6 +4,7 @@ import PageTransition from "../ui/PageTransition";
 
 import Home from "../pages/Home";
 import Contact from "../components/Contact";
+import Projet from "../pages/Projet";
 import Confidentialite from "../pages/Confidentialite";
 
 function AppRoutes() {
@@ -14,6 +15,7 @@ function AppRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/projet" element={<PageTransition><Projet /></PageTransition>} />
         <Route path="/confidentialite" element={<PageTransition><Confidentialite /></PageTransition>} />
       </Routes>
     </AnimatePresence>

@@ -10,8 +10,6 @@ function Header() {
   const [showHeader, setShowHeader] = useState(true);
 
   const location = useLocation();
-
-  // Scroll direction
   const lastY = useRef(0);
   const ticking = useRef(false);
 
@@ -22,9 +20,6 @@ function Header() {
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
-    if (window.scrollY > 0) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   }, []);
 
   // Close menu on route change
@@ -35,112 +30,122 @@ function Header() {
   // Scroll listener (direction + scrolled)
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
+      if (ticking.current) return;
 
-      if (!ticking.current) {
-        requestAnimationFrame(() => {
-          setIsScrolled(currentY > 20);
+      ticking.current = true;
 
+      requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+
+        setIsScrolled(currentY > 20);
+
+        if (currentY > 120) {
           const isScrollingDown = currentY > lastY.current;
+          setShowHeader(!isScrollingDown);
+        } else {
+          setShowHeader(true);
+        }
 
-          if (currentY > 120) {
-            if (isScrollingDown) setShowHeader(false); // hide
-            else setShowHeader(true); // show
-          } else {
-            setShowHeader(true);
-          }
-
-          lastY.current = currentY;
-          ticking.current = false;
-        });
-
-        ticking.current = true;
-      }
+        lastY.current = currentY;
+        ticking.current = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Disable scroll when menu open
+  // Disable body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
 
+  const headerClasses = [
+    "header",
+    isScrolled && "header--scrolled",
+    isMenuOpen && "header--menu-open",
+    showHeader ? "header--show" : "header--hide",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const navLinkClass = ({ isActive }) =>
+    `header__nav-link ${isActive ? "header__nav-link--active" : ""}`;
+
   return (
-    <header
-      className={`
-        header
-        ${isScrolled ? "header--scrolled" : ""}
-        ${isMenuOpen ? "header--menu-open" : ""}
-        ${showHeader ? "header--show" : "header--hide"}
-      `}
-      role="banner"
-    >
+    <header className={headerClasses} role="banner">
       <div className="header__container">
+        {/* Menu Toggle Button */}
         <button
           className="header__menu-toggle"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={isMenuOpen}
           aria-controls="main-navigation"
+          type="button"
         >
           <FontAwesomeIcon
             icon={isMenuOpen ? faXmark : faBarsStaggered}
             className="header__menu-icon"
+            aria-hidden="true"
           />
         </button>
 
-        <Link to="/" onClick={closeMenu} className="header__logo" aria-label="Accueil">
+        {/* Logo */}
+        <Link to="/" onClick={closeMenu} className="header__logo" aria-label="Retour à l'accueil">
           <img
             src="/newlogo.png"
             alt="Logo"
             className="header__logo-image"
             width="120"
             height="40"
+            loading="eager"
           />
         </Link>
 
-        <a href="#devis" className="header__cta button button--primary">
+        {/* CTA Button */}
+        <a href="#devis" className="header__cta button button--primary" aria-label="Nous contacter">
           Contact
         </a>
 
+        {/* Navigation */}
         <nav
           id="main-navigation"
           className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}
           aria-label="Navigation principale"
         >
           <div className="header__nav-content">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `header__nav-link ${isActive ? "header__nav-link--active" : ""}`
-              }
-              onClick={closeMenu}
-            >
+            <NavLink to="/" className={navLinkClass} onClick={closeMenu}>
               Accueil
             </NavLink>
 
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `header__nav-link ${isActive ? "header__nav-link--active" : ""}`
-              }
-              onClick={closeMenu}
-            >
+            <NavLink to="/contact" className={navLinkClass} onClick={closeMenu}>
               Contact
+            </NavLink>
+
+            <NavLink to="/projet" className={navLinkClass} onClick={closeMenu}>
+              Projet
             </NavLink>
           </div>
         </nav>
 
+        {/* Overlay */}
         {isMenuOpen && (
           <div
             className="header__overlay"
             onClick={closeMenu}
-            aria-hidden="true"
+            onKeyDown={(e) => e.key === "Escape" && closeMenu()}
+            role="button"
+            tabIndex={0}
+            aria-label="Fermer le menu"
           />
         )}
       </div>
